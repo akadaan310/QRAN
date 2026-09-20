@@ -44,7 +44,32 @@ attribution, do not strip source fields (`g_ar_src`, `g_en_src`, `book`).
   `run_2026-09-20T072345Z` (40,095 rows); archetype labels are curator-written
   plain-language descriptions, not scholarly claims.
 
-## 3. Fonts (prototype)
+## 3. Derived indices (built, not sourced)
+
+`scripts/build-data/build_infinite.py` derives these from the corpus above and
+from `references/qalam-30-markers.md`. They contain no new content — every
+entry is a pointer into the corpus, or a verbatim slice of it:
+
+- `data/index/word-occ.json`, `data/index/root-occ.json` — every one of the
+  77,429 words, indexed by its form and by its root.
+- `data/addressals/addressals.json` — every vocative addressal, found by the
+  Uthmani orthography's fused يا (ي + superscript alef) and assembled with its
+  complement where the corpus itself shows the head to be a construct. The
+  phrases are verbatim corpus text; no addressee is named that the text does
+  not name.
+- `data/index/paths.json`, `data/index/ayah-paths.json` — the 3,354 catalogued
+  experiences reduced to their loci. Their titles, categories and curator notes
+  stay in `data/experiences/experiences.json`, which remains the provenance of
+  record for them.
+- `data/markers/markers.json` — the 30 QALAM markers' loci, found by searching
+  the corpus for the anchor words the owner himself put in each marker. Each
+  anchor records which pass found it (`exact`, `root`, `contains`); anchors
+  that resolve to nothing are listed as `unresolved` and contribute nothing.
+  **The markers' own text is not in this file and is never rendered.** It lives
+  in `references/qalam-30-markers.md`, where it is attributed as the owner's
+  proposed framework — not tajwīd, qirāʾāt, linguistics or doctrine.
+
+## 4. Fonts (prototype)
 
 Amiri Quran + Noto Kufi Arabic, vendored in `prototype/public/fonts` from
 `references/isnaad` (see `prototype/data/SOURCES.md`).

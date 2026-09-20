@@ -26,11 +26,26 @@ data/
   experiences/
     experiences.json   3354 browsable experiences (see below)
     archetypes.json    8 anomaly archetypes (plain-language curator labels)
+  index/               derived by build_infinite.py — see SOURCES.md §3
+    word-occ.json      word form -> [packed occurrences]
+    root-occ.json      root      -> [packed occurrences]
+    paths.json         the 3354 experiences as ordered walks over ayahs
+    ayah-paths.json    anchored ayah -> the walks passing through it
+  addressals/
+    addressals.json    every vocative addressal -> its loci, derived
+  markers/
+    markers.json       the 30 QALAM markers -> loci, with how each anchor resolved
 ```
+
+Occurrences in `index/` and `markers/` are packed as
+`surah * 1_000_000 + ayah * 1_000 + position`.
 
 ## Rendering rule (normative)
 
-1. Render ayah text from `ayat.json` (`uthmani_text`), split on spaces.
+1. Render ayah text from `ayat.json` (`uthmani_text`), split on **runs of
+   whitespace, discarding empty tokens** (`text.trim().split(/\s+/)`). 110
+   ayahs carry a leading or doubled space — 2:1's text is `" الٓمٓ"` — and a
+   naive split on a single `" "` shifts every span in those ayahs by one.
 2. Word *i* of the ayah = `words/NNN.json` row *i* (1-based `pos`).
 3. Its screen span = `align.json["s:a"][i]` — token indices into the split
    text. Attach the word's features (root, lemma, translation) to that span.

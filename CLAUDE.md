@@ -94,6 +94,15 @@ Non-negotiable across every phase:
     Quranic text + eight sacred glyphs (✦ ❖ ◈ ◉ ⬔ ◐ ◍ ✧) + gestures + space +
     motion, learned in a wordless first-run lesson. Wordless audit required:
     every rendered token must occur in the canonical corpus.
+- **Status (2026-09-20): `FINALITY_PROMPT.md` has been executed end to end,
+  through §9.** The app is `prototype/src/sacred/` — the whole corpus, the
+  lexicon by usage, generative journeys, and an interface whose only words are
+  the Quran's own. What §9 cost (the lexicon's prose, the in-app attributions,
+  the experiences browser), the decisions the build made, the bugs it found and
+  what it still cannot do are written down in `prototype/QA_NOTES.md` under
+  "the sacred interface". Read that before changing anything here.
+  `npm run verify` pins the data; `npm run walk` runs the wordless audit and
+  the glyph walk in a real browser. Both must stay green.
 - `BUILD_PROMPT.md` is superseded (kept for history).
 - Extend `prototype/` — never rewrite it wholesale; keep every passing
   behavior passing.

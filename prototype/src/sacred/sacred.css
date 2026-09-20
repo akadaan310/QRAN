@@ -1,0 +1,408 @@
+/*
+ * The sacred interface (FINALITY_PROMPT §9).
+ *
+ * Everything here serves one rule: the Arabic text is the material, and
+ * nothing the app adds may stand over a letterform. Marks live in a margin
+ * strip and in a rail below the text block; layers rise over the page but
+ * never replace it; motion is slow and single-gesture. There are no cards,
+ * no chips, no bars.
+ */
+
+:root {
+  --ink: #e8e2d2;
+  --ink-quiet: #8e8877;
+  --ground: #0a0c11;
+  --ground-lift: #12151d;
+  --glow: #cdb07a;
+  --seam: rgba(205, 176, 122, 0.22);
+  --rise: 460ms cubic-bezier(0.22, 0.68, 0.24, 1);
+  --breath: 700ms ease;
+  --gutter: 16px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --ink: #1c1a14;
+    --ink-quiet: #6d6757;
+    --ground: #f6f1e4;
+    --ground-lift: #fffdf6;
+    --glow: #8a6a2c;
+    --seam: rgba(138, 106, 44, 0.24);
+  }
+}
+
+:root[data-theme="light"] {
+  --ink: #1c1a14;
+  --ink-quiet: #6d6757;
+  --ground: #f6f1e4;
+  --ground-lift: #fffdf6;
+  --glow: #8a6a2c;
+  --seam: rgba(138, 106, 44, 0.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --rise: 1ms linear; --breath: 1ms linear; }
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--ground);
+  color: var(--ink);
+  overscroll-behavior: none;
+}
+
+#app {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------- the page */
+
+.page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 34px 1fr;
+  grid-template-areas: "margin sheet" "rail rail";
+  background: var(--ground);
+}
+
+.page__sheet {
+  grid-area: sheet;
+  padding: max(env(safe-area-inset-top), 18px) var(--gutter) 6px 4px;
+  /* The fit measures .page__body, so the scroller carries no text metrics of
+     its own — only the box the text has to fit inside. Where a viewport is
+     too small even for the smallest legible size, the page scrolls rather
+     than clipping: Quranic text is never cropped to make a layout work. */
+  display: flex;
+  flex-direction: column;
+  /* `safe` matters: a plain `center` pushes the start of an overflowing block
+     out of the scrollport, where it cannot be scrolled back to. A page too
+     tall for its viewport must still start at its first word. */
+  justify-content: safe center;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.page__body {
+  font-family: "Amiri Quran", "Scheherazade New", serif;
+  line-height: 1.95;
+  /* Named explicitly, never `all`: the fit writes font-size and reads the
+     resulting height in the same frame, and a transition on font-size would
+     hand it the old measurement. */
+  transition-property: opacity;
+  text-align: justify;
+  text-align-last: center;
+  color: var(--ink);
+  direction: rtl;
+}
+
+
+
+.page[data-turning] .page__body { opacity: 0.35; transition: opacity 180ms ease; }
+
+.page__margin {
+  grid-area: margin;
+  position: relative;
+}
+
+.page__mark {
+  position: absolute;
+  inset-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transform: translateY(2px);
+}
+
+.page__seam {
+  height: 0;
+  margin: 0.7em auto;
+  border-top: 1px solid var(--seam);
+  width: 38%;
+}
+
+.page__rail {
+  grid-area: rail;
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  padding: 6px 0 max(env(safe-area-inset-bottom), 10px);
+}
+
+/* Arabic text: the only thing in the app that is allowed to be loud. */
+
+.ayah { color: var(--ink); }
+.ayah__end { color: var(--glow); font-size: 0.82em; padding: 0 0.15em; }
+.ayah__loose { color: var(--ink-quiet); }
+
+.ayah[data-arrived="1"] {
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--glow) 22%, transparent), transparent 70%);
+  transition: background var(--breath);
+}
+
+.w { cursor: pointer; border-radius: 3px; }
+.w[data-lit="1"] { color: var(--glow); }
+.w:active { background: color-mix(in srgb, var(--glow) 16%, transparent); }
+
+/* ------------------------------------------------------------------- marks */
+
+.mark {
+  appearance: none;
+  border: 0;
+  background: none;
+  color: var(--ink-quiet);
+  font-size: 15px;
+  line-height: 1;
+  min-width: 34px;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.mark:hover, .mark:focus-visible { color: var(--glow); outline: none; transform: scale(1.12); }
+.mark[data-on="1"] { color: var(--glow); }
+.page__mark .mark { font-size: 11px; min-width: 22px; min-height: 18px; }
+
+.mark--dismiss {
+  position: absolute;
+  top: max(env(safe-area-inset-top), 10px);
+  inset-inline-end: 10px;
+  font-size: 17px;
+  z-index: 2;
+}
+
+.mark--retry { display: block; margin: 22dvh auto; font-size: 26px; }
+
+/* ------------------------------------------------------------------ layers */
+
+.layer {
+  position: absolute;
+  inset: 0;
+  background: var(--ground-lift);
+  transform: translateY(6%);
+  opacity: 0;
+  transition: transform var(--rise), opacity var(--rise);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  z-index: 10;
+}
+
+.layer[data-open="1"] { transform: translateY(0); opacity: 1; }
+.layer[data-leaving="1"] { transform: translateY(6%); opacity: 0; }
+.layer[data-breath="1"] { animation: breath var(--breath) ease; }
+
+@keyframes breath {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.012); }
+  100% { transform: scale(1); }
+}
+
+.layer__rail {
+  display: flex;
+  gap: 20px;
+  padding: max(env(safe-area-inset-top), 10px) 54px 4px var(--gutter);
+  min-height: 24px;
+}
+
+.layer__body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px var(--gutter) max(env(safe-area-inset-bottom), 28px);
+  -webkit-overflow-scrolling: touch;
+}
+
+.head {
+  font-family: "Amiri Quran", "Scheherazade New", serif;
+  font-size: clamp(30px, 11vw, 56px);
+  line-height: 1.6;
+  text-align: center;
+  padding: 10px 0 14px;
+  color: var(--ink);
+}
+
+.head--root { letter-spacing: 0.12em; color: var(--glow); }
+.head--phrase { font-size: clamp(22px, 7vw, 38px); }
+
+.head--seed {
+  font-size: clamp(20px, 5.8vw, 28px);
+  line-height: 1.9;
+  text-align: justify;
+  color: var(--glow);
+  border-bottom: 1px solid var(--seam);
+  padding-bottom: 14px;
+}
+.block { padding-bottom: 12px; }
+
+/* ------------------------------------------------------------- occurrences */
+
+.orders {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--seam);
+}
+
+.occ { padding-top: 6px; }
+
+.line {
+  font-family: "Amiri Quran", "Scheherazade New", serif;
+  font-size: clamp(19px, 5.4vw, 26px);
+  line-height: 1.95;
+  direction: rtl;
+  text-align: justify;
+  padding: 10px 2px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 200ms ease;
+}
+
+.line:hover, .line:focus-visible { background: color-mix(in srgb, var(--glow) 8%, transparent); outline: none; }
+
+.occ__seam {
+  height: 0;
+  margin: 12px auto;
+  width: 26%;
+  border-top: 1px solid var(--seam);
+}
+
+.occ__more { height: 1px; }
+
+/* ----------------------------------------------------------------- compass */
+
+.compass__scrub { display: flex; align-items: center; gap: 12px; padding: 4px 0 14px; }
+.compass__readout { font-size: 19px; color: var(--glow); min-width: 3.5ch; text-align: center; }
+.compass__slider { flex: 1; accent-color: var(--glow); direction: rtl; }
+
+/* With no placeholder to announce it (§9), the field has to be visible as a
+   field: a band the reader can see is tappable, and a caret once it is. */
+.compass__search { padding-bottom: 16px; }
+
+.compass__field {
+  width: 100%;
+  box-sizing: border-box;
+  background: color-mix(in srgb, var(--glow) 6%, transparent);
+  border: 0;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid var(--seam);
+  color: var(--ink);
+  font-family: "Amiri Quran", "Scheherazade New", serif;
+  font-size: 24px;
+  padding: 10px 12px;
+  caret-color: var(--glow);
+  outline: none;
+}
+
+.compass__field:focus { border-bottom-color: var(--glow); }
+.compass__results { max-height: 46dvh; overflow-y: auto; overscroll-behavior: contain; }
+
+.compass__juz {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  padding-bottom: 16px;
+}
+
+.compass__cell {
+  appearance: none;
+  border: 1px solid var(--seam);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink-quiet);
+  font-size: 15px;
+  padding: 9px 0;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.compass__cell:hover, .compass__cell:focus-visible { color: var(--glow); border-color: var(--glow); outline: none; }
+
+.compass__surahs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px;
+}
+
+.compass__surah, .compass__keep {
+  appearance: none;
+  border: 0;
+  border-top: 1px solid var(--seam);
+  background: transparent;
+  color: var(--ink);
+  font-family: "Amiri Quran", "Scheherazade New", serif;
+  font-size: 18px;
+  line-height: 1.9;
+  text-align: center;
+  padding: 10px 6px;
+  cursor: pointer;
+  overflow: hidden;
+  /* The opening is already cut to whole words when it is built (see
+     OPENING_WORDS), so nothing here needs to clip and no ellipsis appears. */
+  min-height: 3.6em;
+  transition: color 180ms ease;
+}
+
+.compass__surah:hover, .compass__surah:focus-visible,
+.compass__keep:hover, .compass__keep:focus-visible { color: var(--glow); outline: none; }
+
+.compass__kept { display: grid; gap: 4px; padding-top: 14px; }
+
+/* ------------------------------------------------------- shimmer & lesson */
+
+.shimmer { display: flex; justify-content: center; gap: 10px; padding: 26dvh 0; }
+
+.shimmer i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-quiet);
+  animation: pulse 1400ms ease-in-out infinite;
+}
+
+.shimmer i:nth-child(2) { animation-delay: 180ms; }
+.shimmer i:nth-child(3) { animation-delay: 360ms; }
+
+@keyframes pulse { 0%, 100% { opacity: 0.22; } 50% { opacity: 0.9; } }
+
+.lesson {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--ground) 76%, transparent);
+  opacity: 0;
+  transition: opacity var(--rise);
+  touch-action: none;
+}
+
+.lesson[data-open="1"] { opacity: 1; }
+.lesson[data-leaving="1"] { opacity: 0; }
+
+.lesson__ring {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--glow);
+  border-radius: 999px;
+  animation: ring 1800ms ease-in-out infinite;
+  transition: top var(--rise), left var(--rise), width var(--rise), height var(--rise);
+}
+
+@keyframes ring {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--glow) 40%, transparent); }
+  50% { box-shadow: 0 0 0 10px transparent; }
+}
+
+.lesson__ghost {
+  position: absolute;
+  transform: translate(-50%, calc(-50% + 46px));
+  color: var(--glow);
+  font-size: 22px;
+  transition: top var(--rise), left var(--rise);
+}

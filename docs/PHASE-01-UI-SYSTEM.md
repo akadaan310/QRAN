@@ -161,3 +161,50 @@ interpretation of meaning, no auto-play/scroll-jacking/gamification, no
 network/accounts/backend, no full-corpus import or registry beyond the 3
 sample pages, no margin content ever on the letterforms. Full list with
 citations in `prototype/QA_NOTES.md`.
+
+## 7. The sacred interface (FINALITY_PROMPT §9, 2026-09-20 — supersedes §§1–6 on surfacing)
+
+§§1–6 above describe the Phase-1 Immersion UI System. They remain the record of
+that system, and the modules that implement it are still in the tree. They no
+longer describe what the app shows a reader.
+
+**The law.** The only words rendered anywhere in the app are Quranic Arabic.
+No UI labels in any language — no Arabic UI vocabulary either. No Latin, no
+transliteration, no POS tags, no translations, no definition prose. Eastern
+Arabic numerals appear only inside the traditional ۝ end-marker and on the
+compass. The interface is Quranic text, eight glyphs, gestures, space and
+motion.
+
+**The canon of marks** — closed, defined once in `prototype/src/sacred/glyphs.ts`:
+
+| glyph | opens |
+|-------|-------|
+| ✦ | the word: it large in Uthmani, then every occurrence as a complete ayah |
+| ❖ | the root: its bare letterforms, then every ayah a word grows in it |
+| ◈ | a walk: the ayah it was opened from, then every ayah the walks through it touch |
+| ◉ | the addressed: every ayah carrying that vocative phrase, titled by the phrase |
+| ⬔ | a field: one of the 30 markers, titled by its anchor ayah, never by its own words |
+| ◐ | the rasm: the page toggled between dotted Uthmani and derived skeleton |
+| ◍ | the compass: 114 surahs by their opening ayah, 30 ajzāʾ, 604 pages, search |
+| ✧ | composing: a journey built from where the reader is standing |
+
+✕ dismisses any layer, always returning to the exact ayah and position. ↻ is
+the only thing shown when something fails. ▪ ▮ ▬ ▭ re-group an occurrence list
+by mushaf, surah, juz, page.
+
+**Architecture.** The Page is permanent: the app opens to one Madani page of
+Uthmani text, full-bleed, fitted to roughly fifteen lines, and never unmounts.
+Everything else is a layer that rises over it and dismisses back to it, so the
+reader never leaves the Quran. Marks live in a margin strip and in a rail below
+the text block — instrumentation never covers a letterform, which is the
+covenant's third rule enforced structurally rather than by convention.
+
+**State without words.** Loading is a shimmer. Failure is stillness, then ↻.
+Completion is one breath. Absence — an empty search — is empty space.
+
+**The rule of done**, and it is testable: if the only words on screen are not
+Quranic, it is not done. `npm run walk` tests exactly that, surface by surface.
+
+Build decisions, the costs §9 imposed, the bugs the walk found, and the honest
+limitations are recorded in `prototype/QA_NOTES.md` under "the sacred
+interface".

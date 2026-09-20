@@ -184,3 +184,229 @@ Per PHASE-01-UI-SYSTEM.md §5 requirement for a written exclusion list:
 4. No network calls, no accounts, no backend — everything in this prototype runs from the static build with vendored data.
 5. No full-corpus import, no experience registry beyond these 3 sample pages, no deployment beyond the prototype's own needs — the standing gate (BUILD_PROMPT §2 scope contract).
 6. No content ever renders in the margins; no instrumentation ever covers the letterforms — enforced structurally (DOM order + `pointer-events`), not just by convention.
+
+---
+
+# QA_NOTES — the sacred interface (FINALITY_PROMPT §§1–9)
+
+Everything above this line is the Phase-1 record and stays true of the Phase-1
+modules, which are still in the tree. This section records the build that
+§§7–9 ordered: the whole Quran, the lexicon by usage, generative journeys, and
+an interface whose only words are the Quran's own.
+
+## What §9 superseded, and what that cost
+
+§9 ("the sacred interface", owner directive 2026-09-20, FINAL) states the law
+plainly: **the only words rendered anywhere in the app are Quranic Arabic.**
+That revokes, in order: the Phase-1 entry plate, settings corner, toasts,
+onboarding sentences and track glyph labels (§8 had already rejected the
+card-and-chip look); §4 Phase B's opt-in English translation layer; §4 Phase B
+and §7.2's rendering of classical definitions, maṣādir and glosses; §4 Phase
+C's Arabic-labelled فهرس sections; §4 Phase D's four-way experiences browser
+with its category, surah and archetype filters and its "فاجئني" button; and
+§5's in-app About screen.
+
+Three of those deserve to be named as real costs rather than tidied away:
+
+1. **The lexicon's prose is in the repo and not on the screen.** `data/lexicon`
+   still carries all 1642 roots with their Arabic and English glosses, their
+   book-attributed classical definitions and their maṣādir, and the build still
+   regenerates them. The app renders none of it. What ❖ shows instead is every
+   ayah the root grows a word in — the Quran defining by usage. This is a
+   faithful reading of §9 ("the UI shows roots through their occurrences"), but
+   a reader who wants Lisān al-ʿArab's entry on a root will not find it here.
+
+2. **Attribution moved out of the interface.** §5 requires the `data/SOURCES.md`
+   attributions to be surfaced in-app; §9 forbids the words that would take. The
+   resolution: `dist/data/SOURCES.md` ships with every build (the corpus
+   directory is copied wholesale), so the attributions travel with the app and
+   are one URL away at `/data/SOURCES.md` — but they are not on a screen, and a
+   reader who never looks at the data directory will not see them. Recorded
+   here rather than resolved silently, because it is §5 giving way to §9, not
+   §5 being met.
+
+3. **The experiences are reachable but not browsable.** All 3354 survive as
+   walks and every one of them is anchored to at least one of 4848 ayahs, where
+   it appears as a ◈ in the margin (`npm run verify` pins exactly this: a walk
+   nothing anchors would be content that exists and cannot be reached). But
+   there is no way to ask "show me the motifs" — discovery is composed from
+   where the reader is standing, which is what §8.4 demands and what a reader
+   looking for a specific catalogued discovery will find frustrating.
+
+The Phase-1 modules (`src/canvas`, `src/features`, `src/gestures`, `src/hud`,
+`src/onboarding`, `src/store/state.ts`) are **kept, not deleted**: still
+type-checked by `npm run build`, still pinned by `npm run verify`'s fixture
+tests. They are no longer mounted. `src/main.ts` boots `src/sacred/` instead.
+
+## Decisions made during this build
+
+1. **One screen is one Madani page.** The 604-page division in `ayat.json` is
+   real, so the app navigates it directly rather than inventing a grouping.
+   The text then *flows* and is fitted so a page occupies roughly the fifteen
+   lines a Madani muṣḥaf prints. **The page division is real; the line breaks
+   inside it are the browser's** — no per-line typesetting dataset is vendored,
+   and the app does not claim otherwise. (This supersedes the Phase-1 "one lane
+   = one āyah" simplification with a truer one, but it is still a
+   simplification.)
+
+2. **No surah headings, no basmala insertion.** A surah's *name* is not in the
+   Quran's own text, so §9 admits none. A new surah opening mid-page is shown
+   as a break — space and a hairline. The basmala is rendered only where
+   `ayat.json` actually carries it as an ayah (al-Fātiḥa 1); it is not inserted
+   at the head of the other 112 that traditionally print it, because that would
+   be the app adding text to the muṣḥaf.
+
+3. **The corpus is served from `data/`, not copied into `prototype/public/`.**
+   A `vite` plugin serves `/data/…` from the repo's canonical directory in dev
+   and copies it into `dist/data/` at build. A second committed copy would be a
+   generated artifact living next to its own source.
+
+4. **The eight glyphs are a closed canon** (`src/sacred/glyphs.ts`). Adding a
+   ninth would need the owner's directive to change. The four ordering marks
+   (▪ ▮ ▬ ▭), ✕ and ↻ are listed in the same file for the same reason.
+
+5. **Grouping is shown as seams, not headings.** ✦ and ❖ order their
+   occurrences four ways, and all four orders are ascending — what differs is
+   where the groups break. A heading would be a word, and a bare group number
+   would be a numeral outside the two places §9 allows them, so the four
+   orderings differ by the hairlines between blocks and nothing else. This is
+   an honest rendering of "grouped by", and it is also a weaker signal than a
+   heading would be.
+
+6. **The dagger alef is genuinely ambiguous, so both foldings are indexed.**
+   In غُلَـٰمٌ the mark stands for the alef of غلام; in ٱلرَّحْمَـٰنِ it sits over a
+   name written الرحمن. Every lookup tries both foldings
+   (`scripts/build-data/build_infinite.py`'s `variants`, mirrored in
+   `src/sacred/normalize.ts`). Before this was handled, marker 6 (غلام)
+   resolved to nothing at all.
+
+7. **Marker anchors resolve in three widening passes, and the pass is
+   recorded.** `exact` (the anchor is a word form the Quran uses), then `root`,
+   then `contains`. Every anchor in `data/markers/markers.json` carries the
+   pass that found it, so the app never has to guess how solid a field is, and
+   an anchor that survives none of the three is listed under `unresolved` and
+   contributes nothing. Marker 4's parenthesis (تعقيل) is a maṣdar the Quran
+   never uses; markers whose heading anchors all fail fall back to the Arabic
+   the owner quoted in the marker's body, and that fallback is recorded as
+   `source: "body"`.
+
+8. **Vocative construct heads are derived, not stipulated.** A vocative head is
+   treated as needing its complement (يَـٰٓأَيُّهَا ٱلنَّاسُ, not يَـٰٓأَيُّهَا) iff, in
+   the whole corpus, it never ends an ayah and every token following it is a
+   noun, proper noun or relative pronoun. يَـٰمُوسَىٰ (which ends ayahs) and
+   يَـٰقَوْمِ (followed by verbs) correctly fail the test. The test keys on the
+   *raw* form, because يَـٰبَنِىٓ (construct) and يَـٰبُنَىَّ ("O my son", already
+   complete) fold to the same string and are not the same word.
+
+9. **✧ prefers the rarest root.** Composing from an ayah takes an addressal it
+   carries, else a marker it anchors, else its **least common** root. Preferring
+   the least common one is what keeps ✧ from landing on قول every time.
+
+10. **The page rail's ✧ seeds from the page's first ayah**, not from a
+    "current" ayah — the whole page is on screen at once, so there is no
+    scroll position to read a current ayah from. ✧ reached from inside a walk
+    seeds from that walk's own ayah.
+
+11. **A second IndexedDB, not a version bump.** Kept places and the last-read
+    place live in `qran-sacred`; the Phase-1 `interstellar-quran-phase1`
+    database and its four stores are left exactly as they were. Every call
+    degrades to a no-op when storage is blocked: the reader loses memory
+    between sessions, not the ability to read.
+
+## Bugs this build found and fixed
+
+Four of these were found by the Playwright walk, not by looking at the screen.
+
+1. **110 ayahs carry a leading or doubled space** — 2:1's text is `" الٓمٓ"`.
+   Splitting the ayah text on a single `" "` shifts every alignment span in
+   those ayahs by one, rendering an empty word span and leaving the real word
+   attached to nothing and untappable. The rule is to split on runs of
+   whitespace, discarding empties; `data/README.md`'s normative rule now says
+   so exactly, and `npm run verify` pins it.
+
+2. **`prefers-reduced-motion` was making the text as large as possible.**
+   `motion.css` set `transition-duration: 1ms !important` on `*`, and
+   `transition-property` defaults to `all` — so *font-size* transitioned too,
+   and the page's fit read the previous size every time it probed, accepted
+   every probe, and settled at its maximum. Reduced motion now means `0s`, not
+   a very short duration, and `.page__body` names its transitionable property
+   explicitly. Nothing about this was visible in a screenshot of the default
+   context.
+
+3. **Margin marks stacked on top of each other.** Several ayahs can begin on
+   one line — the short sūras stack four or five — and marks placed at their
+   raw line tops made all but the last untappable. Cells are now placed below
+   one another, each clearing the glyphs the previous one holds.
+
+4. **The fit measured the wrong element.** `scrollHeight` never reports less
+   than the box, so a page that badly under-filled the screen measured exactly
+   as tall as one that fitted, and the fit could not tell "too small" from
+   "just right". The text now lives in its own block inside the scroller and
+   that block is what gets measured.
+
+5. **`justify-content: center` put the top of a long page out of reach.** A
+   block taller than a centered flex scrollport overflows *both* ends and the
+   start cannot be scrolled back to. Now `safe center`.
+
+6. **The service worker never cached the app's own bundle.** It registers on
+   `load`, by which time the hashed JS and CSS have already been fetched, so the
+   fetch handler never saw them and a first-visit reader who went offline got a
+   blank page. The worker now reads the asset names out of `index.html` during
+   activation and caches them, which keeps it independent of the bundler.
+
+7. **A CSS line-clamp was printing an ellipsis** in the compass's surah cells —
+   a mark that is neither Quranic nor one of the eight. The openings are now
+   cut to whole words when they are built, so nothing clips and no ellipsis
+   appears.
+
+## Verification
+
+`npm run build` — clean, zero errors, zero warnings.
+
+`npm run verify` — all pins hold: the 15 Phase-1 fixture pins, plus new
+corpus-level pins (the whitespace regression above; one alignment span per
+word for all 6236 ayahs; the eight spellings on which the word stream and the
+ayah text disagree, and the one that survives a spelling-blind folding) and
+infinite-layer pins (77,429 occurrences indexed across 21,295 forms and 1,642
+roots, no dangling loci anywhere; 74 addressals derived; all 30 markers
+resolved, with marker 12's الصخرة landing on الكهف:٦٣ and nowhere else; all
+3,354 walks present and every one of them anchored to a reachable ◈).
+
+`npm run walk` — 54 pins, the two §9 verifications together:
+
+- **The wordless audit.** Every token rendered on every reachable surface is
+  checked against the canonical corpus: the page, the last page, ✦, ❖, ◈, ◉,
+  ⬔, the page as rasm, the compass, the compass with results, the compass with
+  kept places, and a composed journey. Glyphs from the canon, the ۝ rosette,
+  and Eastern numerals inside end-markers and on the compass are admitted;
+  anything else fails. Placeholder and input values are collected separately,
+  since a text-node walk cannot see them. The rasm surface is audited against
+  the rasm of the corpus, using the folding table parsed out of
+  `src/sacred/rasm.ts` so the audit and the app cannot drift apart.
+- **The glyph walk.** Any page → tap a word → ❖ → an occurrence jump → ◈ → ◉ →
+  ⬔ → ◐ → ◍ → ✧ → ✕, plus page turning, the compass reaching 114:6, search by
+  letters, absence shown as stillness, keeping an ayah and finding it again,
+  the silent return after a reload, the light scheme, `prefers-reduced-motion`,
+  and reading with the network cut. Zero console errors throughout.
+
+## Honest limitations
+
+- **Line breaks are the browser's**, not a muṣḥaf's (decision 1 above).
+- **Not device-tested.** Multi-touch, real touch-force and on-device haptics
+  are as untested as they were in Phase 1; there is no physical device here.
+  The walk drives a mobile-emulated Chromium.
+- **Marker fields vary enormously in tightness**, and the app shows this
+  without comment: marker 12 (الصخرة) resolves to a single ayah, marker 4 —
+  which fell back to the Arabic quoted in its body — to 1605. Both are honest
+  outputs of the same rule. A reader cannot tell them apart from inside the
+  app; the difference is recorded in `data/markers/markers.json`.
+- **Search is substring matching on folded forms**, ranked by shortest form
+  first, capped at 40 forms and 400 occurrences. It is not a morphological
+  search: typing a root finds words containing those letters in that order,
+  which is usually but not always the same thing.
+- **The wordless lesson teaches four gestures**, not eight. ✦, ◈, ◍ and ◐ are
+  pointed at; ❖, ◉, ⬔ and ✧ are left to be found, because they only exist
+  inside surfaces the first four open.
+- **The 750 single-ayah experiences** open onto one ayah and offer ✧ rather
+  than a walk. They are kept rather than dropped, but a reader who taps one of
+  those ◈ marks gets less than one who taps any other.
