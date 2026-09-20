@@ -1,6 +1,7 @@
 import type { Store } from "../store/state";
 import type { LaneFixture } from "../store/types";
 import type { Persistence } from "../store/persistence";
+import { LENS_LABELS } from "./lensRail";
 
 /**
  * F11 — Invertibility Audit. product-spec/01 §Provenance chain: every
@@ -36,10 +37,10 @@ export class AuditController {
     this.body.innerHTML = "";
     const rows: [string, string][] = [
       ["السطر", `${lane.lane} — ${lane.surahName} ${lane.ayah}`],
-      ["التراكب (Superposition)", String(superposition)],
-      ["الناجون (Survivors)", String(survivors)],
+      ["عدد الألفاظ", String(superposition)],
+      ["عدد الجذور المميَّزة", String(survivors)],
       ["الفاقد / الإغلاق الصحيح", `${loss} / ${integerClosure}`],
-      ["العدسة المهيمنة", lane.state.lens ?? "لا شيء — لا يُفرض قيمة"],
+      ["النمط المهيمن", lane.state.lens ? LENS_LABELS[lane.state.lens] : "لا شيء — لا يُفرض قيمة"],
       ["مصدر الرقم", "مُشتقّ حيًّا من ألفاظ هذا السطر وجذوره (fixture — انظر data/SOURCES.md)"],
     ];
     for (const [k, v] of rows) {

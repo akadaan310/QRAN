@@ -2,10 +2,12 @@
   "name": "interstellar-quran-prototype",
   "version": "0.1.0",
   "private": true,
-  "description": "Phase 1 — Immersion UI System interactive prototype (approval gate). Mobile-only.",
+  "description": "QRAN — the immersive Quran explorer: full corpus, lexicons, فهرس, generative experiences. Mobile-only.",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/sync-data.mjs && node scripts/build-qalam.mjs && node scripts/build-index.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/sync-data.mjs && node scripts/build-qalam.mjs && node scripts/build-index.mjs",
     "build": "tsc -p tsconfig.json --noEmit && vite build",
     "preview": "vite preview",
     "fixtures": "node scripts/gen-fixtures.mjs",

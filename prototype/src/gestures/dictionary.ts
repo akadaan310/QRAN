@@ -8,7 +8,6 @@ import type { PathTraceLockController } from "../features/pathTraceLock";
 import type { AuditController } from "../features/audit";
 import type { Persistence } from "../store/persistence";
 import { isDoubleTap, PinchTracker, PressEscalator, type PressSpeed } from "./pointer";
-import { LANE_COUNT } from "../canvas/geometry";
 
 const CHECKPOINT_AUTHOR_HOLD_MS = 480;
 
@@ -27,9 +26,16 @@ export class GestureController {
   private lanesPinch = new PinchTracker();
   private railTapCandidates: number[] = [];
   private lastWordTap = { at: 0, x: 0, y: 0, lane: 0, word: 0 };
+  private wordTapTimer: number | null = null;
+  /** Set by the hosting screen to open a word card (§7.2). */
+  onWordTap: ((lane: number, wordIndex: number, root: string | null) => void) | null = null;
   private lockDragLastLane: number | null = null;
   private orbitDragLastX: number | null = null;
   private orbitDragPointerId: number | null = null;
+  /** document/window-level listeners need explicit teardown when a screen
+   * unmounts (canvas.root's own children are cleaned up for free when the
+   * router clears the container) — see destroy(). */
+  private globalDisposers: (() => void)[] = [];
 
   constructor(
     private store: Store,
@@ -99,13 +105,23 @@ export class GestureController {
 
       if (wordEl && !this.store.get().rasm.active) {
         const wIndex = Number(wordEl.dataset.word);
+        const root = wordEl.dataset.root ?? null;
         const now = performance.now();
         if (isDoubleTap(this.lastWordTap.at, this.lastWordTap.x, this.lastWordTap.y, e.clientX, e.clientY, now) && this.lastWordTap.lane === lane && this.lastWordTap.word === wIndex) {
-          this.onWordDoubleTap(lane, wIndex, wordEl.dataset.root ?? null);
+          if (this.wordTapTimer !== null) { window.clearTimeout(this.wordTapTimer); this.wordTapTimer = null; }
+          this.onWordDoubleTap(lane, wIndex, root);
           this.lastWordTap = { at: 0, x: 0, y: 0, lane: 0, word: 0 };
           return;
         }
         this.lastWordTap = { at: now, x: e.clientX, y: e.clientY, lane, word: wIndex };
+        // §7.2: a plain single tap on a word opens its lexicon card — but
+        // only once the double-tap window has closed, so it never races
+        // the echo-trajectory double-tap above.
+        if (this.wordTapTimer !== null) window.clearTimeout(this.wordTapTimer);
+        this.wordTapTimer = window.setTimeout(() => {
+          this.wordTapTimer = null;
+          this.onWordTap?.(lane, wIndex, root);
+        }, 300);
       }
 
       if (this.echo.isActive) { this.tryFlingDismiss(laneEl); return; }
@@ -282,10 +298,12 @@ export class GestureController {
     }
 
     // two-finger tap detection across both rails combined (18)
-    document.addEventListener("pointerdown", (e) => {
+    const twoFingerTap = (e: PointerEvent) => {
       if (!(e.target instanceof Element) || !e.target.closest(".rail")) return;
       if (this.railTapStreak()) this.togglePassivityGlobal();
-    });
+    };
+    document.addEventListener("pointerdown", twoFingerTap);
+    this.globalDisposers.push(() => document.removeEventListener("pointerdown", twoFingerTap));
   }
 
   private tapStreak: number[] = [];
@@ -392,26 +410,29 @@ export class GestureController {
       { threshold: [0.6], rootMargin: "-40% 0px -40% 0px" },
     );
     for (const { root } of this.canvas.lanes.values()) observer.observe(root);
+    this.globalDisposers.push(() => observer.disconnect());
 
     // while locked: clamp further forward scroll — the only valid gesture is reversal
     let lastScrollY = window.scrollY;
-    window.addEventListener("scroll", () => {
+    const onScroll = () => {
       userHasScrolled = true;
       if (this.lock.isActive) {
         const dy = window.scrollY - lastScrollY;
         if (dy > 0) window.scrollTo(0, lastScrollY); // refuse forward scroll while locked
       }
       lastScrollY = window.scrollY;
-    }, { passive: true });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    this.globalDisposers.push(() => window.removeEventListener("scroll", onScroll));
   }
 
   // -- keyboard fallback: full keyboard navigation, PHASE-01-UI-SYSTEM §4 --
   private wireKeyboard(): void {
-    document.addEventListener("keydown", (e) => {
+    const onKeydown = (e: KeyboardEvent) => {
       const s = this.store.get();
       const cur = s.focusedLane ?? 1;
       switch (e.key) {
-        case "ArrowDown": e.preventDefault(); this.setFocus(Math.min(LANE_COUNT, cur + 1)); break;
+        case "ArrowDown": e.preventDefault(); this.setFocus(Math.min(this.store.page.lanes.length, cur + 1)); break;
         case "ArrowUp": e.preventDefault(); this.setFocus(Math.max(1, cur - 1)); break;
         case "ArrowRight": e.preventDefault(); this.gutterLens.setSpeed(Math.max(1, cur), Math.min(3, (s.gutterSpeed + 1)) as PressSpeed); break;
         case "ArrowLeft": e.preventDefault(); this.gutterLens.setSpeed(Math.max(1, s.gutterIndex ?? cur), Math.max(0, (s.gutterSpeed - 1)) as PressSpeed); break;
@@ -421,6 +442,18 @@ export class GestureController {
         case "Escape": if (this.echo.isActive) this.echo.dismiss(); if (this.audit.isOpen) this.audit.close(); break;
       }
       this.hud.noteActivity();
-    });
+    };
+    document.addEventListener("keydown", onKeydown);
+    this.globalDisposers.push(() => document.removeEventListener("keydown", onKeydown));
+  }
+
+  /** Tears down document/window-level listeners. Call when this screen
+   * unmounts (e.g. router navigation away from the reader) — DOM-scoped
+   * listeners under canvas.root clean themselves up when that subtree is
+   * removed, but these three would otherwise silently accumulate. */
+  destroy(): void {
+    for (const dispose of this.globalDisposers) dispose();
+    this.globalDisposers = [];
+    if (this.wordTapTimer !== null) window.clearTimeout(this.wordTapTimer);
   }
 }

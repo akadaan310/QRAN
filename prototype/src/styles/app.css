@@ -1,0 +1,158 @@
+/*
+ * App-level screens (فهرس, reader chrome, word/root/experience pages) —
+ * plain Arabic + icons only, no invented vocabulary (FINALITY_PROMPT
+ * Phase E). Deliberately simple: list rows and cards, no gesture surface —
+ * that vocabulary belongs to the reading canvas alone.
+ */
+
+.app-shell { min-height: 100dvh; background: var(--color-ground); color: var(--color-text); }
+
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 10px;
+  padding: calc(var(--safe-t) + 10px) 14px 10px;
+  background: var(--color-panel-glass);
+  backdrop-filter: blur(var(--blur-glass));
+  border-bottom: 1px solid var(--color-line);
+}
+.topbar__back {
+  width: 36px; height: 36px; border-radius: 50%; flex: none;
+  background: var(--color-panel); border: 1px solid var(--color-line); color: var(--color-text);
+  font-size: 18px; display: flex; align-items: center; justify-content: center;
+}
+.topbar__title { font-family: var(--font-heading); font-size: 1.05rem; flex: 1; }
+.topbar__home {
+  width: 36px; height: 36px; border-radius: 50%; flex: none;
+  background: var(--color-panel); border: 1px solid var(--color-line); color: var(--color-text);
+  font-size: 16px; display: flex; align-items: center; justify-content: center;
+}
+
+.page-body { max-width: 640px; margin: 0 auto; padding: 14px 14px calc(env(safe-area-inset-bottom) + 24px); }
+
+/* -- فهرس home -- */
+.fehres-search {
+  width: 100%; font-family: var(--font-apparatus); font-size: 15px;
+  background: var(--color-panel); border: 1px solid var(--color-line); border-radius: 12px;
+  padding: 12px 14px; color: var(--color-text); margin-bottom: 12px;
+  direction: rtl;
+}
+.fehres-search::placeholder { color: var(--color-text-quiet); }
+
+.fehres-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 6px; }
+.fehres-tab {
+  flex: none; font-family: var(--font-heading); font-size: 13px;
+  background: var(--color-panel); border: 1px solid var(--color-line); color: var(--color-text-quiet);
+  border-radius: 999px; padding: 8px 16px; display: flex; align-items: center; gap: 6px;
+  min-height: 40px;
+}
+.fehres-tab[data-active="1"] { color: var(--color-text); border-color: var(--color-interactive); background: color-mix(in srgb, var(--color-interactive) 12%, var(--color-panel)); }
+.fehres-tab__icon { font-size: 15px; }
+
+.list-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 13px 6px; border-bottom: 1px solid var(--color-line);
+  min-height: 44px;
+}
+.list-row__main { font-family: var(--font-verse); font-size: 1.05rem; }
+.list-row__meta { font-family: var(--font-apparatus); font-size: 11px; color: var(--color-text-quiet); }
+.list-row__badge {
+  font-family: var(--font-apparatus); font-size: 10px; color: var(--color-accent);
+  border: 1px solid var(--color-line); border-radius: 999px; padding: 2px 8px; flex: none;
+}
+
+.page-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px;
+}
+.page-grid button {
+  font-family: var(--font-apparatus); font-size: 12px; color: var(--color-text);
+  background: var(--color-panel); border: 1px solid var(--color-line); border-radius: 8px;
+  padding: 10px 2px; min-height: 40px;
+}
+
+.root-search {
+  width: 100%; font-family: var(--font-verse); font-size: 16px; direction: rtl;
+  background: var(--color-panel); border: 1px solid var(--color-line); border-radius: 10px;
+  padding: 10px 12px; color: var(--color-text); margin-bottom: 8px;
+}
+
+.empty-note { color: var(--color-text-quiet); font-family: var(--font-apparatus); font-size: 13px; padding: 20px 6px; text-align: center; }
+
+/* -- reader chrome (wraps the canvas engine) -- */
+.reader-nav {
+  position: fixed; bottom: 0; inset-inline: 0; z-index: 8;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 10px 14px calc(env(safe-area-inset-bottom) + 10px);
+  background: var(--color-panel-glass); backdrop-filter: blur(var(--blur-glass));
+  border-top: 1px solid var(--color-line);
+}
+.reader-nav__btn {
+  font-family: var(--font-apparatus); font-size: 13px; color: var(--color-text);
+  background: var(--color-panel); border: 1px solid var(--color-line); border-radius: 10px;
+  padding: 10px 16px; min-height: 44px; min-width: 44px;
+}
+.reader-nav__btn:disabled { opacity: 0.35; }
+.reader-nav__locus { font-family: var(--font-apparatus); font-size: 12px; color: var(--color-text-quiet); text-align: center; }
+
+/* -- word / root cards -- */
+.sheet {
+  position: fixed; inset-inline: 0; bottom: 0; z-index: 30;
+  max-height: 82dvh; overflow-y: auto;
+  background: var(--color-panel-glass); backdrop-filter: blur(var(--blur-glass));
+  border-top: 1px solid var(--color-line); border-radius: 18px 18px 0 0;
+  padding: 14px 16px calc(env(safe-area-inset-bottom) + 16px);
+  transform: translateY(100%); transition: transform var(--t-fast) var(--ease-drift);
+}
+.sheet[data-open="1"] { transform: translateY(0); }
+.sheet__grip { width: 36px; height: 4px; border-radius: 2px; background: var(--color-line); margin: 0 auto 12px; }
+.sheet__word { font-family: var(--font-verse); font-size: 2rem; text-align: center; margin: 4px 0 10px; }
+.sheet__row { display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px dashed var(--color-line); }
+.sheet__actions { display: flex; gap: 8px; margin-top: 12px; }
+.sheet__btn {
+  flex: 1; font-family: var(--font-apparatus); font-size: 13px; color: var(--color-text);
+  background: var(--color-panel); border: 1px solid var(--color-interactive); border-radius: 10px;
+  padding: 10px; min-height: 44px;
+}
+
+.occurrence-row {
+  padding: 12px 4px; border-bottom: 1px solid var(--color-line);
+}
+.occurrence-row__locus { font-family: var(--font-apparatus); font-size: 11px; color: var(--color-accent); margin-bottom: 4px; }
+.occurrence-row__text { font-family: var(--font-verse); font-size: 1.15rem; line-height: 1.9; }
+.occurrence-row__text mark { background: color-mix(in srgb, var(--color-accent) 30%, transparent); color: inherit; border-radius: 3px; padding: 0 2px; }
+
+.order-tabs { display: flex; gap: 6px; margin: 10px 0; flex-wrap: wrap; }
+.order-tab {
+  font-family: var(--font-apparatus); font-size: 11px; color: var(--color-text-quiet);
+  background: var(--color-panel); border: 1px solid var(--color-line); border-radius: 999px; padding: 6px 12px; min-height: 32px;
+}
+.order-tab[data-active="1"] { color: var(--color-text); border-color: var(--color-interactive); }
+
+.classical-def { margin: 10px 0; padding: 10px; background: var(--color-panel); border-radius: 10px; border: 1px solid var(--color-line); }
+.classical-def__book { font-family: var(--font-heading); font-size: 12px; color: var(--color-accent); margin-bottom: 6px; }
+.classical-def__text { font-size: 13px; line-height: 1.8; color: var(--color-text); max-height: 160px; overflow-y: auto; }
+
+/* -- experiences / cards -- */
+.exp-filters { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; }
+.exp-card {
+  background: var(--color-panel); border: 1px solid var(--color-line); border-radius: 12px;
+  padding: 14px; margin-bottom: 10px;
+}
+.exp-card__title { font-family: var(--font-verse); font-size: 1.1rem; margin-bottom: 6px; }
+.exp-card__meta { font-family: var(--font-apparatus); font-size: 11px; color: var(--color-text-quiet); margin-bottom: 8px; }
+.exp-card__note { font-size: 13px; line-height: 1.7; color: var(--color-text); }
+.exp-card__loci { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.locus-chip {
+  font-family: var(--font-apparatus); font-size: 11px; color: var(--color-interactive);
+  border: 1px solid var(--color-interactive); border-radius: 999px; padding: 4px 10px; min-height: 30px;
+}
+
+.surprise-btn {
+  width: 100%; font-family: var(--font-heading); font-size: 15px; color: var(--color-ground);
+  background: var(--color-accent); border: none; border-radius: 14px; padding: 16px; margin: 6px 0 16px;
+  min-height: 52px;
+}
+
+.translation-toggle {
+  display: flex; align-items: center; gap: 8px; font-family: var(--font-apparatus); font-size: 12px;
+  color: var(--color-text-quiet); margin: 10px 0;
+}

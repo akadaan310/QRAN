@@ -161,3 +161,20 @@ interpretation of meaning, no auto-play/scroll-jacking/gamification, no
 network/accounts/backend, no full-corpus import or registry beyond the 3
 sample pages, no margin content ever on the letterforms. Full list with
 citations in `prototype/QA_NOTES.md`.
+
+## 7. Post-approval-gate: the full build (FINALITY_PROMPT.md, 2026-09-20)
+
+The owner's standing order revoked the approval gate above and commanded
+executing `FINALITY_PROMPT.md` end to end — the whole Quran readable,
+lexicons wired, الفهرس as the app's home, 3354 experiences browsable plus
+generative ones, all without stopping for review. This section (§5's gate)
+is kept verbatim as the historical record of Phase 1's own acceptance
+criteria, which the full build still satisfies (every Phase-1 behavior
+re-verified passing, not just left alone — see `prototype/QA_NOTES.md`'s
+"FINALITY_PROMPT" section for the complete build record, the data-layer
+verification, every reduction from the Phase-1 heuristic honestly
+documented, and the full verification pass). The design tokens, component
+inventory, motion language, and accessibility posture in §§1–4 above
+describe the *reading canvas* specifically and still hold; they were
+extended (real corpus, real lexicon, real experiences) rather than
+replaced.

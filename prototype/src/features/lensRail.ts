@@ -3,7 +3,7 @@ import type { LensId } from "../store/types";
 import type { ToastRail } from "../hud/toast";
 import type { AuditController } from "./audit";
 
-const LENS_LABELS: Record<Exclude<LensId, null>, string> = {
+export const LENS_LABELS: Record<Exclude<LensId, null>, string> = {
   F01: "شرخ", F02: "انطواء", F03: "انصهار", F04: "انعطاف", F05: "احتجاب",
   F06: "سكون", F07: "علوّ", F08: "تقارب", F09: "ارتداد",
 };
@@ -45,7 +45,6 @@ export class LensRailController {
     (Object.keys(LENS_LABELS) as Exclude<LensId, null>[]).forEach((id) => {
       const btn = document.createElement("button");
       btn.textContent = LENS_LABELS[id];
-      btn.title = id;
       btn.dataset.lens = id;
       Object.assign(btn.style, {
         fontFamily: "var(--font-apparatus)", fontSize: "10px", color: "var(--color-text-quiet)",
