@@ -1,0 +1,850 @@
+{
+  "id": "page-1",
+  "title": "الرحمٰن ١–١٥",
+  "sourceSurahs": [
+    {
+      "number": 55,
+      "name": "الرحمٰن",
+      "ayahFrom": 1,
+      "ayahTo": 15
+    }
+  ],
+  "lanes": [
+    {
+      "lane": 1,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 1,
+      "words": [
+        {
+          "i": 1,
+          "marked": "ٱلرَّحْمَٰنُ",
+          "skeleton": "الرحمب",
+          "pos": "P",
+          "root": "رحم",
+          "lemma": "ال",
+          "person": null
+        }
+      ],
+      "wordCount": 1,
+      "state": {
+        "intensity": 0.092,
+        "friction": 0,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F06",
+        "depth": 0
+      },
+      "rationale": "لا فعل تامّ في السطر — مادة اسمية ساكنة (حمولة لا مشارك)."
+    },
+    {
+      "lane": 2,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 2,
+      "words": [
+        {
+          "i": 1,
+          "marked": "عَلَّمَ",
+          "skeleton": "علم",
+          "pos": "V",
+          "root": "علم",
+          "lemma": "عَلَّمَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "ٱلْقُرْءَانَ",
+          "skeleton": "القرااب",
+          "pos": "P",
+          "root": "قرأ",
+          "lemma": "ال",
+          "person": null
+        }
+      ],
+      "wordCount": 2,
+      "state": {
+        "intensity": 0.183,
+        "friction": 0,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": null,
+        "depth": 0
+      },
+      "rationale": "لا نمط مهيمن على هذا السطر — لا يُفرض عدسة حيث لا إشارة (product-spec/01)."
+    },
+    {
+      "lane": 3,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 3,
+      "words": [
+        {
+          "i": 1,
+          "marked": "خَلَقَ",
+          "skeleton": "حلق",
+          "pos": "V",
+          "root": "خلق",
+          "lemma": "خَلَقَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "ٱلْإِنسَٰنَ",
+          "skeleton": "الابسب",
+          "pos": "P",
+          "root": "أنس",
+          "lemma": "ال",
+          "person": null
+        }
+      ],
+      "wordCount": 2,
+      "state": {
+        "intensity": 0.183,
+        "friction": 0,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": null,
+        "depth": 0
+      },
+      "rationale": "لا نمط مهيمن على هذا السطر — لا يُفرض عدسة حيث لا إشارة (product-spec/01)."
+    },
+    {
+      "lane": 4,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 4,
+      "words": [
+        {
+          "i": 1,
+          "marked": "عَلَّمَهُ",
+          "skeleton": "علمه",
+          "pos": "V",
+          "root": "علم",
+          "lemma": "عَلَّمَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "ٱلْبَيَانَ",
+          "skeleton": "البباب",
+          "pos": "P",
+          "root": "بين",
+          "lemma": "ال",
+          "person": null
+        }
+      ],
+      "wordCount": 2,
+      "state": {
+        "intensity": 0.408,
+        "friction": 0.15,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F09",
+        "depth": 0.15
+      },
+      "rationale": "الجذر «علم» يعود بعد ورودٍ سابق في الصفحة."
+    },
+    {
+      "lane": 5,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 5,
+      "words": [
+        {
+          "i": 1,
+          "marked": "ٱلشَّمْسُ",
+          "skeleton": "السمس",
+          "pos": "P",
+          "root": "شمس",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "وَٱلْقَمَرُ",
+          "skeleton": "والقمر",
+          "pos": "P",
+          "root": "قمر",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "بِحُسْبَانٍ",
+          "skeleton": "بحسباب",
+          "pos": "P",
+          "root": "حسب",
+          "lemma": "ب",
+          "person": null
+        }
+      ],
+      "wordCount": 3,
+      "state": {
+        "intensity": 0.275,
+        "friction": 0,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F06",
+        "depth": 0
+      },
+      "rationale": "لا فعل تامّ في السطر — مادة اسمية ساكنة (حمولة لا مشارك)."
+    },
+    {
+      "lane": 6,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 6,
+      "words": [
+        {
+          "i": 1,
+          "marked": "وَٱلنَّجْمُ",
+          "skeleton": "والبحم",
+          "pos": "P",
+          "root": "نجم",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "وَٱلشَّجَرُ",
+          "skeleton": "والسحر",
+          "pos": "P",
+          "root": "شجر",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "يَسْجُدَانِ",
+          "skeleton": "بسحداب",
+          "pos": "V",
+          "root": "سجد",
+          "lemma": "سَجَدَ",
+          "person": "3MD"
+        }
+      ],
+      "wordCount": 3,
+      "state": {
+        "intensity": 0.275,
+        "friction": 0,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": null,
+        "depth": 0
+      },
+      "rationale": "لا نمط مهيمن على هذا السطر — لا يُفرض عدسة حيث لا إشارة (product-spec/01)."
+    },
+    {
+      "lane": 7,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 7,
+      "words": [
+        {
+          "i": 1,
+          "marked": "وَٱلسَّمَآءَ",
+          "skeleton": "والسماا",
+          "pos": "P",
+          "root": "سمو",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "رَفَعَهَا",
+          "skeleton": "رفعها",
+          "pos": "V",
+          "root": "رفع",
+          "lemma": "رَفَعَ",
+          "person": "3MS"
+        },
+        {
+          "i": 3,
+          "marked": "وَوَضَعَ",
+          "skeleton": "ووصع",
+          "pos": "V",
+          "root": "وضع",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "ٱلْمِيزَانَ",
+          "skeleton": "المبراب",
+          "pos": "P",
+          "root": "وزن",
+          "lemma": "ال",
+          "person": null
+        }
+      ],
+      "wordCount": 4,
+      "state": {
+        "intensity": 0.367,
+        "friction": 0,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": null,
+        "depth": 0
+      },
+      "rationale": "لا نمط مهيمن على هذا السطر — لا يُفرض عدسة حيث لا إشارة (product-spec/01)."
+    },
+    {
+      "lane": 8,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 8,
+      "words": [
+        {
+          "i": 1,
+          "marked": "أَلَّا",
+          "skeleton": "الا",
+          "pos": "P",
+          "root": null,
+          "lemma": "أَن",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "تَطْغَوْا۟",
+          "skeleton": "بطعوا",
+          "pos": "V",
+          "root": "طغي",
+          "lemma": "طَغَى",
+          "person": "2MP"
+        },
+        {
+          "i": 3,
+          "marked": "فِى",
+          "skeleton": "فب",
+          "pos": "P",
+          "root": null,
+          "lemma": "فِي",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "ٱلْمِيزَانِ",
+          "skeleton": "المبراب",
+          "pos": "P",
+          "root": "وزن",
+          "lemma": "ال",
+          "person": null
+        }
+      ],
+      "wordCount": 4,
+      "state": {
+        "intensity": 0.479,
+        "friction": 0.425,
+        "axis": {
+          "address": 1,
+          "speaker": 0,
+          "absent": 0
+        },
+        "lens": "F04",
+        "depth": 0.425
+      },
+      "rationale": "انعطاف محور الإسناد من الغَيبة إلى الخطاب."
+    },
+    {
+      "lane": 9,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 9,
+      "words": [
+        {
+          "i": 1,
+          "marked": "وَأَقِيمُوا۟",
+          "skeleton": "واقبموا",
+          "pos": "V",
+          "root": "قوم",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "ٱلْوَزْنَ",
+          "skeleton": "الورب",
+          "pos": "P",
+          "root": "وزن",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "بِٱلْقِسْطِ",
+          "skeleton": "بالقسط",
+          "pos": "P",
+          "root": "قسط",
+          "lemma": "ب",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "وَلَا",
+          "skeleton": "ولا",
+          "pos": "P",
+          "root": null,
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "تُخْسِرُوا۟",
+          "skeleton": "بحسروا",
+          "pos": "V",
+          "root": "خسر",
+          "lemma": "يُخْسِرُ",
+          "person": "2MP"
+        },
+        {
+          "i": 6,
+          "marked": "ٱلْمِيزَانَ",
+          "skeleton": "المبراب",
+          "pos": "P",
+          "root": "وزن",
+          "lemma": "ال",
+          "person": null
+        }
+      ],
+      "wordCount": 6,
+      "state": {
+        "intensity": 0.7,
+        "friction": 0.1,
+        "axis": {
+          "address": 1,
+          "speaker": 0,
+          "absent": 0
+        },
+        "lens": "F09",
+        "depth": 0.1
+      },
+      "rationale": "الجذر «وزن» يعود بعد ورودٍ سابق في الصفحة."
+    },
+    {
+      "lane": 10,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 10,
+      "words": [
+        {
+          "i": 1,
+          "marked": "وَٱلْأَرْضَ",
+          "skeleton": "والارص",
+          "pos": "P",
+          "root": "أرض",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "وَضَعَهَا",
+          "skeleton": "وصعها",
+          "pos": "V",
+          "root": "وضع",
+          "lemma": "وَضَعَ",
+          "person": "3MS"
+        },
+        {
+          "i": 3,
+          "marked": "لِلْأَنَامِ",
+          "skeleton": "للابام",
+          "pos": "P",
+          "root": "أنم",
+          "lemma": "ل",
+          "person": null
+        }
+      ],
+      "wordCount": 3,
+      "state": {
+        "intensity": 0.425,
+        "friction": 0.45,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F04",
+        "depth": 0.45
+      },
+      "rationale": "انعطاف محور الإسناد من الخطاب إلى الغَيبة."
+    },
+    {
+      "lane": 11,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 11,
+      "words": [
+        {
+          "i": 1,
+          "marked": "فِيهَا",
+          "skeleton": "فبها",
+          "pos": "P",
+          "root": null,
+          "lemma": "فِي",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "فَٰكِهَةٌ",
+          "skeleton": "فكهه",
+          "pos": "N",
+          "root": "فكه",
+          "lemma": "فاكِهَة",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "وَٱلنَّخْلُ",
+          "skeleton": "والبحل",
+          "pos": "P",
+          "root": "نخل",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "ذَاتُ",
+          "skeleton": "داب",
+          "pos": "N",
+          "root": null,
+          "lemma": "ذُو",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "ٱلْأَكْمَامِ",
+          "skeleton": "الاكمام",
+          "pos": "P",
+          "root": "كمم",
+          "lemma": "ال",
+          "person": null
+        }
+      ],
+      "wordCount": 5,
+      "state": {
+        "intensity": 0.458,
+        "friction": 0,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F06",
+        "depth": 0
+      },
+      "rationale": "لا فعل تامّ في السطر — مادة اسمية ساكنة (حمولة لا مشارك)."
+    },
+    {
+      "lane": 12,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 12,
+      "words": [
+        {
+          "i": 1,
+          "marked": "وَٱلْحَبُّ",
+          "skeleton": "والحب",
+          "pos": "P",
+          "root": "حبب",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "ذُو",
+          "skeleton": "دو",
+          "pos": "N",
+          "root": null,
+          "lemma": "ذُو",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "ٱلْعَصْفِ",
+          "skeleton": "العصف",
+          "pos": "P",
+          "root": "عصف",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "وَٱلرَّيْحَانُ",
+          "skeleton": "والربحاب",
+          "pos": "P",
+          "root": "روح",
+          "lemma": "و",
+          "person": null
+        }
+      ],
+      "wordCount": 4,
+      "state": {
+        "intensity": 0.367,
+        "friction": 0,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F06",
+        "depth": 0
+      },
+      "rationale": "لا فعل تامّ في السطر — مادة اسمية ساكنة (حمولة لا مشارك)."
+    },
+    {
+      "lane": 13,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 13,
+      "words": [
+        {
+          "i": 1,
+          "marked": "فَبِأَىِّ",
+          "skeleton": "فباب",
+          "pos": "P",
+          "root": "أيي",
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "ءَالَآءِ",
+          "skeleton": "االاا",
+          "pos": "N",
+          "root": "ألو",
+          "lemma": "آلاء",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "رَبِّكُمَا",
+          "skeleton": "ربكما",
+          "pos": "N",
+          "root": "ربب",
+          "lemma": "رَبّ",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "تُكَذِّبَانِ",
+          "skeleton": "بكدباب",
+          "pos": "V",
+          "root": "كذب",
+          "lemma": "كَذَّبَ",
+          "person": "2D"
+        }
+      ],
+      "wordCount": 4,
+      "state": {
+        "intensity": 0.367,
+        "friction": 0.35,
+        "axis": {
+          "address": 1,
+          "speaker": 0,
+          "absent": 0
+        },
+        "lens": "F04",
+        "depth": 0.35
+      },
+      "rationale": "انعطاف محور الإسناد من الغَيبة إلى الخطاب."
+    },
+    {
+      "lane": 14,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 14,
+      "words": [
+        {
+          "i": 1,
+          "marked": "خَلَقَ",
+          "skeleton": "حلق",
+          "pos": "V",
+          "root": "خلق",
+          "lemma": "خَلَقَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "ٱلْإِنسَٰنَ",
+          "skeleton": "الابسب",
+          "pos": "P",
+          "root": "أنس",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "مِن",
+          "skeleton": "مب",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "صَلْصَٰلٍ",
+          "skeleton": "صلصل",
+          "pos": "N",
+          "root": "صلصل",
+          "lemma": "صَلْصال",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "كَٱلْفَخَّارِ",
+          "skeleton": "كالفحار",
+          "pos": "P",
+          "root": "فخر",
+          "lemma": "ك",
+          "person": null
+        }
+      ],
+      "wordCount": 5,
+      "state": {
+        "intensity": 0.638,
+        "friction": 0.47,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F04",
+        "depth": 0.47
+      },
+      "rationale": "انعطاف محور الإسناد من الخطاب إلى الغَيبة."
+    },
+    {
+      "lane": 15,
+      "surah": 55,
+      "surahName": "الرحمٰن",
+      "ayah": 15,
+      "words": [
+        {
+          "i": 1,
+          "marked": "وَخَلَقَ",
+          "skeleton": "وحلق",
+          "pos": "V",
+          "root": "خلق",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "ٱلْجَآنَّ",
+          "skeleton": "الحاب",
+          "pos": "P",
+          "root": "جنن",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "مِن",
+          "skeleton": "مب",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "مَّارِجٍ",
+          "skeleton": "مارح",
+          "pos": "N",
+          "root": "مرج",
+          "lemma": "مارِج",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "مِّن",
+          "skeleton": "مب",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "نَّارٍ",
+          "skeleton": "بار",
+          "pos": "N",
+          "root": "نور",
+          "lemma": "نار",
+          "person": null
+        }
+      ],
+      "wordCount": 6,
+      "state": {
+        "intensity": 0.625,
+        "friction": 0.05,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F09",
+        "depth": 0.05
+      },
+      "rationale": "الجذر «خلق» يعود بعد ورودٍ سابق في الصفحة."
+    }
+  ],
+  "roots": {
+    "علم": [
+      2,
+      4
+    ],
+    "خلق": [
+      3,
+      14,
+      15
+    ],
+    "أنس": [
+      3,
+      14
+    ],
+    "وضع": [
+      7,
+      10
+    ],
+    "وزن": [
+      7,
+      8,
+      9
+    ]
+  },
+  "checkpoints": [],
+  "provenance": {
+    "corpus": [
+      "references/isnaad/data/corpus/55.txt"
+    ],
+    "corpusSource": "Tanzil Uthmani text + Quranic Arabic Corpus v0.4 morphology, vendored by references/isnaad (see its README.md and docs/PROJECT.md)",
+    "method": "heuristic fixture derivation (prototype/scripts/gen-fixtures.mjs) from real per-word morphology — root repetition on the page, person-tag axis blend, direct-speech verb detection. NOT raw isnaad-detector or al-Mirtal-edge output for these loci.",
+    "isFixture": true,
+    "generatedBy": "scripts/gen-fixtures.mjs",
+    "generatedAt": "2026-09-20T08:29:14.864Z"
+  }
+}

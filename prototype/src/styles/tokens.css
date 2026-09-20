@@ -1,0 +1,102 @@
+/*
+ * Design tokens — docs/PHASE-01-UI-SYSTEM.md §1.
+ * Dark is the default (night-sky base); light is first-class, not an
+ * afterthought. `data-theme` lets the reader override the OS preference;
+ * absent that, `prefers-color-scheme` decides.
+ */
+:root {
+  /* -- palette: dark (default) -- */
+  --color-ground: #0b0d14;
+  --color-ground-2: #11141f;
+  --color-panel: #171a26;
+  --color-panel-glass: rgba(23, 26, 38, 0.62);
+  --color-line: #2a2e40;
+  --color-text: #eee7d4;      /* warm paper tone for the text layer */
+  --color-text-quiet: #8b8878;
+  --color-accent: #d8a24a;    /* apparatus accent (amber) */
+  --color-interactive: #7fb3d5; /* interactive-state accent */
+  --color-danger: #d5707f;
+  --color-star: #cfd6ea;
+
+  /* -- elevation -- */
+  --blur-glass: 14px;
+  --shadow-lift: 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+
+  /* -- spacing scale -- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* -- rail / apparatus scale (subordinate to reading scale) -- */
+  --font-size-apparatus: 11px;
+  --font-size-apparatus-lg: 13px;
+
+  /* -- reading scale -- */
+  --font-size-verse: clamp(26px, 7.4vw, 34px);
+  --line-height-verse: 1.95; /* Arabic line-height >= 1.9, spec-ui/05 */
+
+  /* -- motion timing (product-spec/02 performance targets) -- */
+  --t-breath: 400ms;      /* lane expand/contract */
+  --t-orbit: 600ms;       /* orbit transition */
+  --t-rasm: 500ms;        /* rasm dissolve/heal */
+  --t-lock: 100ms;        /* lock detent engage */
+  --t-fast: 180ms;
+  --ease-drift: cubic-bezier(0.22, 0.61, 0.15, 1);
+
+  /* -- safe areas -- */
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-ground: #f6f1e4;
+    --color-ground-2: #efe8d6;
+    --color-panel: #fffdf7;
+    --color-panel-glass: rgba(255, 253, 247, 0.72);
+    --color-line: #ddd3ba;
+    --color-text: #232016;
+    --color-text-quiet: #746c58;
+    --color-accent: #a9701f;
+    --color-interactive: #2d6f96;
+    --color-danger: #a83345;
+    --color-star: #b9ad8c;
+    color-scheme: light;
+  }
+}
+
+:root[data-theme="light"] {
+  --color-ground: #f6f1e4;
+  --color-ground-2: #efe8d6;
+  --color-panel: #fffdf7;
+  --color-panel-glass: rgba(255, 253, 247, 0.72);
+  --color-line: #ddd3ba;
+  --color-text: #232016;
+  --color-text-quiet: #746c58;
+  --color-accent: #a9701f;
+  --color-interactive: #2d6f96;
+  --color-danger: #a83345;
+  --color-star: #b9ad8c;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-breath: 1ms;
+    --t-orbit: 1ms;
+    --t-rasm: 1ms;
+    --t-lock: 1ms;
+    --t-fast: 1ms;
+  }
+}
