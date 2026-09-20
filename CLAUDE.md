@@ -78,6 +78,22 @@ Non-negotiable across every phase:
 - `FINALITY_PROMPT.md` is the standing execution order. Execute it fully:
   full-Quran canvas, experiences browser, lexicons, فهرس, language-agnostic
   pass, verification, commit, push. No approval stops.
+  - §7 "The infinite layer" (2026-09-20): 30 QALAM markers as scenario
+    engines (quoted, attributed — never tafsir), full word pages, corpus-derived
+    archetype addressees, generative (non-finite) experiences, render-time
+    dotless-rasm display.
+  - §8 "The reader is the app" (2026-09-20): the card-and-chip prototype look
+    is rejected. The Quran page is the interface; every research layer is
+    reached from the text by gesture as overlays — no taxonomy screens, no
+    filter bars, no Latin transliteration chips, no invented vocabulary
+    user-visible. The فهرس is a one-gesture compass. Rule of done: if a feature
+    cannot be reached from the text by gesture, it is not done.
+  - §9 "The sacred interface" (2026-09-20, FINAL): the only words on screen
+    are Quranic Arabic — no UI labels in any language, no Arabic UI vocabulary
+    either, no Latin, no translations, no definition prose. Interface is
+    Quranic text + eight sacred glyphs (✦ ❖ ◈ ◉ ⬔ ◐ ◍ ✧) + gestures + space +
+    motion, learned in a wordless first-run lesson. Wordless audit required:
+    every rendered token must occur in the canonical corpus.
 - `BUILD_PROMPT.md` is superseded (kept for history).
 - Extend `prototype/` — never rewrite it wholesale; keep every passing
   behavior passing.

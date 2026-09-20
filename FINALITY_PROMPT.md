@@ -233,3 +233,45 @@ is offered as beholding, not explanation — a way to witness the power
 carried by the Arabic letters themselves, pre-dots and post-dots, as
 display. Label it plainly as a derived view. Never store it as Quran text;
 never present it as a manuscript.
+
+## 8. The reader is the app — zero jargon, UI as architecture (owner directive 2026-09-20)
+
+The prototype's card-and-chip look is rejected. The app is a **Quran reader first**: the full 15-line Uthmani page fills the screen, edge to edge, and every research aspect is reached **from the text by gesture** — never through taxonomy screens, filter bars, or Latin labels. It must feel like a muṣḥaf that can think, not a database with verses pasted in.
+
+**8.1 The page is the interface.**
+The app opens to Quran text, not a dashboard. No home screen of cards, no feature grid, no onboarding tour of labeled panels. Arabic Uthmani calligraphy is the primary visual material, full-bleed, with quiet margins and a reverent dark/light palette. Instrumentation never covers letterforms.
+
+**8.2 Everything is a layer over the text, reached by gesture.**
+- **Tap any word** → its word page (§7.2): large Uthmani header, root/lemma/POS/transliteration, opt-in translation, every occurrence as complete ayah text, orderable by mushaf/surah/juz/page.
+- **From the word page → its root page**: glosses, book-attributed classical definitions, maṣādir, all occurrences.
+- **Ayahs anchoring experiences** carry a quiet margin mark (a dot, a hairline — never covering letterforms). Tapping it opens the experience **as a journey over the text**, not as a document card.
+- **The 30 QALAM markers are not a list.** Each is an explorable path entered from its anchor words in the text; the marker phrase — quoted, attributed to Abed — is the path's title.
+- **Every vocative addressal** (يا أيها الناس…, يا موسى…) is an entry point: from any addressal ayah, follow the addressed to traverse the Quran through that witnessing, titled by the addressal phrase itself.
+- **Dotless rasm is a display toggle on the page** — beside or over the dotted Uthmani — not a separate feature screen.
+
+**8.3 Navigation is a compass, not a menu.**
+One bottom handle or gesture opens the فهرس — 114 surahs, 30 ajzāʾ, 604 pages — Arabic-first, icon- and gesture-driven, fully usable with zero literacy in any Latin script. Word search is Arabic-first.
+
+**8.4 Zero jargon anywhere the user can see.**
+No F-numbers, no runway/excavator/collider, no lane/gutter, no substrate/friction — and **no Latin transliteration chips** (no "raj-al-jidhr", no "istihdar", no "mirtāl"), no taxonomy filter bars ("التصنيفات / الأنماط الأساسية / بالسورة"), no "فاجئني" button as a feature. Discovery is **composed from the reader's position** — the current ayah or word is the seed of every generated journey. Curator-written labels appear only where §7.1/§7.3 require them, quoted and scoped.
+
+**8.5 Sheets and layers, not screens.**
+Word, root, experience, marker, and addressal journeys open as overlays rising over the page and dismiss back to it. The reader never leaves the Quran. The back action always returns to the exact ayah and scroll position.
+
+**8.6 Content requirements stand; surfacing changes.**
+§1–§7 define *what* exists (full corpus, 3,354+ generative experiences, lexicon, markers, addressals, rasm display, فهرس). This section governs *how it surfaces*. Rule of done: **if a feature cannot be reached from the text by gesture, it is not done.** Verify by walking: open to any page, tap a word, reach its root, follow an experience mark, open the فهرس, return — without ever seeing a Latin label or a taxonomy bar.
+
+
+## 9. The sacred interface — the only words are Quranic (owner directive 2026-09-20, final)
+
+**The law (absolute): the only words rendered anywhere in the app are Quranic Arabic — the Uthmani text itself.** No UI labels in any language — and no Arabic UI vocabulary either (no فهرس، تجارب، جذر، كلمة، التالي، تخطَّ، no headings, no toasts, no onboarding sentences). No Latin anywhere: no transliteration, no POS tags, no transliterated chips, no F-numbers. No translations (revoked entirely — they are other words). No classical-definition prose rendered as text (the data stays canonical in the repo; the UI shows roots through their occurrences — the Quran defines by usage). Eastern Arabic numerals only inside traditional ayah end-markers and the compass, never as labeled counts. **The entire interface is Quranic text + a fixed canon of glyphs + gestures + space + motion.**
+
+**The canon of marks** — exactly eight glyphs, sacred-geometric, identical everywhere, learned once by hand in a wordless ~20-second first-run lesson (pulsing hints, tap to learn, no words): ✦ word depth (tap any word → its layer: the word large in Uthmani, every occurrence as complete ayah text, 4-glyph ordering by mushaf/surah/juz/page); ❖ root (bare root letterforms, all occurrences as full ayahs); ◈ path (quiet margin mark on ayahs anchoring experiences — opens the journey as a walkable constellation of full ayahs, no cards, no titles; the seed ayah is the title); ◉ the addressed (on addressal ayahs — traverses every ayah carrying that addressal phrase, titled by the phrase itself, e.g. يَا أَيُّهَا النَّاسُ); ⬔ field (the 30 QALAM markers, entered from anchor words, titled by anchor ayah text — the marker's quoted phrase is never printed); ◐ rasm (toggles the visible page between dotted Uthmani and derived dotless skeleton — display, not a screen); ◍ compass (the wordless index: 114 nodes faced by their surahs' opening ayah text, 30 juz segments, 604-page scrubber — recognition by the text itself, since surah names are other words); ✧ compose (generates a new journey from the reader's current position — root journey, addressal arc, marker field; no "surprise me" button). ✕ dismisses any layer, always returning to the exact ayah and scroll position — the reader never leaves the Quran.
+
+**Architectures:** the Page (app opens to full-bleed 15-line Uthmani, no dashboard); layers not screens (everything rises over the page); the compass; word depth; root; paths (the 3,354 seeds are entry points via ◈, never a catalog screen); fields; the addressed; rasm beholding; composing; search by the letters themselves (Arabic keyboard, typed Quranic letters, results as ayahs — no placeholder text, absence shown by stillness); kept places & silent return (saved ayahs as text previews, last-read restores wordlessly).
+
+**State without words:** loading is a shimmer; offline/failure is stillness then a retry glyph (↻); completion is a single breath animation. Nothing is announced in words.
+
+**Verification — the wordless audit (must pass before done):** screenshot every reachable surface and extract every rendered token — every word must occur in the canonical Quranic corpus (numerals only in end-markers/compass); any other token is a FAIL. Then the full walk using glyphs and gestures only: any page → tap word → ❖ → occurrence jump → ◈ → ◉ → ⬔ → ◐ → ◍ → ✧ → ✕ — encountering no words at any step.
+
+**This supersedes §8's "Arabic-first labels" allowance in full: there are no labels at all now.** §§1–7 content stands minus the prose renderings this law excludes. Rule of done: **if the only words on screen are not Quranic, it is not done.**
