@@ -85,6 +85,15 @@ current screen (this is the echo-trajectory feature, now powered by real
 data instead of fixtures). Long-press a word → pin it as a checkpoint
 (reuses the existing checkpoint store).
 
+**Every word also gets a full word page** (see §7.2): the word rendered
+large in Uthmani at the top, root/lemma/POS/transliteration, opt-in
+translation and glosses, then **every occurrence in the Quran, each rendered
+as its complete ayah text** with the word highlighted and tappable to jump
+the canvas there. Occurrences are orderable: mushaf order (default),
+grouped by surah, by juz, by page. The root page gets the same treatment:
+gloss, book-attributed definitions, masadir, all occurrences rendered and
+orderable.
+
 **Phase C — الفهرس (the dynamic index).**
 One screen, five sections, all in plain Arabic with icons: السور (114, with
 ayah counts + Meccan/Medinan), الأجزاء (30 → first ayah + page), الصفحات
@@ -103,6 +112,13 @@ shuffle ("فاجئني"). Each experience page: its title, its loci rendered as
 real ayah text (from `data/quran`, not copied prose), and one-tap jumps
 into the canvas at each locus. Discovery notes render verbatim (they are
 real Arabic scholarship-adjacent notes from isnaad, quoted as such).
+
+**Experiences are generative, not finite** (see §7.4): the browser offers the
+3354 seeded experiences *and* composes more — QALAM marker scenarios,
+archetype-addressee journeys, word journeys — and "فاجئني" (surprise me)
+generates genuinely new experiences from real data instead of cycling a
+fixed list. The count is never presented as a ceiling; the UI never implies
+the field is closed.
 
 **Phase E — Language-agnostic pass.**
 Audit every user-facing string: remove ALL invented vocabulary (F-numbers,
@@ -137,11 +153,83 @@ reason the owner trusts this repo). Commit and push to this branch.
   bookmarks, and last-read survive.
 - **Provenance:** About screen carries the `data/SOURCES.md` attributions
   (Quran.com CC-BY-4.0, QAC, Hawramani lexicon, isnaad, al-Mirtal).
+- **Owner-proposed lenses stay proposed.** The 30 QALAM markers and any
+  archetype readings are the owner's proposed framework, quoted and
+  attributed as such. The app never presents them as tafsīr, tajwīd,
+  qirāʾāt, linguistics, or doctrine.
+- **The dotless rasm view is a render-time display transform** of the
+  canonical string: derived, never stored as Quran text, never canonical,
+  never a historical manuscript claim. It is offered as beholding, not
+  explanation.
+- **Addressals are quoted verbatim.** Archetype titles are the addressal
+  phrases themselves, exactly as they appear in the text. The app invents
+  no character names and no backstories.
 
 ## 6. Done means
 
-The whole Quran readable end to end; 3354 experiences browsable four ways;
-every word tappable to its lexicon entry; every root explorable to all its
-occurrences; the فهرس jumping anywhere; zero invented words in the UI; zero
-console errors; build green; committed and pushed. **Then stop — the work
-is the message.**
+The whole Quran readable end to end; 3354 experiences browsable four ways
+*plus* newly generated ones without a ceiling; every word tappable to its
+lexicon entry **and** to a full orderable word page; every root explorable
+to all its occurrences; the فهرس jumping anywhere; zero invented words in
+the UI; zero console errors; build green; committed and pushed. **Then stop
+— the work is the message.**
+
+## 7. The infinite layer — owner directive 2026-09-20
+
+The finite catalog (3354 experiences) is the seed, not the ceiling. The app
+must open an effectively **infinite** field of experiences generated from
+the Quran itself. Five requirements:
+
+**7.1 The 30 QALAM markers as scenario engines.**
+`references/qalam-30-markers.md` holds the owner's 30 proposed QALAM
+markers, saved verbatim from his framework text — proposed readings, not
+established tajwīd, qirāʾāt, linguistics, or doctrine, and the app never
+presents them as such. Each marker names a linguistic geometry (the
+غلام/فتى shift, the الصخرة null-zone, سيروا في الأرض, …) anchored to real
+loci. Build a **scenario engine**: for each marker, derive its loci from
+`data/` (word/root occurrence search on the marker's anchor words) and
+render the marker as an explorable scenario — the anchor ayahs as real
+text, the marker's reading shown as the owner's proposed lens (quoted,
+attributed, never as tafsīr), with traversal into every connected locus.
+30 markers × their loci × traversal paths = an unbounded browsable field.
+New scenarios compose; nothing is a dead end.
+
+**7.2 Every word gets its own page.**
+Tapping a word opens a **full word page**, not just a card: the word
+rendered large in Uthmani; root, lemma, POS, transliteration; translation
+and glosses on the opt-in layer; then **every occurrence in the Quran,
+each as its complete ayah text** with the word highlighted, tappable to
+jump the canvas there. Occurrences are **orderable**: mushaf order
+(default), grouped by surah, by juz, by page. The root page mirrors this:
+gloss, book-attributed classical definitions, masadir, all occurrences
+rendered and orderable.
+
+**7.3 Archetype addressees — choose who you are.**
+The Quran addresses its reader directly, again and again: يَا بَنِي آدَمَ،
+يَا أَيُّهَا الرُّسُلُ، يَا أَيُّهَا النَّاسُ، يَا أَيُّهَا الَّذِينَ آمَنُوا،
+يَا مُوسَىٰ، يَا دَاوُودُ, and many more. **Derive every vocative addressal
+from the corpus** (يا + its addressee, computed from the word stream — no
+invented names). Each addressal is an **archetype the user can choose to
+be**: entering it renders the Quran through that witnessing — every ayah
+carrying the addressal, in order, as one continuous journey through the
+canvas. **The addressal phrase itself is the title** of the experience,
+quoted verbatim. No invented character names, no backstories.
+
+**7.4 Experiences are generative, not finite.**
+The experiences browser offers the 3354 seeded experiences **and**
+generates more on demand: marker scenarios (§7.1), archetype journeys
+(§7.3), word journeys (§7.2), and a "فاجئني" (surprise me) that **composes
+new experiences from real data** — a root's journey, an addressal's arc, a
+marker's field — rather than cycling a fixed list. The count is never
+presented as a ceiling; the UI never says "all experiences" as if the
+field were closed.
+
+**7.5 The rasm as sacred display.**
+Add a **script view**: the current text rendered as its dotless skeleton —
+the rasm without iʿjām (dots) — beside or toggled against the dotted
+Uthmani. This is a **display layer derived at render time from the
+canonical string**, not an alternative text and not a historical claim; it
+is offered as beholding, not explanation — a way to witness the power
+carried by the Arabic letters themselves, pre-dots and post-dots, as
+display. Label it plainly as a derived view. Never store it as Quran text;
+never present it as a manuscript.
