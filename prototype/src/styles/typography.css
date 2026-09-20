@@ -1,0 +1,102 @@
+/*
+ * Typography — spec-ui/05_typography_system.md.
+ * Amiri Quran carries the ʿUthmānī rasm (line-height >= 1.9). Noto Kufi
+ * Arabic stands in for the "Kufi for headings" token. IBM Plex Mono is
+ * substituted with the system monospace stack: vendoring a third webfont
+ * for a Phase-1 prototype was judged unnecessary weight against the 60fps
+ * budget; recorded as a deviation in docs/PHASE-01-UI-SYSTEM.md §6.
+ */
+@font-face {
+  font-family: "Amiri Quran";
+  src: url("/fonts/amiri-quran-arabic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+@font-face {
+  font-family: "Amiri Quran";
+  src: url("/fonts/amiri-quran-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF;
+}
+@font-face {
+  font-family: "Noto Kufi Arabic";
+  src: url("/fonts/noto-kufi-arabic-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Kufi Arabic";
+  src: url("/fonts/noto-kufi-arabic-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  --font-verse: "Amiri Quran", "Amiri", serif;
+  --font-heading: "Noto Kufi Arabic", "Amiri Quran", sans-serif;
+  --font-apparatus: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-ground);
+  color: var(--color-text);
+  direction: rtl;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: var(--font-apparatus);
+  min-height: 100dvh;
+}
+
+/*
+ * Lane weight/spacing are functions of five lane-state values, set as CSS
+ * custom properties per lane by canvas/render.ts — never decorative.
+ * --lv-intensity, --lv-friction, --lv-axis, --lv-depth in [0,1].
+ */
+.lane__text {
+  font-family: var(--font-verse);
+  font-size: var(--font-size-verse);
+  line-height: var(--line-height-verse);
+  direction: rtl;
+  unicode-bidi: isolate;
+  color: var(--color-text);
+  font-weight: calc(420 + (var(--lv-intensity, 0) * 380));
+  letter-spacing: calc(var(--lv-axis-delta, 0) * 0.045em - (1 - var(--lv-intensity, 0)) * 0.01em);
+  transition:
+    font-weight var(--t-breath) var(--ease-drift),
+    letter-spacing var(--t-breath) var(--ease-drift),
+    color var(--t-fast) linear,
+    filter var(--t-breath) var(--ease-drift);
+}
+
+.lane[data-lens="F06"] .lane__text[data-passive="1"] {
+  color: var(--color-text-quiet);
+  font-weight: 380;
+}
+
+h1, h2, h3, .heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.apparatus {
+  font-family: var(--font-apparatus);
+  font-size: var(--font-size-apparatus);
+  color: var(--color-text-quiet);
+  letter-spacing: 0.01em;
+}
+
+.apparatus--accent { color: var(--color-accent); }
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}

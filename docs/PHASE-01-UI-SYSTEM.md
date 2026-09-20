@@ -81,3 +81,83 @@ explicitly, in chat. Concretely the prototype must demonstrate:
 
 Until approval: iterate on the system. After approval: phase 2 (experience
 registry + rendering engine) may begin — not before.
+
+## 6. Build decisions (recorded during the Phase-1 prototype build)
+
+The prototype lives under `prototype/`; full verification record in
+`prototype/QA_NOTES.md`. Decisions made while implementing, kept current
+here per the covenant:
+
+**Reconciliation (BUILD_PROMPT §2): canvas coordinates vs. ⟨sūrah:āyah⟩.**
+The new spec-ui blueprint's canvas geometry governs — 15 fixed lanes,
+addressed 1–15, sequence sacred. This project's apparatus convention
+governs the margin content on top of that: every lane's margin cell also
+carries its real ⟨sūrah:āyah⟩ locus. Both hold at once — lane *n* is the
+address, ⟨sūrah:āyah⟩ is the citation. Nothing in this system uses an
+anonymized "line n" with no real referent; that would violate "citational
+walks" (CLAUDE.md's covenant §1).
+
+**Typography.** IBM Plex Mono (named in §1's token table for apparatus) is
+substituted with the system monospace stack — vendoring a third webfont
+was judged unnecessary weight against the 60fps/bundle-size budget for a
+Phase-1 prototype. Amiri Quran (ʿUthmānī rasm) and Noto Kufi Arabic
+(headings) are vendored read-only from `references/isnaad/public/fonts`.
+
+**Sample pages.** One lane = one āyah, for all three sample pages — not a
+reproduction of any real mushaf's actual line-breaks (no per-line dataset
+is vendored anywhere in `references/`). Pages: Sūrah 55:1–15 (root
+repetition → echo-trajectory demo), Sūrah 18:60–74 (dialogue-dense →
+rupture/shift lenses), Sūrahs 114+113+112 (15 āyāt across three short
+sūrahs → gentle onboarding page). Full rationale in
+`prototype/QA_NOTES.md` §Sample-page decision.
+
+**Lane-state values are a fixture.** No real isnaad-detector or
+al-Mirtāl-edge run exists against these specific loci — product-spec/01's
+ingestion pipeline is not connected in Phase 1 (per product-spec/06 stage
+3, explicitly not this stage). `prototype/scripts/gen-fixtures.mjs`
+computes intensity/friction/axis/lens honestly from real per-word
+morphology instead (root repetition on the page, person-tag axis blend,
+direct-speech-verb detection), and labels every page `provenance.isFixture:
+true` with the exact method. A lane with no qualifying signal carries
+`lens: null` — product-spec/01's "the absence is data" rule, not a forced
+guess.
+
+**F02/F03/F05/F07/F08 are generic, live-computed activations** (nearest
+shared-root lane, page's highest-word-count lane, etc.) rather than
+pre-tagged fixture values like F01/F04/F06/F09 — see
+`prototype/src/features/lensRail.ts`. This keeps all nine lenses
+exercisable (DoD requirement) without inventing detector classifications
+the reference projects never actually produced for this material.
+
+**Row-split sub-rows** fork at the word-count midpoint (no per-word
+ignition-point signal exists in the fixture) — a documented visual
+approximation, not a claim about exactly where a voice turns.
+
+**Orbit mode** bends lanes via a per-lane CSS transform (not literal
+circular text reflow, which real DOM text can't do without per-character
+SVG and a real accessibility cost) — see `echoTrajectory.ts`.
+
+**The equilibrium governor respects measured natural content height.**
+A long āyah word-wraps at mobile width; the fixed legibility floor alone
+under-sized some lanes, letting wrapped text visually and functionally
+overlap the gutter/lane beneath it (caught by hit-testing during
+verification, not by eye). The governor now takes each lane's actual
+rendered height as an additional per-lane floor every render pass — text
+is never compressed below what it needs to avoid overlapping its
+neighbors. This is the concrete shape "sacred legibility minimum" takes
+once real, variable-length citation text is on the page instead of
+placeholder lines.
+
+**Scroll-driven focus is gated on a real user scroll event** (plus a short
+settle debounce) before it can move focus or engage the path-trace lock.
+An early version wired the visibility observer straight into focus/lock;
+layout settling right after the onboarding overlay closed produced
+spurious intersection changes that walked focus across several lanes —
+including through a deep checkpoint — with no reader input at all. Also
+caught by Playwright, not by hand-testing.
+
+**What's deliberately excluded (§5.5's written list):** no translation, no
+interpretation of meaning, no auto-play/scroll-jacking/gamification, no
+network/accounts/backend, no full-corpus import or registry beyond the 3
+sample pages, no margin content ever on the letterforms. Full list with
+citations in `prototype/QA_NOTES.md`.

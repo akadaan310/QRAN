@@ -1,0 +1,2044 @@
+{
+  "id": "page-2",
+  "title": "الكهف ٦٠–٧٤",
+  "sourceSurahs": [
+    {
+      "number": 18,
+      "name": "الكهف",
+      "ayahFrom": 60,
+      "ayahTo": 74
+    }
+  ],
+  "lanes": [
+    {
+      "lane": 1,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 60,
+      "words": [
+        {
+          "i": 1,
+          "marked": "وَإِذْ",
+          "skeleton": "واد",
+          "pos": "P",
+          "root": null,
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 3,
+          "marked": "مُوسَىٰ",
+          "skeleton": "موسب",
+          "pos": "N",
+          "root": null,
+          "lemma": "مُوسَى",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "لِفَتَىٰهُ",
+          "skeleton": "لفببه",
+          "pos": "P",
+          "root": "فتي",
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "لَآ",
+          "skeleton": "لا",
+          "pos": "P",
+          "root": null,
+          "lemma": "لا",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "أَبْرَحُ",
+          "skeleton": "ابرح",
+          "pos": "V",
+          "root": "برح",
+          "lemma": "أَبْرَحَ",
+          "person": "1S"
+        },
+        {
+          "i": 7,
+          "marked": "حَتَّىٰٓ",
+          "skeleton": "حبب",
+          "pos": "P",
+          "root": null,
+          "lemma": "حَتَّى",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "أَبْلُغَ",
+          "skeleton": "ابلع",
+          "pos": "V",
+          "root": "بلغ",
+          "lemma": "بَلَغَ",
+          "person": "1S"
+        },
+        {
+          "i": 9,
+          "marked": "مَجْمَعَ",
+          "skeleton": "محمع",
+          "pos": "N",
+          "root": "جمع",
+          "lemma": "مَجْمَع",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "ٱلْبَحْرَيْنِ",
+          "skeleton": "البحربب",
+          "pos": "P",
+          "root": "بحر",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 11,
+          "marked": "أَوْ",
+          "skeleton": "او",
+          "pos": "P",
+          "root": null,
+          "lemma": "أَو",
+          "person": null
+        },
+        {
+          "i": 12,
+          "marked": "أَمْضِىَ",
+          "skeleton": "امصب",
+          "pos": "V",
+          "root": "مضي",
+          "lemma": "مَضَى",
+          "person": "1S"
+        },
+        {
+          "i": 13,
+          "marked": "حُقُبًا",
+          "skeleton": "حقبا",
+          "pos": "N",
+          "root": "حقب",
+          "lemma": "حُقُب",
+          "person": null
+        }
+      ],
+      "wordCount": 13,
+      "state": {
+        "intensity": 0.358,
+        "friction": 0.35,
+        "axis": {
+          "address": 0,
+          "speaker": 0.75,
+          "absent": 0.25
+        },
+        "lens": "F01",
+        "depth": 0.35
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 2,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 61,
+      "words": [
+        {
+          "i": 1,
+          "marked": "فَلَمَّا",
+          "skeleton": "فلما",
+          "pos": "P",
+          "root": null,
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "بَلَغَا",
+          "skeleton": "بلعا",
+          "pos": "V",
+          "root": "بلغ",
+          "lemma": "بَلَغَ",
+          "person": "3MD"
+        },
+        {
+          "i": 3,
+          "marked": "مَجْمَعَ",
+          "skeleton": "محمع",
+          "pos": "N",
+          "root": "جمع",
+          "lemma": "مَجْمَع",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "بَيْنِهِمَا",
+          "skeleton": "بببهما",
+          "pos": "N",
+          "root": "بين",
+          "lemma": "بَيْن",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "نَسِيَا",
+          "skeleton": "بسبا",
+          "pos": "V",
+          "root": "نسي",
+          "lemma": "نَسِيَ",
+          "person": "3MD"
+        },
+        {
+          "i": 6,
+          "marked": "حُوتَهُمَا",
+          "skeleton": "حوبهما",
+          "pos": "N",
+          "root": "حوت",
+          "lemma": "حُوت",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "فَٱتَّخَذَ",
+          "skeleton": "فابحد",
+          "pos": "V",
+          "root": "أخذ",
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "سَبِيلَهُۥ",
+          "skeleton": "سببله",
+          "pos": "N",
+          "root": "سبل",
+          "lemma": "سَبِيل",
+          "person": null
+        },
+        {
+          "i": 9,
+          "marked": "فِى",
+          "skeleton": "فب",
+          "pos": "P",
+          "root": null,
+          "lemma": "فِي",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "ٱلْبَحْرِ",
+          "skeleton": "البحر",
+          "pos": "P",
+          "root": "بحر",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 11,
+          "marked": "سَرَبًا",
+          "skeleton": "سربا",
+          "pos": "N",
+          "root": "سرب",
+          "lemma": "سَرَب",
+          "person": null
+        }
+      ],
+      "wordCount": 11,
+      "state": {
+        "intensity": 0.425,
+        "friction": 0.432,
+        "axis": {
+          "address": 0,
+          "speaker": 0,
+          "absent": 1
+        },
+        "lens": "F04",
+        "depth": 0.432
+      },
+      "rationale": "انعطاف محور الإسناد من التكلم إلى الغَيبة."
+    },
+    {
+      "lane": 3,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 62,
+      "words": [
+        {
+          "i": 1,
+          "marked": "فَلَمَّا",
+          "skeleton": "فلما",
+          "pos": "P",
+          "root": null,
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "جَاوَزَا",
+          "skeleton": "حاورا",
+          "pos": "V",
+          "root": "جوز",
+          "lemma": "جاوَزَ",
+          "person": "3MD"
+        },
+        {
+          "i": 3,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 4,
+          "marked": "لِفَتَىٰهُ",
+          "skeleton": "لفببه",
+          "pos": "P",
+          "root": "فتي",
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "ءَاتِنَا",
+          "skeleton": "ااببا",
+          "pos": "V",
+          "root": "أتي",
+          "lemma": "آتَى",
+          "person": "2MS"
+        },
+        {
+          "i": 6,
+          "marked": "غَدَآءَنَا",
+          "skeleton": "عداابا",
+          "pos": "N",
+          "root": "غدو",
+          "lemma": "غَداء",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "لَقَدْ",
+          "skeleton": "لقد",
+          "pos": "P",
+          "root": null,
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "لَقِينَا",
+          "skeleton": "لقببا",
+          "pos": "V",
+          "root": "لقي",
+          "lemma": "لَقُ",
+          "person": "1P"
+        },
+        {
+          "i": 9,
+          "marked": "مِن",
+          "skeleton": "مب",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "سَفَرِنَا",
+          "skeleton": "سفربا",
+          "pos": "N",
+          "root": "سفر",
+          "lemma": "سَفَر",
+          "person": null
+        },
+        {
+          "i": 11,
+          "marked": "هَٰذَا",
+          "skeleton": "هدا",
+          "pos": "P",
+          "root": null,
+          "lemma": "ه",
+          "person": null
+        },
+        {
+          "i": 12,
+          "marked": "نَصَبًا",
+          "skeleton": "بصبا",
+          "pos": "N",
+          "root": "نصب",
+          "lemma": "نَصَب",
+          "person": null
+        }
+      ],
+      "wordCount": 12,
+      "state": {
+        "intensity": 0.405,
+        "friction": 0.4,
+        "axis": {
+          "address": 0.25,
+          "speaker": 0.25,
+          "absent": 0.5
+        },
+        "lens": "F01",
+        "depth": 0.4
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 4,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 63,
+      "words": [
+        {
+          "i": 1,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "أَرَءَيْتَ",
+          "skeleton": "ارابب",
+          "pos": "V",
+          "root": "رأي",
+          "lemma": "أ",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "إِذْ",
+          "skeleton": "اد",
+          "pos": "N",
+          "root": null,
+          "lemma": "إِذ",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "أَوَيْنَآ",
+          "skeleton": "اوببا",
+          "pos": "V",
+          "root": "أوي",
+          "lemma": "أَوَى",
+          "person": "1P"
+        },
+        {
+          "i": 5,
+          "marked": "إِلَى",
+          "skeleton": "الب",
+          "pos": "P",
+          "root": null,
+          "lemma": "إِلَى",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "ٱلصَّخْرَةِ",
+          "skeleton": "الصحره",
+          "pos": "P",
+          "root": "صخر",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "فَإِنِّى",
+          "skeleton": "فابب",
+          "pos": "P",
+          "root": null,
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "نَسِيتُ",
+          "skeleton": "بسبب",
+          "pos": "V",
+          "root": "نسي",
+          "lemma": "نَسِيَ",
+          "person": "1S"
+        },
+        {
+          "i": 9,
+          "marked": "ٱلْحُوتَ",
+          "skeleton": "الحوب",
+          "pos": "P",
+          "root": "حوت",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "وَمَآ",
+          "skeleton": "وما",
+          "pos": "P",
+          "root": null,
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 11,
+          "marked": "أَنسَىٰنِيهُ",
+          "skeleton": "ابسبببه",
+          "pos": "V",
+          "root": "نسي",
+          "lemma": "أَنسَى",
+          "person": "3MS"
+        },
+        {
+          "i": 12,
+          "marked": "إِلَّا",
+          "skeleton": "الا",
+          "pos": "P",
+          "root": null,
+          "lemma": "إِلّا",
+          "person": null
+        },
+        {
+          "i": 13,
+          "marked": "ٱلشَّيْطَٰنُ",
+          "skeleton": "السبطب",
+          "pos": "P",
+          "root": "شطن",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 14,
+          "marked": "أَنْ",
+          "skeleton": "اب",
+          "pos": "P",
+          "root": null,
+          "lemma": "أَن",
+          "person": null
+        },
+        {
+          "i": 15,
+          "marked": "أَذْكُرَهُۥ",
+          "skeleton": "ادكره",
+          "pos": "V",
+          "root": "ذكر",
+          "lemma": "ذَكَرَ",
+          "person": "1S"
+        },
+        {
+          "i": 16,
+          "marked": "وَٱتَّخَذَ",
+          "skeleton": "وابحد",
+          "pos": "V",
+          "root": "أخذ",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 17,
+          "marked": "سَبِيلَهُۥ",
+          "skeleton": "سببله",
+          "pos": "N",
+          "root": "سبل",
+          "lemma": "سَبِيل",
+          "person": null
+        },
+        {
+          "i": 18,
+          "marked": "فِى",
+          "skeleton": "فب",
+          "pos": "P",
+          "root": null,
+          "lemma": "فِي",
+          "person": null
+        },
+        {
+          "i": 19,
+          "marked": "ٱلْبَحْرِ",
+          "skeleton": "البحر",
+          "pos": "P",
+          "root": "بحر",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 20,
+          "marked": "عَجَبًا",
+          "skeleton": "عحبا",
+          "pos": "N",
+          "root": "عجب",
+          "lemma": "عَجَب",
+          "person": null
+        }
+      ],
+      "wordCount": 20,
+      "state": {
+        "intensity": 0.708,
+        "friction": 0.805,
+        "axis": {
+          "address": 0,
+          "speaker": 0.6,
+          "absent": 0.4
+        },
+        "lens": "F01",
+        "depth": 0.805
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 5,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 64,
+      "words": [
+        {
+          "i": 1,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "ذَٰلِكَ",
+          "skeleton": "دلك",
+          "pos": "N",
+          "root": null,
+          "lemma": "ذا",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "مَا",
+          "skeleton": "ما",
+          "pos": "N",
+          "root": null,
+          "lemma": "ما",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "كُنَّا",
+          "skeleton": "كبا",
+          "pos": "V",
+          "root": "كون",
+          "lemma": "كانَ",
+          "person": "1P"
+        },
+        {
+          "i": 5,
+          "marked": "نَبْغِ",
+          "skeleton": "ببع",
+          "pos": "V",
+          "root": "بغي",
+          "lemma": "بَغَى",
+          "person": "1P"
+        },
+        {
+          "i": 6,
+          "marked": "فَٱرْتَدَّا",
+          "skeleton": "فاربدا",
+          "pos": "V",
+          "root": "ردد",
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "عَلَىٰٓ",
+          "skeleton": "علب",
+          "pos": "P",
+          "root": null,
+          "lemma": "عَلَى",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "ءَاثَارِهِمَا",
+          "skeleton": "اابارهما",
+          "pos": "N",
+          "root": "أثر",
+          "lemma": "أَثَر",
+          "person": null
+        },
+        {
+          "i": 9,
+          "marked": "قَصَصًا",
+          "skeleton": "قصصا",
+          "pos": "N",
+          "root": "قصص",
+          "lemma": "قَصَص",
+          "person": null
+        }
+      ],
+      "wordCount": 9,
+      "state": {
+        "intensity": 0.298,
+        "friction": 0.383,
+        "axis": {
+          "address": 0,
+          "speaker": 0.667,
+          "absent": 0.333
+        },
+        "lens": "F01",
+        "depth": 0.383
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 6,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 65,
+      "words": [
+        {
+          "i": 1,
+          "marked": "فَوَجَدَا",
+          "skeleton": "فوحدا",
+          "pos": "V",
+          "root": "وجد",
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "عَبْدًا",
+          "skeleton": "عبدا",
+          "pos": "N",
+          "root": "عبد",
+          "lemma": "عَبْد",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "مِّنْ",
+          "skeleton": "مب",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "عِبَادِنَآ",
+          "skeleton": "عبادبا",
+          "pos": "N",
+          "root": "عبد",
+          "lemma": "عَبْد",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "ءَاتَيْنَٰهُ",
+          "skeleton": "اابببه",
+          "pos": "V",
+          "root": "أتي",
+          "lemma": "آتَى",
+          "person": "1P"
+        },
+        {
+          "i": 6,
+          "marked": "رَحْمَةً",
+          "skeleton": "رحمه",
+          "pos": "N",
+          "root": "رحم",
+          "lemma": "رَحْمَة",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "مِّنْ",
+          "skeleton": "مب",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "عِندِنَا",
+          "skeleton": "عبدبا",
+          "pos": "N",
+          "root": "عند",
+          "lemma": "عِند",
+          "person": null
+        },
+        {
+          "i": 9,
+          "marked": "وَعَلَّمْنَٰهُ",
+          "skeleton": "وعلمبه",
+          "pos": "V",
+          "root": "علم",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "مِن",
+          "skeleton": "مب",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 11,
+          "marked": "لَّدُنَّا",
+          "skeleton": "لدبا",
+          "pos": "N",
+          "root": "لدن",
+          "lemma": "لَدُن",
+          "person": null
+        },
+        {
+          "i": 12,
+          "marked": "عِلْمًا",
+          "skeleton": "علما",
+          "pos": "N",
+          "root": "علم",
+          "lemma": "عِلْم",
+          "person": null
+        }
+      ],
+      "wordCount": 12,
+      "state": {
+        "intensity": 0.368,
+        "friction": 0.025,
+        "axis": {
+          "address": 0,
+          "speaker": 1,
+          "absent": 0
+        },
+        "lens": "F09",
+        "depth": 0.025
+      },
+      "rationale": "الجذر «أتي» يعود بعد ورودٍ سابق في الصفحة."
+    },
+    {
+      "lane": 7,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 66,
+      "words": [
+        {
+          "i": 1,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "لَهُۥ",
+          "skeleton": "له",
+          "pos": "P",
+          "root": null,
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "مُوسَىٰ",
+          "skeleton": "موسب",
+          "pos": "N",
+          "root": null,
+          "lemma": "مُوسَى",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "هَلْ",
+          "skeleton": "هل",
+          "pos": "P",
+          "root": null,
+          "lemma": "هَل",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "أَتَّبِعُكَ",
+          "skeleton": "اببعك",
+          "pos": "V",
+          "root": "تبع",
+          "lemma": "اتَّبَعَ",
+          "person": "1S"
+        },
+        {
+          "i": 6,
+          "marked": "عَلَىٰٓ",
+          "skeleton": "علب",
+          "pos": "P",
+          "root": null,
+          "lemma": "عَلَى",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "أَن",
+          "skeleton": "اب",
+          "pos": "P",
+          "root": null,
+          "lemma": "أَن",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "تُعَلِّمَنِ",
+          "skeleton": "بعلمب",
+          "pos": "V",
+          "root": "علم",
+          "lemma": "عَلَّمَ",
+          "person": "2MS"
+        },
+        {
+          "i": 9,
+          "marked": "مِمَّا",
+          "skeleton": "مما",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "عُلِّمْتَ",
+          "skeleton": "علمب",
+          "pos": "V",
+          "root": "علم",
+          "lemma": "عَلَّمَ",
+          "person": "2MS"
+        },
+        {
+          "i": 11,
+          "marked": "رُشْدًا",
+          "skeleton": "رسدا",
+          "pos": "N",
+          "root": "رشد",
+          "lemma": "رُشْد",
+          "person": null
+        }
+      ],
+      "wordCount": 11,
+      "state": {
+        "intensity": 0.425,
+        "friction": 0.782,
+        "axis": {
+          "address": 0.5,
+          "speaker": 0.25,
+          "absent": 0.25
+        },
+        "lens": "F01",
+        "depth": 0.782
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 8,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 67,
+      "words": [
+        {
+          "i": 1,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "إِنَّكَ",
+          "skeleton": "ابك",
+          "pos": "P",
+          "root": null,
+          "lemma": "إِنّ",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "لَن",
+          "skeleton": "لب",
+          "pos": "P",
+          "root": null,
+          "lemma": "لَن",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "تَسْتَطِيعَ",
+          "skeleton": "بسبطبع",
+          "pos": "V",
+          "root": "طوع",
+          "lemma": "اسْتَطاعَ",
+          "person": "2MS"
+        },
+        {
+          "i": 5,
+          "marked": "مَعِىَ",
+          "skeleton": "معب",
+          "pos": "N",
+          "root": null,
+          "lemma": "مَع",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "صَبْرًا",
+          "skeleton": "صبرا",
+          "pos": "N",
+          "root": "صبر",
+          "lemma": "صَبْر",
+          "person": null
+        }
+      ],
+      "wordCount": 6,
+      "state": {
+        "intensity": 0.24,
+        "friction": 0.4,
+        "axis": {
+          "address": 0.5,
+          "speaker": 0,
+          "absent": 0.5
+        },
+        "lens": "F01",
+        "depth": 0.4
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 9,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 68,
+      "words": [
+        {
+          "i": 1,
+          "marked": "وَكَيْفَ",
+          "skeleton": "وكبف",
+          "pos": "P",
+          "root": "كيف",
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "تَصْبِرُ",
+          "skeleton": "بصبر",
+          "pos": "V",
+          "root": "صبر",
+          "lemma": "صَبَرَ",
+          "person": "2MS"
+        },
+        {
+          "i": 3,
+          "marked": "عَلَىٰ",
+          "skeleton": "علب",
+          "pos": "P",
+          "root": null,
+          "lemma": "عَلَى",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "مَا",
+          "skeleton": "ما",
+          "pos": "N",
+          "root": null,
+          "lemma": "ما",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "لَمْ",
+          "skeleton": "لم",
+          "pos": "P",
+          "root": null,
+          "lemma": "لَم",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "تُحِطْ",
+          "skeleton": "بحط",
+          "pos": "V",
+          "root": "حوط",
+          "lemma": "أَحاطَ",
+          "person": "2MS"
+        },
+        {
+          "i": 7,
+          "marked": "بِهِۦ",
+          "skeleton": "به",
+          "pos": "P",
+          "root": null,
+          "lemma": "ب",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "خُبْرًا",
+          "skeleton": "حبرا",
+          "pos": "N",
+          "root": "خبر",
+          "lemma": "خُبْر",
+          "person": null
+        }
+      ],
+      "wordCount": 8,
+      "state": {
+        "intensity": 0.276,
+        "friction": 0.038,
+        "axis": {
+          "address": 1,
+          "speaker": 0,
+          "absent": 0
+        },
+        "lens": "F09",
+        "depth": 0.038
+      },
+      "rationale": "الجذر «صبر» يعود بعد ورودٍ سابق في الصفحة."
+    },
+    {
+      "lane": 10,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 69,
+      "words": [
+        {
+          "i": 1,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "سَتَجِدُنِىٓ",
+          "skeleton": "سبحدبب",
+          "pos": "V",
+          "root": "وجد",
+          "lemma": "س",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "إِن",
+          "skeleton": "اب",
+          "pos": "P",
+          "root": null,
+          "lemma": "إِن",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "شَآءَ",
+          "skeleton": "ساا",
+          "pos": "V",
+          "root": "شيأ",
+          "lemma": "شاءَ",
+          "person": "3MS"
+        },
+        {
+          "i": 5,
+          "marked": "ٱللَّهُ",
+          "skeleton": "الله",
+          "pos": "N",
+          "root": "أله",
+          "lemma": "اللَّه",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "صَابِرًا",
+          "skeleton": "صابرا",
+          "pos": "N",
+          "root": "صبر",
+          "lemma": "صابِر",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "وَلَآ",
+          "skeleton": "ولا",
+          "pos": "P",
+          "root": null,
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "أَعْصِى",
+          "skeleton": "اعصب",
+          "pos": "V",
+          "root": "عصي",
+          "lemma": "عَصا",
+          "person": "1S"
+        },
+        {
+          "i": 9,
+          "marked": "لَكَ",
+          "skeleton": "لك",
+          "pos": "P",
+          "root": null,
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "أَمْرًا",
+          "skeleton": "امرا",
+          "pos": "N",
+          "root": "أمر",
+          "lemma": "أَمْر",
+          "person": null
+        }
+      ],
+      "wordCount": 10,
+      "state": {
+        "intensity": 0.41,
+        "friction": 0.79,
+        "axis": {
+          "address": 0,
+          "speaker": 0.333,
+          "absent": 0.667
+        },
+        "lens": "F01",
+        "depth": 0.79
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 11,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 70,
+      "words": [
+        {
+          "i": 1,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "فَإِنِ",
+          "skeleton": "فاب",
+          "pos": "P",
+          "root": null,
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "ٱتَّبَعْتَنِى",
+          "skeleton": "اببعببب",
+          "pos": "V",
+          "root": "تبع",
+          "lemma": "اتَّبَعَ",
+          "person": "2MS"
+        },
+        {
+          "i": 4,
+          "marked": "فَلَا",
+          "skeleton": "فلا",
+          "pos": "P",
+          "root": null,
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "تَسْـَٔلْنِى",
+          "skeleton": "بسلبب",
+          "pos": "V",
+          "root": "سأل",
+          "lemma": "سَأَلَ",
+          "person": "2MS"
+        },
+        {
+          "i": 6,
+          "marked": "عَن",
+          "skeleton": "عب",
+          "pos": "P",
+          "root": null,
+          "lemma": "عَن",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "شَىْءٍ",
+          "skeleton": "سبا",
+          "pos": "N",
+          "root": "شيأ",
+          "lemma": "شَىْء",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "حَتَّىٰٓ",
+          "skeleton": "حبب",
+          "pos": "P",
+          "root": null,
+          "lemma": "حَتَّى",
+          "person": null
+        },
+        {
+          "i": 9,
+          "marked": "أُحْدِثَ",
+          "skeleton": "احدب",
+          "pos": "V",
+          "root": "حدث",
+          "lemma": "يُحْدِثُ",
+          "person": "1S"
+        },
+        {
+          "i": 10,
+          "marked": "لَكَ",
+          "skeleton": "لك",
+          "pos": "P",
+          "root": null,
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 11,
+          "marked": "مِنْهُ",
+          "skeleton": "مبه",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 12,
+          "marked": "ذِكْرًا",
+          "skeleton": "دكرا",
+          "pos": "N",
+          "root": "ذكر",
+          "lemma": "ذِكْر",
+          "person": null
+        }
+      ],
+      "wordCount": 12,
+      "state": {
+        "intensity": 0.48,
+        "friction": 0.8,
+        "axis": {
+          "address": 0.5,
+          "speaker": 0.25,
+          "absent": 0.25
+        },
+        "lens": "F01",
+        "depth": 0.8
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 12,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 71,
+      "words": [
+        {
+          "i": 1,
+          "marked": "فَٱنطَلَقَا",
+          "skeleton": "فابطلقا",
+          "pos": "V",
+          "root": "طلق",
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "حَتَّىٰٓ",
+          "skeleton": "حبب",
+          "pos": "P",
+          "root": null,
+          "lemma": "حَتَّى",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "إِذَا",
+          "skeleton": "ادا",
+          "pos": "N",
+          "root": null,
+          "lemma": "إِذا",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "رَكِبَا",
+          "skeleton": "ركبا",
+          "pos": "V",
+          "root": "ركب",
+          "lemma": "رَكِبَ",
+          "person": "3MD"
+        },
+        {
+          "i": 5,
+          "marked": "فِى",
+          "skeleton": "فب",
+          "pos": "P",
+          "root": null,
+          "lemma": "فِي",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "ٱلسَّفِينَةِ",
+          "skeleton": "السفببه",
+          "pos": "P",
+          "root": "سفن",
+          "lemma": "ال",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "خَرَقَهَا",
+          "skeleton": "حرقها",
+          "pos": "V",
+          "root": "خرق",
+          "lemma": "خَرَقَ",
+          "person": "3MS"
+        },
+        {
+          "i": 8,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 9,
+          "marked": "أَخَرَقْتَهَا",
+          "skeleton": "احرقبها",
+          "pos": "V",
+          "root": "خرق",
+          "lemma": "أ",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "لِتُغْرِقَ",
+          "skeleton": "لبعرق",
+          "pos": "V",
+          "root": "غرق",
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 11,
+          "marked": "أَهْلَهَا",
+          "skeleton": "اهلها",
+          "pos": "N",
+          "root": "أهل",
+          "lemma": "أَهْل",
+          "person": null
+        },
+        {
+          "i": 12,
+          "marked": "لَقَدْ",
+          "skeleton": "لقد",
+          "pos": "P",
+          "root": null,
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 13,
+          "marked": "جِئْتَ",
+          "skeleton": "حبب",
+          "pos": "V",
+          "root": "جيأ",
+          "lemma": "جاءَ",
+          "person": "2MS"
+        },
+        {
+          "i": 14,
+          "marked": "شَيْـًٔا",
+          "skeleton": "سبا",
+          "pos": "N",
+          "root": "شيأ",
+          "lemma": "شَىْء",
+          "person": null
+        },
+        {
+          "i": 15,
+          "marked": "إِمْرًا",
+          "skeleton": "امرا",
+          "pos": "N",
+          "root": "أمر",
+          "lemma": "إِمْر",
+          "person": null
+        }
+      ],
+      "wordCount": 15,
+      "state": {
+        "intensity": 0.503,
+        "friction": 0.76,
+        "axis": {
+          "address": 0.25,
+          "speaker": 0,
+          "absent": 0.75
+        },
+        "lens": "F01",
+        "depth": 0.76
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 13,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 72,
+      "words": [
+        {
+          "i": 1,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "أَلَمْ",
+          "skeleton": "الم",
+          "pos": "N",
+          "root": null,
+          "lemma": "أ",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "أَقُلْ",
+          "skeleton": "اقل",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "1S"
+        },
+        {
+          "i": 4,
+          "marked": "إِنَّكَ",
+          "skeleton": "ابك",
+          "pos": "P",
+          "root": null,
+          "lemma": "إِنّ",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "لَن",
+          "skeleton": "لب",
+          "pos": "P",
+          "root": null,
+          "lemma": "لَن",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "تَسْتَطِيعَ",
+          "skeleton": "بسبطبع",
+          "pos": "V",
+          "root": "طوع",
+          "lemma": "اسْتَطاعَ",
+          "person": "2MS"
+        },
+        {
+          "i": 7,
+          "marked": "مَعِىَ",
+          "skeleton": "معب",
+          "pos": "N",
+          "root": null,
+          "lemma": "مَع",
+          "person": null
+        },
+        {
+          "i": 8,
+          "marked": "صَبْرًا",
+          "skeleton": "صبرا",
+          "pos": "N",
+          "root": "صبر",
+          "lemma": "صَبْر",
+          "person": null
+        }
+      ],
+      "wordCount": 8,
+      "state": {
+        "intensity": 0.445,
+        "friction": 0.85,
+        "axis": {
+          "address": 0.333,
+          "speaker": 0.333,
+          "absent": 0.333
+        },
+        "lens": "F01",
+        "depth": 0.85
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 14,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 73,
+      "words": [
+        {
+          "i": 1,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 2,
+          "marked": "لَا",
+          "skeleton": "لا",
+          "pos": "P",
+          "root": null,
+          "lemma": "لا",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "تُؤَاخِذْنِى",
+          "skeleton": "بواحدبب",
+          "pos": "V",
+          "root": "أخذ",
+          "lemma": "يُؤاخِذُ",
+          "person": "2MS"
+        },
+        {
+          "i": 4,
+          "marked": "بِمَا",
+          "skeleton": "بما",
+          "pos": "P",
+          "root": null,
+          "lemma": "ب",
+          "person": null
+        },
+        {
+          "i": 5,
+          "marked": "نَسِيتُ",
+          "skeleton": "بسبب",
+          "pos": "V",
+          "root": "نسي",
+          "lemma": "نَسِيَ",
+          "person": "1S"
+        },
+        {
+          "i": 6,
+          "marked": "وَلَا",
+          "skeleton": "ولا",
+          "pos": "P",
+          "root": null,
+          "lemma": "و",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "تُرْهِقْنِى",
+          "skeleton": "برهقبب",
+          "pos": "V",
+          "root": "رهق",
+          "lemma": "يُرْهِقَ",
+          "person": "2MS"
+        },
+        {
+          "i": 8,
+          "marked": "مِنْ",
+          "skeleton": "مب",
+          "pos": "P",
+          "root": null,
+          "lemma": "مِن",
+          "person": null
+        },
+        {
+          "i": 9,
+          "marked": "أَمْرِى",
+          "skeleton": "امرب",
+          "pos": "N",
+          "root": "أمر",
+          "lemma": "أَمْر",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "عُسْرًا",
+          "skeleton": "عسرا",
+          "pos": "N",
+          "root": "عسر",
+          "lemma": "عُسْر",
+          "person": null
+        }
+      ],
+      "wordCount": 10,
+      "state": {
+        "intensity": 0.455,
+        "friction": 0.47,
+        "axis": {
+          "address": 0.5,
+          "speaker": 0.25,
+          "absent": 0.25
+        },
+        "lens": "F01",
+        "depth": 0.47
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 15,
+      "surah": 18,
+      "surahName": "الكهف",
+      "ayah": 74,
+      "words": [
+        {
+          "i": 1,
+          "marked": "فَٱنطَلَقَا",
+          "skeleton": "فابطلقا",
+          "pos": "V",
+          "root": "طلق",
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 2,
+          "marked": "حَتَّىٰٓ",
+          "skeleton": "حبب",
+          "pos": "P",
+          "root": null,
+          "lemma": "حَتَّى",
+          "person": null
+        },
+        {
+          "i": 3,
+          "marked": "إِذَا",
+          "skeleton": "ادا",
+          "pos": "N",
+          "root": null,
+          "lemma": "إِذا",
+          "person": null
+        },
+        {
+          "i": 4,
+          "marked": "لَقِيَا",
+          "skeleton": "لقبا",
+          "pos": "V",
+          "root": "لقي",
+          "lemma": "لَقُ",
+          "person": "3MD"
+        },
+        {
+          "i": 5,
+          "marked": "غُلَٰمًا",
+          "skeleton": "علما",
+          "pos": "N",
+          "root": "غلم",
+          "lemma": "غُلام",
+          "person": null
+        },
+        {
+          "i": 6,
+          "marked": "فَقَتَلَهُۥ",
+          "skeleton": "فقبله",
+          "pos": "V",
+          "root": "قتل",
+          "lemma": "ف",
+          "person": null
+        },
+        {
+          "i": 7,
+          "marked": "قَالَ",
+          "skeleton": "قال",
+          "pos": "V",
+          "root": "قول",
+          "lemma": "قالَ",
+          "person": "3MS"
+        },
+        {
+          "i": 8,
+          "marked": "أَقَتَلْتَ",
+          "skeleton": "اقبلب",
+          "pos": "V",
+          "root": "قتل",
+          "lemma": "أ",
+          "person": null
+        },
+        {
+          "i": 9,
+          "marked": "نَفْسًا",
+          "skeleton": "بفسا",
+          "pos": "N",
+          "root": "نفس",
+          "lemma": "نَفْس",
+          "person": null
+        },
+        {
+          "i": 10,
+          "marked": "زَكِيَّةًۢ",
+          "skeleton": "ركبه",
+          "pos": "N",
+          "root": "زكو",
+          "lemma": "زَكِيَّة",
+          "person": null
+        },
+        {
+          "i": 11,
+          "marked": "بِغَيْرِ",
+          "skeleton": "بعبر",
+          "pos": "P",
+          "root": "غير",
+          "lemma": "ب",
+          "person": null
+        },
+        {
+          "i": 12,
+          "marked": "نَفْسٍ",
+          "skeleton": "بفس",
+          "pos": "N",
+          "root": "نفس",
+          "lemma": "نَفْس",
+          "person": null
+        },
+        {
+          "i": 13,
+          "marked": "لَّقَدْ",
+          "skeleton": "لقد",
+          "pos": "P",
+          "root": null,
+          "lemma": "ل",
+          "person": null
+        },
+        {
+          "i": 14,
+          "marked": "جِئْتَ",
+          "skeleton": "حبب",
+          "pos": "V",
+          "root": "جيأ",
+          "lemma": "جاءَ",
+          "person": "2MS"
+        },
+        {
+          "i": 15,
+          "marked": "شَيْـًٔا",
+          "skeleton": "سبا",
+          "pos": "N",
+          "root": "شيأ",
+          "lemma": "شَىْء",
+          "person": null
+        },
+        {
+          "i": 16,
+          "marked": "نُّكْرًا",
+          "skeleton": "بكرا",
+          "pos": "N",
+          "root": "نكر",
+          "lemma": "نُكْر",
+          "person": null
+        }
+      ],
+      "wordCount": 16,
+      "state": {
+        "intensity": 0.581,
+        "friction": 0.794,
+        "axis": {
+          "address": 0.333,
+          "speaker": 0,
+          "absent": 0.667
+        },
+        "lens": "F01",
+        "depth": 0.794
+      },
+      "rationale": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    }
+  ],
+  "roots": {
+    "قول": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "فتي": [
+      1,
+      3
+    ],
+    "بلغ": [
+      1,
+      2
+    ],
+    "جمع": [
+      1,
+      2
+    ],
+    "بحر": [
+      1,
+      2,
+      4
+    ],
+    "نسي": [
+      2,
+      4,
+      14
+    ],
+    "حوت": [
+      2,
+      4
+    ],
+    "أخذ": [
+      2,
+      4,
+      14
+    ],
+    "سبل": [
+      2,
+      4
+    ],
+    "أتي": [
+      3,
+      6
+    ],
+    "لقي": [
+      3,
+      15
+    ],
+    "ذكر": [
+      4,
+      11
+    ],
+    "وجد": [
+      6,
+      10
+    ],
+    "علم": [
+      6,
+      7
+    ],
+    "تبع": [
+      7,
+      11
+    ],
+    "طوع": [
+      8,
+      13
+    ],
+    "صبر": [
+      8,
+      9,
+      10,
+      13
+    ],
+    "شيأ": [
+      10,
+      11,
+      12,
+      15
+    ],
+    "أمر": [
+      10,
+      12,
+      14
+    ],
+    "طلق": [
+      12,
+      15
+    ],
+    "جيأ": [
+      12,
+      15
+    ]
+  },
+  "checkpoints": [
+    {
+      "lane": 4,
+      "depth": "deep",
+      "label": "الكهف 63",
+      "note": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 7,
+      "depth": "deep",
+      "label": "الكهف 66",
+      "note": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 10,
+      "depth": "deep",
+      "label": "الكهف 69",
+      "note": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 11,
+      "depth": "deep",
+      "label": "الكهف 70",
+      "note": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 12,
+      "depth": "deep",
+      "label": "الكهف 71",
+      "note": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 13,
+      "depth": "deep",
+      "label": "الكهف 72",
+      "note": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    },
+    {
+      "lane": 15,
+      "depth": "deep",
+      "label": "الكهف 74",
+      "note": "فعل قول يفتح صوتًا داخليًا محتملًا داخل السطر (جذر ق-و-ل)."
+    }
+  ],
+  "provenance": {
+    "corpus": [
+      "references/isnaad/data/corpus/18.txt"
+    ],
+    "corpusSource": "Tanzil Uthmani text + Quranic Arabic Corpus v0.4 morphology, vendored by references/isnaad (see its README.md and docs/PROJECT.md)",
+    "method": "heuristic fixture derivation (prototype/scripts/gen-fixtures.mjs) from real per-word morphology — root repetition on the page, person-tag axis blend, direct-speech verb detection. NOT raw isnaad-detector or al-Mirtal-edge output for these loci.",
+    "isFixture": true,
+    "generatedBy": "scripts/gen-fixtures.mjs",
+    "generatedAt": "2026-09-20T08:29:14.873Z"
+  }
+}

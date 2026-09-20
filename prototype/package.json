@@ -1,0 +1,18 @@
+{
+  "name": "interstellar-quran-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Phase 1 — Immersion UI System interactive prototype (approval gate). Mobile-only.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview",
+    "fixtures": "node scripts/gen-fixtures.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

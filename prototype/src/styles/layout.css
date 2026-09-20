@@ -1,0 +1,400 @@
+/*
+ * Layout — canvas geometry (spec-ui/01), HUD rails (spec-ui/04), orbit and
+ * rasm modes. Page bound is immutable; only the interior breathes.
+ * Non-covering law: instrumentation lives in .rail and .gutter only, never
+ * on .lane__text.
+ */
+
+#app { min-height: 100dvh; }
+
+.viewport {
+  position: relative;
+  min-height: 100dvh;
+  padding-top: var(--safe-t);
+  padding-bottom: var(--safe-b);
+  padding-inline: max(var(--safe-l), 0px) max(var(--safe-r), 0px);
+  background: var(--color-ground);
+}
+
+/* -- field layer: starfield ground -- */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 50% -10%, var(--color-ground-2), var(--color-ground) 70%);
+  pointer-events: none;
+}
+.starfield canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.starfield[data-degraded="1"] canvas { display: none; }
+
+/* -- page bound: rigid, immutable rectangle -- */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-2);
+  display: grid;
+  grid-template-columns: minmax(30px, 9vw) 1fr minmax(30px, 9vw);
+  gap: var(--space-1);
+  touch-action: pan-y;
+}
+
+/* -- margin rails: operating tracks, no content, ever -- */
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: var(--space-1) 0;
+}
+.rail__cell {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  position: relative;
+  padding: 2px 1px;
+  opacity: 0.4; /* Rest state default; HUD state controls this */
+  transition: opacity var(--t-fast) linear, transform var(--t-breath) var(--ease-drift);
+}
+.page[data-hud="tracking"] .rail__cell,
+.page[data-hud="lens"] .rail__cell,
+.page[data-hud="orbit"] .rail__cell,
+.page[data-hud="locked"] .rail__cell {
+  opacity: 0.85;
+}
+.page[data-hud="rasm"] .rail__cell { opacity: 0.22; }
+.rail__cell[data-focused="1"] { opacity: 1; transform: scale(1.06); }
+
+.rail--left .rail__cell { align-items: flex-end; }
+.rail--right .rail__cell { align-items: flex-start; }
+
+/* proximity ticker (F13) */
+.ticker { width: 100%; height: 10px; position: relative; }
+.ticker__track { position: absolute; inset: 2px 0; border-top: 1px solid var(--color-line); }
+.ticker__marker {
+  position: absolute; top: -2px; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-interactive);
+  transition: left var(--t-breath) var(--ease-drift), right var(--t-breath) var(--ease-drift);
+}
+.ticker__marker.jump { animation: ripple var(--t-fast) var(--ease-drift); }
+
+/* rigidity rail (F12): vertical spine of ticks */
+.rigidity { display: flex; flex-direction: column; gap: 1px; }
+.rigidity__tick { width: 10px; height: 2px; background: var(--color-line); }
+.rigidity__tick[data-on="1"] { background: var(--color-text-quiet); }
+
+/* timeline checkpoint (F16 / product-spec/04) */
+.checkpoint { width: 8px; height: 8px; border-radius: 50%; background: var(--color-line); }
+.checkpoint[data-depth="deep"] { width: 14px; height: 8px; border-radius: 2px; }
+.checkpoint[data-glow="1"] { animation: tick-glow 1.1s ease-in-out infinite; background: var(--color-accent); }
+.checkpoint[data-authored="1"] { outline: 1px dashed var(--color-interactive); outline-offset: 2px; }
+
+/* attribution glyphs (right rail) */
+.attrib { display: flex; gap: 2px; flex-wrap: wrap; max-width: 22px; justify-content: flex-start; }
+.attrib__glyph { font-size: 9px; color: var(--color-text-quiet); line-height: 1; }
+.attrib__glyph[data-active="1"] { color: var(--color-interactive); }
+
+/* friction meter (F10) */
+.friction { width: 100%; height: 6px; background: var(--color-line); border-radius: 3px; overflow: hidden; }
+.friction__bar {
+  height: 100%; background: var(--color-danger); width: 0%;
+  transition: width var(--t-breath) var(--ease-drift);
+}
+.friction__bar[data-hot="1"] { background: var(--color-accent); }
+
+/* depth cursor (F18) */
+.depth-cursor { width: 6px; height: 6px; border-radius: 50%; border: 1px solid var(--color-interactive); }
+.rail__cell[data-cursor="1"] .depth-cursor { background: var(--color-interactive); }
+
+/* breath indicator (F20) — the one visible governor element */
+.breath {
+  position: fixed;
+  right: max(var(--safe-r), 6px);
+  bottom: max(var(--safe-b), 6px);
+  z-index: 5;
+  width: 90px; height: 3px;
+  background: var(--color-line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+[dir="rtl"] .breath { right: auto; left: max(var(--safe-l), 6px); }
+.breath__fill { height: 100%; width: 0%; background: var(--color-interactive); transition: width var(--t-breath) var(--ease-drift); }
+
+/* -- lanes: the 15-vector array -- */
+.lanes { display: flex; flex-direction: column; min-width: 0; position: relative; }
+
+/* F15 echo-trajectory arcs: painted first (DOM order), so lane backgrounds
+   and text — later siblings, no z-index needed — always paint over them.
+   Satisfies the non-covering law without fighting stacking contexts. */
+.trajectory-overlay { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+
+.lane {
+  position: relative;
+  min-height: var(--lane-min-h, 52px);
+  height: var(--lane-h, 60px);
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: height var(--t-breath) var(--ease-drift), transform var(--t-breath) var(--ease-drift), filter var(--t-breath) var(--ease-drift), background-color var(--t-fast) linear;
+  transform: translateZ(0) scale(calc(1 + var(--lv-depth, 0) * 0.02));
+  filter: blur(calc(var(--lane-defocus, 0) * 1.4px));
+  will-change: height, transform;
+}
+.lane[data-focused="1"] { background: color-mix(in srgb, var(--color-panel) 55%, transparent); }
+.lane[data-warm="1"] { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.lane[data-cool="1"] { filter: saturate(0.85) blur(calc(var(--lane-defocus,0) * 1.4px)); }
+
+.lane__text { flex: 1; margin: 0; }
+
+/* seam fault line + row split (F01/F14) */
+.lane__seam {
+  position: absolute;
+  inset-inline: 4px;
+  top: 50%;
+  height: 1px;
+  background: var(--color-accent);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--t-fast) var(--ease-drift), opacity var(--t-fast) linear;
+  cursor: pointer;
+}
+.lane[data-split="1"] .lane__seam { opacity: 1; transform: scaleX(1); }
+.lane[data-split="1"] { flex-direction: column; align-items: stretch; gap: 2px; height: var(--lane-h-split, 76px); }
+.lane__subrow { font-family: var(--font-verse); font-size: calc(var(--font-size-verse) * 0.86); line-height: 1.5; margin: 0; padding: 2px 0; }
+.lane__subrow--before { color: var(--color-star); }
+.lane__subrow--after { color: var(--color-accent); }
+
+/* passivity lens (F06) */
+.lane[data-lens-active="F06"][data-passive="1"] { transform: translateZ(0); }
+
+/* elevation rings (F07) */
+.lane__rings { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.lane__ring {
+  position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px;
+  border: 1px solid var(--color-interactive); border-radius: 50%; opacity: 0;
+}
+.lane[data-lens-active="F07"] .lane__ring { animation: pulse-ring 1.6s var(--ease-drift) infinite; }
+
+/* rupture lens (F01) ignited span */
+.lane__text[data-ignited="1"] { text-decoration: underline color-mix(in srgb, var(--color-accent) 70%, transparent) 2px; text-underline-offset: 6px; }
+
+/* -- gutters: the inter-row substrate lens -- */
+.gutter {
+  position: relative;
+  height: 12px;
+  margin: 1px 0;
+  border-radius: 4px;
+  overflow: visible;
+  touch-action: none;
+}
+.gutter__filaments, .gutter__skeleton, .gutter__strands, .gutter__ghosts {
+  position: absolute; inset: 0; opacity: 0; transition: opacity var(--t-fast) linear;
+  pointer-events: none;
+}
+.gutter[data-speed="1"] .gutter__filaments { opacity: 0.9; }
+.gutter[data-speed="2"] .gutter__skeleton { opacity: 0.85; }
+.gutter[data-speed="3"] .gutter__strands { opacity: 1; }
+.gutter[data-rollback="1"] .gutter__ghosts { opacity: 0.8; }
+.gutter__filaments svg, .gutter__skeleton svg, .gutter__strands svg, .gutter__ghosts svg { width: 100%; height: 100%; overflow: visible; }
+.gutter__depth-label {
+  position: absolute; inset-inline-start: -18px; top: -4px;
+  font-size: 8px; color: var(--color-accent); opacity: 0;
+}
+.gutter[data-speed] .gutter__depth-label { opacity: 1; }
+
+/* orbit beacons + trajectories (F15) */
+.beacon {
+  position: absolute; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-accent); opacity: 0; transform: scale(0.4);
+  transition: opacity var(--t-fast) var(--ease-drift), transform var(--t-fast) var(--ease-drift);
+}
+.beacon[data-landed="1"] { opacity: 1; transform: scale(1); }
+.trajectory-overlay path {
+  fill: none; stroke: var(--color-accent); stroke-width: 1.4; opacity: 0;
+  stroke-dasharray: 220; stroke-dashoffset: 220;
+  transition: stroke-dashoffset var(--t-breath) var(--ease-drift), opacity var(--t-fast) linear;
+}
+.trajectory path[data-drawn="1"] { opacity: 0.85; stroke-dashoffset: 0; }
+.hub-pulse {
+  position: absolute; width: 14px; height: 14px; border-radius: 50%;
+  border: 1.5px solid var(--color-accent); animation: pulse-ring 700ms var(--ease-drift) 1;
+}
+
+/* -- orbit mode: lanes bend into concentric arcs -- */
+.page[data-orbit="1"] .lanes {
+  transition: transform var(--t-orbit) var(--ease-drift);
+}
+.page[data-orbit="1"] .lane {
+  transition: transform var(--t-orbit) var(--ease-drift), height var(--t-breath) var(--ease-drift);
+}
+.page[data-orbit="1"] .gutter { touch-action: none; }
+
+/* -- lock state: forward compression against glass (F16) -- */
+.page[data-lock="1"] .lanes[data-lock-dir="forward"] .lane[data-ahead="1"] {
+  transform: scale(0.985);
+  filter: saturate(0.7) brightness(0.9);
+}
+.lock-glyph {
+  position: absolute; inset-inline-end: -2px; top: 50%; translate: 0 -50%;
+  width: 10px; height: 10px; opacity: 0;
+}
+.rail__cell[data-locked="1"] .lock-glyph { opacity: 1; }
+
+/* -- rasm mode: clean gray canvas, minimal ticks (F17) --
+ * Two stacked text layers per lane cross-fade: the marked layer (normal
+ * flow, drives lane height) fades out, the skeleton layer (absolutely
+ * overlaid) fades in. transition-delay is set per lane by JS as
+ * --rasm-delay, proportional to |lane - epicenter lane|, so the dissolve
+ * visibly travels row by row outward from the pinch point. Both layers are
+ * real DOM text; only the marked layer is exposed to assistive tech
+ * (skeleton is aria-hidden) since the underlying words never change. */
+.lane__text-stack { position: relative; flex: 1; min-width: 0; }
+.lane__text--marked {
+  transition: opacity var(--t-rasm) var(--ease-drift) var(--rasm-delay, 0ms);
+}
+.lane__text--skeleton {
+  position: absolute; inset: 0; margin: 0; opacity: 0; pointer-events: none;
+  color: #3a3a3a;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  transition: opacity var(--t-rasm) var(--ease-drift) var(--rasm-delay, 0ms);
+}
+:root[data-theme="light"] .lane__text--skeleton { color: #7d7d7d; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .lane__text--skeleton { color: #7d7d7d; }
+}
+.page[data-rasm="1"] { background: transparent; }
+.page[data-rasm="1"] .lane { background: transparent !important; }
+.page[data-rasm="1"] .lane__text--marked { opacity: 0; }
+.page[data-rasm="1"] .lane__text--skeleton { opacity: 1; pointer-events: auto; }
+.page[data-rasm="1"] .rail__cell > *:not(.checkpoint) { opacity: 0.3; }
+
+.viewport-rasm-bg {
+  position: fixed; inset: 0; z-index: 0; background: #16161a; opacity: 0;
+  transition: opacity var(--t-rasm) var(--ease-drift);
+  pointer-events: none;
+}
+:root[data-theme="light"] .viewport-rasm-bg { background: #d9d9d4; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .viewport-rasm-bg { background: #d9d9d4; }
+}
+.viewport[data-rasm="1"] .viewport-rasm-bg { opacity: 1; }
+
+/* -- entry plate -- */
+.entry-plate {
+  position: fixed; inset: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-ground);
+  text-align: center;
+  padding: var(--space-5);
+}
+.entry-plate__mark { font-family: var(--font-verse); font-size: 1.6rem; margin-bottom: var(--space-4); color: var(--color-text); }
+.entry-plate__enter {
+  font-family: var(--font-heading);
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  color: var(--color-text);
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 1rem;
+  min-height: 44px;
+}
+.entry-plate__enter:focus-visible { outline: 2px solid var(--color-interactive); outline-offset: 3px; }
+
+/* -- onboarding overlay -- */
+.onboarding {
+  position: fixed; inset: 0; z-index: 15; pointer-events: none;
+}
+.onboarding__card {
+  position: absolute; left: 50%; bottom: calc(var(--safe-b) + 18px);
+  translate: -50% 0; max-width: 420px; width: calc(100% - 32px);
+  background: var(--color-panel-glass);
+  backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  padding: var(--space-4);
+  pointer-events: auto;
+  box-shadow: var(--shadow-lift);
+}
+.onboarding__title { font-family: var(--font-heading); font-size: 0.95rem; margin: 0 0 6px; color: var(--color-accent); }
+.onboarding__body { margin: 0 0 12px; font-family: var(--font-apparatus); font-size: 13px; line-height: 1.6; color: var(--color-text); }
+.onboarding__actions { display: flex; justify-content: space-between; gap: 8px; }
+.onboarding__btn {
+  font-family: var(--font-apparatus); font-size: 12px;
+  background: transparent; border: 1px solid var(--color-line); color: var(--color-text-quiet);
+  border-radius: 8px; padding: 8px 14px; min-height: 40px;
+}
+.onboarding__btn--primary { color: var(--color-text); border-color: var(--color-interactive); }
+
+/* -- apparatus drawer (F11 invertibility audit) -- */
+.drawer {
+  position: fixed; inset-inline: 0; bottom: 0; z-index: 18;
+  max-height: 62dvh; overflow-y: auto;
+  background: var(--color-panel-glass);
+  backdrop-filter: blur(var(--blur-glass));
+  border-top: 1px solid var(--color-line);
+  border-radius: 16px 16px 0 0;
+  padding: var(--space-4) var(--space-4) calc(var(--space-4) + var(--safe-b));
+  transform: translateY(100%);
+  transition: transform var(--t-fast) var(--ease-drift);
+}
+.drawer[data-open="1"] { transform: translateY(0); }
+.drawer__grip { width: 36px; height: 4px; border-radius: 2px; background: var(--color-line); margin: 0 auto 12px; }
+.drawer__title { font-family: var(--font-heading); font-size: 0.9rem; color: var(--color-accent); margin: 0 0 8px; }
+.drawer__row { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; border-bottom: 1px dashed var(--color-line); }
+.drawer__note { font-size: 12px; color: var(--color-text-quiet); margin-top: 8px; line-height: 1.5; }
+
+/* -- rail toast (refusals, glow narration; never modal) -- */
+.toast-rail {
+  position: fixed; top: calc(var(--safe-t) + 8px); left: 50%; translate: -50% 0; z-index: 25;
+  display: flex; flex-direction: column; gap: 6px; align-items: center; pointer-events: none;
+}
+.toast {
+  font-family: var(--font-apparatus); font-size: 12px; color: var(--color-text);
+  background: var(--color-panel-glass); backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--color-line); border-radius: 999px; padding: 6px 14px;
+}
+.toast--refuse { border-color: var(--color-danger); color: var(--color-danger); }
+
+/* -- track glyph (Runway/Excavator/Collider) -- */
+.track-glyph {
+  position: fixed; top: calc(var(--safe-t) + 8px); inset-inline-start: 8px; z-index: 6;
+  font-family: var(--font-apparatus); font-size: 10px; color: var(--color-text-quiet);
+  background: var(--color-panel-glass); border: 1px solid var(--color-line); border-radius: 999px;
+  padding: 3px 9px;
+}
+
+/* -- settings corner (theme + accessibility; minimal chrome) -- */
+.settings-btn {
+  position: fixed; top: calc(var(--safe-t) + 8px); inset-inline-end: 8px; z-index: 6;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--color-panel-glass); border: 1px solid var(--color-line); color: var(--color-text-quiet);
+  font-size: 14px;
+}
+
+/* -- F18 margin operating track: three density modes -- */
+.viewport[data-rail-density="spine"] .rail__cell { transform: scaleY(0.55); opacity: 0.35; }
+.viewport[data-rail-density="spine"] .rail__cell[data-focused="1"] { transform: scaleY(1); opacity: 1; }
+.viewport[data-rail-density="full"] .rail__cell { opacity: 1; }
+.viewport[data-rail-density="full"] .rail .attrib__glyph { font-size: 10px; }
+
+/* -- touch sizing: generous targets everywhere -- */
+button, [role="button"], .rail__cell, .checkpoint, .beacon-hit {
+  min-width: 32px;
+}
+.hit-44 { min-height: 44px; min-width: 44px; }
+
+@media (max-width: 360px) {
+  .page { grid-template-columns: 26px 1fr 26px; }
+}
+
+/* landscape must not break */
+@media (orientation: landscape) {
+  .page { max-width: 640px; }
+}
