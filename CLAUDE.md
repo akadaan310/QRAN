@@ -7,14 +7,14 @@ material — never edit them in place; vendor what you need).
 
 ## Mission
 
-A **public-facing Interstellar Quran web app**: hundreds of immersive Qur'anic
-experiences on the open web.
+A **public-facing Interstellar Quran web app**: thousands of immersive
+Qur'anic experiences on the open web — the entire Quran rendered in full,
+navigable end to end, with complete lexicons and a dynamic فهرس.
 
-**Phase 1 (current): design the Immersion UI System and get it approved.**
-No experience-building until the owner signs off on the UI system.
-Phase 1 output = a written UI-system proposal + an interactive prototype that
-demonstrates the system on a small set of sample experiences. That prototype is
-the approval gate.
+**Standing order from the owner (2026-09-20): NO APPROVALS. JUST BUILD AND
+PROSPER.** The Phase-1 approval gate is revoked. The standing execution order
+is **`FINALITY_PROMPT.md`** — execute it end to end, verify everything
+yourself, commit, and push. Do not stop for approval at any stage.
 
 ## The covenant (distilled from the reference projects)
 
@@ -75,11 +75,13 @@ Non-negotiable across every phase:
 
 ## Working rules
 
-- Phase 1 delivers the UI system proposal + interactive prototype. Nothing
-  else. Do not start building experiences, importing the full corpus, or
-  wiring deployment beyond the prototype's needs.
-- The approval gate: the owner reviews the prototype and says "approved"
-  (explicitly, in chat). Until then: iterate on the system.
-- When the owner approves, the next phase begins — do not pre-build phase 2.
+- `FINALITY_PROMPT.md` is the standing execution order. Execute it fully:
+  full-Quran canvas, experiences browser, lexicons, فهرس, language-agnostic
+  pass, verification, commit, push. No approval stops.
+- `BUILD_PROMPT.md` is superseded (kept for history).
+- Extend `prototype/` — never rewrite it wholesale; keep every passing
+  behavior passing.
+- The data layer under `data/` is canonical and regenerated only via
+  `scripts/build-data/` (never hand-edit generated JSON).
 - Ask before spending money, signing up for services, or changing anything
-  outside `~/workspace/interstellar-quran/`.
+  outside this repo.

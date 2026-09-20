@@ -1,0 +1,58 @@
+[
+ {
+  "name_en": "Recursive Timeline Rollbacks",
+  "name_ar": "ارتداد زمني متكرر",
+  "curator_label": true,
+  "runway": "Forward execution drifts past recovery, so the engine abandons the forward path and walks its own input trail backwards. Each step back discards a broken operation until the lost anchor is found. Synchronization is restored not by pushing forward but by retreating exactly.",
+  "ledger_rows": 18361
+ },
+ {
+  "name_en": "Temporal State Collapsing",
+  "name_ar": "انطواء الحالة",
+  "curator_label": true,
+  "runway": "A long history of sequential states is pressed down into one immutable key, and the individual steps are allowed to fall away. The collective value survives while the chronological noise does not. Time stops being a log and becomes a signature.",
+  "ledger_rows": 8955
+ },
+ {
+  "name_en": "Real-Time Viewpoint Shifting",
+  "name_ar": "تحوّل المنظور",
+  "curator_label": true,
+  "runway": "A processing thread reverses its orientation in the middle of its run, turning its target around without stopping. Distance limits snap into place between the pools it was serving. Direction becomes a live variable rather than a fixed setting.",
+  "ledger_rows": 6754
+ },
+ {
+  "name_en": "Linear Object Passivity",
+  "name_ar": "سكون العنصر",
+  "curator_label": true,
+  "runway": "Some records never execute anything at all; they lie flat and let external tools read them. They are tracked, stored, and replicated, but they initiate nothing. The system treats them as payload, never as participants.",
+  "ledger_rows": 3785
+ },
+ {
+  "name_en": "Internal Rupture Mechanics",
+  "name_ar": "انشقاق داخلي",
+  "curator_label": true,
+  "runway": "A single unified block of text suddenly speaks from inside itself, opening an inner voice that no outside signal summoned. The surrounding material keeps its shape and memory intact while the new voice carries its own local rules. What was one flat record is now two nested chambers sharing one wall.",
+  "ledger_rows": 1458
+ },
+ {
+  "name_en": "Radial Spatial Dissolution",
+  "name_ar": "تلاشٍ مكاني",
+  "curator_label": true,
+  "runway": "Separate parallel threads stop being measured apart and are absorbed into one parent value the moment a boundary condition is met. What were many quantities becomes a single localized reading. The network synchronizes by dissolving its own divisions.",
+  "ledger_rows": 704
+ },
+ {
+  "name_en": "Gravitational Node Elevation",
+  "name_ar": "علوّ العقدة",
+  "curator_label": true,
+  "runway": "A passive background record is promoted into an active hub that broadcasts structural updates outward. Neighboring structures are forced to accept its data, even across hard barriers. Gravity in this system is earned by transmission, not by position.",
+  "ledger_rows": 70
+ },
+ {
+  "name_en": "Spatial Horizon Convergence",
+  "name_ar": "تقارب الأفق",
+  "curator_label": true,
+  "runway": "Separate architectures running in different eras arrive at exactly the same footprint without ever meeting. Their internal geometries match so precisely that expiration dates stop applying. Convergence this exact is not coincidence; it is shared structure surfacing twice.",
+  "ledger_rows": 8
+ }
+]
