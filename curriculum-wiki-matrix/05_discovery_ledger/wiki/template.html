@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discovery Ledger — Curriculum Wiki</title>
+<style>
+:root{
+  --bg:#101114; --panel:#17181d; --panel2:#1d1e24; --line:#2a2b33;
+  --ink:#e9e6da; --muted:#a7a396; --faint:#6f6c62;
+  --accent:#d8a24a; --accent2:#7fb3d5; --good:#8fce8f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;line-height:1.65}
+a{color:var(--accent2)}
+.top{padding:28px 20px 18px;border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#15161b,#101114)}
+.top h1{margin:0 0 6px;font-size:1.5rem;letter-spacing:.01em}
+.top p{margin:0 0 12px;color:var(--muted);max-width:60ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+  padding:4px 12px;font-size:.82rem;color:var(--muted)}
+.chip b{color:var(--ink)}
+.layout{display:flex;max-width:1180px;margin:0 auto}
+nav#sidenav{width:270px;flex:none;padding:20px 14px;position:sticky;top:0;
+  height:100vh;overflow:auto;border-right:1px solid var(--line)}
+nav#sidenav a{display:block;padding:9px 12px;border-radius:8px;color:var(--muted);
+  text-decoration:none;font-size:.92rem}
+nav#sidenav a .n{color:var(--faint);font-size:.78rem;display:block}
+nav#sidenav a:hover{background:var(--panel2);color:var(--ink)}
+nav#sidenav a.active{background:var(--panel2);color:var(--accent);
+  border-left:3px solid var(--accent)}
+main{flex:1;min-width:0;padding:26px 22px 80px}
+section.page{display:none}
+section.page.on{display:block;animation:fade .25s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.pillar{display:inline-block;background:#241d10;border:1px solid #4a3a1c;color:var(--accent);
+  border-radius:6px;padding:2px 10px;font-size:.85rem;margin-bottom:10px}
+h2{margin:.2em 0 .4em;font-size:1.45rem}
+.runway{border-left:3px solid var(--accent);background:var(--panel);
+  padding:14px 18px;border-radius:0 10px 10px 0;font-style:italic;
+  color:#ddd8c8;margin:18px 0}
+h3{margin-top:34px;font-size:1.05rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.06em;font-size:.85rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.stat .v{font-size:1.35rem;font-weight:700}
+.stat .k{font-size:.78rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;
+  display:block;overflow-x:auto}
+th,td{text-align:left;padding:10px 12px;border:1px solid var(--line);vertical-align:top}
+th{background:var(--panel2);color:var(--muted);font-weight:600;white-space:nowrap}
+td:first-child{white-space:nowrap;color:var(--accent)}
+ul.obj{padding-left:20px}
+ul.obj li{margin:8px 0}
+.node{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;margin:12px 0}
+.node .nh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-bottom:8px}
+.node .id{font-family:ui-monospace,monospace;color:var(--accent2);font-size:.85rem}
+.node .fr{margin-left:auto;font-weight:700;color:var(--accent)}
+.node .meta{font-size:.8rem;color:var(--faint);margin-top:10px}
+.node .meta code{background:var(--panel2);padding:1px 6px;border-radius:4px}
+.decs{display:flex;align-items:flex-end;gap:4px;height:90px;margin:10px 0}
+.decs .bar{flex:1;background:var(--accent2);opacity:.75;border-radius:3px 3px 0 0;min-height:3px}
+.decs .bar.zero{background:var(--line);opacity:.6}
+.daxis{display:flex;justify-content:space-between;font-size:.72rem;color:var(--faint)}
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.area{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;text-decoration:none;color:var(--ink);display:block}
+.area:hover{border-color:var(--accent)}
+.area h4{margin:0 0 4px;font-size:1rem;color:var(--accent)}
+.area .c{font-size:.82rem;color:var(--muted)}
+.dist{margin:16px 0}
+.dist .row{display:grid;grid-template-columns:minmax(150px,220px) 1fr 70px;gap:10px;
+  align-items:center;margin:7px 0;font-size:.85rem}
+.dist .track{background:var(--panel2);border-radius:4px;height:14px;overflow:hidden}
+.dist .fill{background:var(--accent);height:100%;border-radius:4px}
+.dist .num{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+.formula{background:var(--panel);border:1px dashed var(--line);border-radius:10px;
+  padding:12px 16px;font-family:ui-monospace,monospace;font-size:.9rem;margin:10px 0}
+footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--faint);
+  font-size:.8rem;max-width:1180px;margin:0 auto}
+.hook{font-family:ui-monospace,monospace;font-size:.85rem;color:var(--accent2)}
+.note{background:#1a2030;border:1px solid #2c3a55;border-radius:10px;
+  padding:12px 16px;margin:12px 0;color:#c9d6ea}
+@media(max-width:860px){
+  .layout{flex-direction:column}
+  nav#sidenav{width:100%;height:auto;position:static;border-right:0;
+    border-bottom:1px solid var(--line);display:flex;overflow-x:auto;padding:8px}
+  nav#sidenav a{white-space:nowrap;border-left:0}
+  nav#sidenav a.active{border-left:0;border-bottom:3px solid var(--accent)}
+  nav#sidenav a .n{display:none}
+  main{padding:18px 14px 60px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Infinite Generative Discovery Ledger</h1>
+  <p>A curriculum wiki over the nine discovered structural anomaly areas —
+  every measurement below is computed from the founding ledger run, not asserted.</p>
+  <div class="chips" id="topchips"></div>
+</header>
+<div class="layout">
+  <nav id="sidenav" aria-label="Areas"></nav>
+  <main id="main"></main>
+</div>
+<footer>
+  Built from ledger run <span id="runid"></span> · R1 al-Mirtāl · R2 Isnād Studio ·
+  R3 ARABIC_TIMELESS (invariant pole) · Abstract-language discipline held throughout:
+  no verse numbers, proper names, or chapter markers.
+</footer>
+<script>
+const DATA = __WIKI_DATA__;
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const $ = id => document.getElementById(id);
+
+function nav(){
+  const el = $("sidenav");
+  let h = `<a href="#/" data-r="overview">Overview<span class="n">the whole ledger</span></a>`;
+  DATA.profiles.forEach((p,i)=>{
+    h += `<a href="#/${p.slug}" data-r="${p.slug}">${i+1}. ${esc(p.name)}<span class="n">${p.stats.count.toLocaleString()} nodes</span></a>`;
+  });
+  el.innerHTML = h;
+}
+function markActive(r){
+  document.querySelectorAll("#sidenav a").forEach(a=>
+    a.classList.toggle("active", a.dataset.r===r));
+}
+function statCards(st){
+  const fams = Object.entries(st.families).map(([k,v])=>`${k}: ${v.toLocaleString()}`).join(" · ");
+  return `<div class="cards">
+    <div class="stat"><div class="v">${st.count.toLocaleString()}</div><div class="k">discovery nodes</div></div>
+    <div class="stat"><div class="v">${st.mean_friction}</div><div class="k">mean friction coefficient</div></div>
+    <div class="stat"><div class="v">${st.mean_loss}</div><div class="k">mean data loss / 28</div></div>
+    <div class="stat"><div class="v" style="font-size:.95rem">${esc(fams)||"—"}</div><div class="k">substrate mix</div></div>
+  </div>`;
+}
+function deciles(d){
+  const mx = Math.max(...d,1);
+  const bars = d.map(v=>`<div class="bar${v?"":" zero"}" style="height:${Math.max(3,v/mx*100)}%" title="${v}"></div>`).join("");
+  return `<div class="decs">${bars}</div><div class="daxis"><span>friction 0.0</span><span>friction 1.0</span></div>`;
+}
+function frictionTable(ft){
+  const rows = ft.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("");
+  return `<table><tr><th>Friction point</th><th>Dotless-engine rule (R3)</th><th>Tracking-engine dynamic (R1/R2)</th><th>The conflict</th></tr>${rows}</table>`;
+}
+function nodeCard(n){
+  return `<div class="node">
+    <div class="nh"><span class="id">node ${n.uuid8}</span>
+      <span class="fr">friction ${n.friction}</span></div>
+    <div>${esc(n.rationale)}</div>
+    <div class="meta">continuity ${n.lc} × axis Δ ${n.vad} ·
+      audit: ${n.superposition} → ${n.survivors}, loss ${n.data_loss}/28 ·
+      ${esc(n.family)} · ${n.units} units folded<br>
+      deps: ${n.deps.map(d=>`<code>${esc(d)}</code>`).join(" ")}</div>
+  </div>`;
+}
+function colliderTable(c){
+  const rows = c.filter(r=>r[1]).map(r=>
+    `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("");
+  return `<table><tr><th></th><th>al-Mirtāl (R1)</th><th>Isnād Studio (R2)</th><th>ARABIC_TIMELESS (R3)</th></tr>${rows}</table>`;
+}
+function renderProfile(p, idx){
+  const nodes = p.nodes.length ? p.nodes.map(nodeCard).join("")
+    : `<div class="note">This area emits no sequence rows: the behavior lives in operator rules
+       and contracts (R1 modes, the R3 Layer Contract), not in parsed sequences. That absence is
+       itself a recorded finding — see the catalog entry.</div>`;
+  return `<section class="page on">
+    <span class="pillar">Pillar: ${esc(p.pillar)}</span>
+    <h2>${idx+1}. ${esc(p.name)}</h2>
+    <div class="runway">${esc(p.runway)}</div>
+    <h3>Study this area</h3>
+    <ul class="obj">${p.objectives.map(o=>`<li>${esc(o)}</li>`).join("")}</ul>
+    <h3>Measured</h3>
+    ${statCards(p.stats)}
+    <h3>Friction distribution</h3>
+    ${deciles(p.deciles)}
+    <h3>Where the dotless engine and the tracking engines conflict</h3>
+    ${frictionTable(p.friction_table)}
+    <h3>Notable nodes <span style="color:var(--faint);font-weight:400;text-transform:none;letter-spacing:0">(highest friction)</span></h3>
+    ${nodes}
+    <h3>Source hooks</h3>
+    <ul class="obj">${p.excavator.map(([path,what])=>
+      `<li><span class="hook">${esc(path)}</span> — ${esc(what)}</li>`).join("")}</ul>
+    <h3>Across the three architectures</h3>
+    ${colliderTable(p.collider)}
+  </section>`;
+}
+function renderOverview(){
+  const m = DATA.meta;
+  const cards = DATA.profiles.map((p,i)=>`
+    <a class="area" href="#/${p.slug}"><h4>${i+1}. ${esc(p.name)}</h4>
+    <div class="c">${p.stats.count.toLocaleString()} nodes · mean friction ${p.stats.mean_friction} · pillar ${esc(p.pillar)}</div></a>`).join("");
+  const mx = Math.max(...DATA.profiles.map(p=>p.stats.count));
+  const dist = DATA.profiles.map(p=>`
+    <div class="row"><span>${esc(p.name)}</span>
+      <div class="track"><div class="fill" style="width:${(p.stats.count/mx*100).toFixed(1)}%"></div></div>
+      <span class="num">${p.stats.count.toLocaleString()}</span></div>`).join("");
+  return `<section class="page on">
+    <h2>Overview</h2>
+    <p>The ledger's computation pipeline ran three stages over the full corpus substrate —
+    <b>37,195</b> relational edges (R1), <b>2,500</b> detector findings and <b>400</b> contour motifs (R2) —
+    pricing every sequence with a friction coefficient and an invertibility audit, then filing
+    <b>${m.total.toLocaleString()}</b> discovery nodes into nine anomaly areas. R3 (ARABIC_TIMELESS)
+    was not scored as a sequence source; it is the invariant pole every row is measured against.</p>
+    <h3>The nine areas</h3>
+    <div class="areas">${cards}</div>
+    <h3>Distribution</h3>
+    <div class="dist">${dist}</div>
+    <h3>How a node is priced</h3>
+    <div class="formula">friction = lexical continuity × viewpoint-axis delta</div>
+    <div class="formula">data loss = ((superposition − survivors) / superposition) × 28</div>
+    <p style="color:var(--muted);font-size:.9rem">Lexical continuity is the tracker's own confidence in a
+    sequence holding together; viewpoint-axis delta is how far the point of view traveled
+    (address 0.0, speaker 0.5, absent 1.0). Data loss counts substrate units folded into one record,
+    closed over the integer 28. Full operationalizations live in the pipeline document.</p>
+    <h3>How to read a node card</h3>
+    <ul class="obj">
+      <li><b>friction</b> — the node's computed coefficient; higher means continuity held against larger viewpoint travel.</li>
+      <li><b>audit</b> — superposition → survivors: how many substrate units were folded into this one record, and the quantified loss.</li>
+      <li><b>rationale</b> — why this sequence classifies into the area, in plain structural language.</li>
+      <li><b>deps</b> — the verified repository files this node is grounded in.</li>
+    </ul>
+  </section>`;
+}
+function route(){
+  const h = location.hash.replace(/^#\/?/,"");
+  const main = $("main");
+  if(!h || h==="overview"){ main.innerHTML = renderOverview(); markActive("overview"); }
+  else{
+    const i = DATA.profiles.findIndex(p=>p.slug===h);
+    if(i>=0){ main.innerHTML = renderProfile(DATA.profiles[i], i); markActive(h); }
+    else{ main.innerHTML = renderOverview(); markActive("overview"); }
+  }
+  window.scrollTo(0,0);
+}
+$("topchips").innerHTML = [
+  `<span class="chip"><b>${DATA.meta.total.toLocaleString()}</b> discovery nodes</span>`,
+  `<span class="chip"><b>9</b> anomaly areas</span>`,
+  `<span class="chip"><b>3</b> architectures</span>`,
+  `<span class="chip">run <b>${esc(DATA.meta.run)}</b></span>`
+].join("");
+$("runid").textContent = DATA.meta.run;
+nav();
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>

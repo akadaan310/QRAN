@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Reader's Journey — User Stories</title><style>
+:root{--bg:#101114;--panel:#17181d;--panel2:#1d1e24;--line:#2a2b33;
+--ink:#e9e6da;--muted:#a7a396;--faint:#6f6c62;--accent:#d8a24a;--accent2:#7fb3d5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;line-height:1.7}
+.top{padding:28px 20px 18px;border-bottom:1px solid var(--line);
+background:linear-gradient(180deg,#15161b,#101114)}
+.top h1{margin:0 0 6px;font-size:1.5rem}
+.top p{margin:0 0 12px;color:var(--muted);max-width:64ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+padding:4px 12px;font-size:.82rem;color:var(--muted)}
+.chip b{color:var(--ink)}
+.nav{position:sticky;top:0;z-index:10;background:#14151aee;border-bottom:1px solid var(--line);
+padding:10px 14px;display:flex;gap:6px;overflow-x:auto;backdrop-filter:blur(6px)}
+.nav a{white-space:nowrap;color:var(--muted);text-decoration:none;font-size:.82rem;
+padding:6px 10px;border-radius:8px}
+.nav a:hover{background:var(--panel2);color:var(--ink)}
+.nav a.active{background:var(--panel2);color:var(--accent)}
+.wrap{max-width:920px;margin:0 auto;padding:8px 18px 90px}
+section.page{display:none}
+section.page.on{display:block;animation:fade .25s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.docnum{color:var(--accent);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+h2{font-size:1.35rem;margin:.3em 0 .6em}
+h3{font-size:.85rem;margin:2em 0 .8em;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+h3 .count{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+padding:1px 10px;font-size:.75rem;color:var(--muted);margin-left:6px}
+.narr p{color:#d8d4c6;margin:.8em 0}
+.narr p:first-child::first-letter{font-size:1.6em;color:var(--accent)}
+.story{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+padding:16px 18px;margin:14px 0}
+.shead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.sid{font-family:ui-monospace,monospace;background:#241d10;border:1px solid #4a3a1c;
+color:var(--accent);border-radius:6px;padding:2px 10px;font-size:.8rem}
+.srefs{display:flex;gap:6px;flex-wrap:wrap}
+.ref{font-size:.72rem;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:1px 9px}
+.sstate{font-size:1.02rem;color:var(--ink)}
+.sdef{color:#cfcabc}
+.dlabel{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin:12px 0 4px}
+ul.crit{padding-left:20px;margin:4px 0 0}
+ul.crit li{margin:5px 0;color:#d8d4c6;font-size:.92rem}
+.pagenav{display:flex;justify-content:space-between;margin:28px 0 10px}
+.btn{color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:10px;
+padding:9px 18px;background:var(--panel2);font-size:.9rem}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.85rem;display:block;overflow-x:auto}
+th,td{text-align:left;padding:8px 10px;border:1px solid var(--line);vertical-align:top}
+th{background:var(--panel2);color:var(--muted);white-space:nowrap}
+td:first-child{white-space:nowrap;color:var(--accent);font-family:ui-monospace,monospace;font-size:.78rem}
+footer{border-top:1px solid var(--line);padding:18px;color:var(--faint);font-size:.78rem;text-align:center}
+@media(max-width:700px){.wrap{padding:6px 14px 70px}}
+</style></head>
+<body>
+<header class="top"><h1>A Reader's Journey</h1>
+<p>Mariam's path from first touch to deep tracking — five stages, sixteen user stories,
+each defined with acceptance criteria and traced to the blueprint it exercises.</p>
+<div class="chips"><span class="chip"><b>5</b> stages</span>
+<span class="chip"><b>16</b> user stories</span>
+<span class="chip"><b>3</b> sentences or fewer per definition</span>
+<span class="chip">traced to <b>spec-ui</b> + <b>product-spec</b></span></div></header>
+<nav class="nav"><a href="#/overview" data-r="overview">Story map</a><a href="#/s1" data-r="s1">Day 1 · Arrival &amp; First Light</a><a href="#/s2" data-r="s2">Day 4 · First Orbit</a><a href="#/s3" data-r="s3">Week 2 · The Lock</a><a href="#/s4" data-r="s4">Week 3 · Measurement</a><a href="#/s5" data-r="s5">Month 2 · Deep Tracking</a></nav>
+<div class="wrap">
+<section class="page" id="pg-overview">
+  <div class="stagehead"><span class="docnum">Story map</span>
+  <h2>One reader, five stages, sixteen stories</h2></div>
+  <div class="narr"><p>Mariam's journey from first touch to deep tracking, decomposed into the
+  user stories that define it. Each story carries a definition and acceptance criteria on its
+  stage page, with references back to the blueprint features and spec documents it exercises.</p></div>
+  <table><tr><th>ID</th><th>Story</th><th>Stage</th></tr><tr><td>US-1.1</td><td>As a first-time reader, I want the app to open on a calm, familiar page.</td><td>Day 1</td></tr><tr><td>US-1.2</td><td>As a curious reader, I want to press between lines and see hidden connections.</td><td>Day 1</td></tr><tr><td>US-1.3</td><td>As a reader, I want deeper pressure to reveal the skeleton and root threads.</td><td>Day 1</td></tr><tr><td>US-1.4</td><td>As a reader moving through the page, I want perspective shifts shown as tint, depth change, and split rows, with the axis marker narrating.</td><td>Day 1</td></tr><tr><td>US-1.5</td><td>As a reader, I want to pinch the marks away and watch them heal back.</td><td>Day 1</td></tr><tr><td>US-2.1</td><td>As a reader following a thread of interest, I want to double-tap a word and see its occurrences across the page.</td><td>Day 4</td></tr><tr><td>US-2.2</td><td>As a orbiting reader, I want the page to bend around my word and let me rotate it.</td><td>Day 4</td></tr><tr><td>US-3.1</td><td>As a reader crossing a deep chronological boundary, I want forward motion to lock with a clear, calm signal.</td><td>Week 2</td></tr><tr><td>US-3.2</td><td>As a locked reader, I want a reverse-drag to re-walk the trail and recover the anchor.</td><td>Week 2</td></tr><tr><td>US-3.3</td><td>As a returning reader, I want the rail to warn me before boundaries.</td><td>Week 2</td></tr><tr><td>US-4.1</td><td>As a developing reader, I want per-line friction bars I can tap.</td><td>Week 3</td></tr><tr><td>US-4.2</td><td>As a reader, I want to open “what did this cost?” on any summary.</td><td>Week 3</td></tr><tr><td>US-4.3</td><td>As a reader, I want to author my own margin checkpoints.</td><td>Week 3</td></tr><tr><td>US-5.1</td><td>As a advanced reader, I want to stack lenses, and to be refused clearly when a combination is undefined.</td><td>Month 2</td></tr><tr><td>US-5.2</td><td>As a deep tracker, I want the interface to recede into sense — glow, weight, trails.</td><td>Month 2</td></tr><tr><td>US-5.3</td><td>As a reader, I want to show someone the skeleton reveal.</td><td>Month 2</td></tr></table>
+  <div class="pagenav"><span></span><a class="btn" href="#/s1">Begin the journey →</a></div>
+</section>
+<section class="page" id="pg-s1">
+  <div class="stagehead"><span class="docnum">Day 1 · 9:40 p.m. — first evening</span>
+  <h2>Arrival &amp; First Light</h2></div>
+  <div class="narr"><p>Mariam opens the app and the page looks like the mushaf on her shelf: fifteen calm lines, generous margins, nothing moving. A short tour traces three zones — the lines, the gutters between them, the rails at the edges — and makes one promise: the page will never break; everything happens inside it. She taps line 6 and it lifts a breath toward her.</p><p>The guide asks her to press and hold in the space between two lines. Fine threads surface, linking a word above to a word below. She presses harder — the bare skeleton shows through beneath the marked text. Harder still — vertical strands light up, roots running down the page like rebar. Three depths, one gutter.</p><p>Scrolling on, line 11 warms, neighboring lines soften, and the row splits into two sub-rows around a hairline seam, each tinted differently. On the left rail, a small marker glides along an axis. She taps the seam and the row merges — then finds another split on her own.</p><p>Then the pinch. Two fingers across the rows, inward — the marks melt away row by row until only the skeleton stands on a clean gray field. A full minute of quiet. She spreads her fingers and the marks heal back, dot by dot, each landing with a faint ripple exactly where the skeleton says it belongs. Forty-five minutes gone, and she feels handed a key, not a lesson.</p></div>
+  <h3>User stories <span class="count">5</span></h3>
+  
+<article class="story">
+  <div class="shead"><span class="sid">US-1.1</span><span class="srefs"><span class="ref">spec-ui/01</span><span class="ref">spec-ui/07 stage 1</span></span></div>
+  <p class="sstate"><strong>As a</strong> first-time reader, <strong>I want</strong> the app to open on a calm, familiar page, <strong>so that</strong> I feel oriented rather than overwhelmed.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> The first screen is the fifteen-line page exactly as tradition hands it down — no animation, no prompts beyond a short tour naming the three canvas zones (lanes, gutters, rails). The tour&#x27;s single message is the footprint promise: this page will never break.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Fifteen lanes render with rigid footprint and fixed margins on first paint</li><li>Tour completes in under three minutes and names all three zones</li><li>Tapping any lane produces a slight lift within one frame</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-1.2</span><span class="srefs"><span class="ref">F19</span><span class="ref">spec-ui/02</span><span class="ref">product-spec/03</span></span></div>
+  <p class="sstate"><strong>As a</strong> curious reader, <strong>I want</strong> to press between lines and see hidden connections, <strong>so that</strong> I discover depth is reachable by touch.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> A light press-and-hold in any gutter surfaces fine filaments linking the neighboring lines. Releasing reverses the reveal exactly. This is the reader&#x27;s first proof that the space between lines is a lens, not emptiness.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Filaments appear within 300 ms of light press</li><li>Release fades filaments in reverse order</li><li>Rail depth indicator shows speed 1 while active</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-1.3</span><span class="srefs"><span class="ref">F19</span><span class="ref">spec-ui/02</span></span></div>
+  <p class="sstate"><strong>As a</strong> reader, <strong>I want</strong> deeper pressure to reveal the skeleton and root threads, <strong>so that</strong> I learn the gutter has three depths.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> Increasing press pressure cross-fades through three distinct visual languages: filaments (connections), skeletal underlay, then vertical root strands. The rail always shows which depth the reader is at, so depth is never a mystery.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Three speeds have visually distinct treatments</li><li>Depth indicator shows 1 / 2 / 3 continuously</li><li>Deep press never obscures the letterforms</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-1.4</span><span class="srefs"><span class="ref">F14</span><span class="ref">F01</span><span class="ref">F13</span></span></div>
+  <p class="sstate"><strong>As a</strong> reader moving through the page, <strong>I want</strong> perspective shifts shown as tint, depth change, and split rows, with the axis marker narrating, <strong>so that</strong> I witness voice changes instead of missing them.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> When focus lands on a shifting lane, the canvas responds in three synchronized channels: background tint warms or cools with axis position, depth-of-field compresses around the lane, and the row forks into before/after voices around a seam. Tapping the seam merges the row back.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Tint, depth compression, and row split fire together within ~500 ms</li><li>Axis marker visibly travels with a fading trail</li><li>Tap on the seam merges sub-rows; merge reverses the split sequence</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-1.5</span><span class="srefs"><span class="ref">F17</span><span class="ref">spec-ui/05 rasm canvas</span></span></div>
+  <p class="sstate"><strong>As a</strong> reader, <strong>I want</strong> to pinch the marks away and watch them heal back, <strong>so that</strong> I trust the skeleton as separate from its marks.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> A multi-finger pinch dissolves vocalization marks row by row from the epicenter, leaving the dotless skeleton on a clean gray canvas with rails dimmed to minimal ticks. Spreading the fingers heals every mark back, dot by dot, each landing where the skeleton dictates — substrate independence as a physical event.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Dissolve completes in ~500 ms, epicenter outward</li><li>Rails dim to minimal ticks in rasm state</li><li>Healing lands every mark with a visible ripple; nothing is approximated</li></ul>
+</article>
+  
+<div class="pagenav">
+  <span></span>
+  <a class="btn" href="#/s2">Next →</a>
+</div>
+</section>
+<section class="page" id="pg-s2">
+  <div class="stagehead"><span class="docnum">Day 4 · morning</span>
+  <h2>First Orbit</h2></div>
+  <div class="narr"><p>A word on line 3 keeps catching her eye, so she double-taps it. It pulses once. Small beacons rise on lines 8, 12, and 14; curved filaments draw themselves from her word to each beacon while the rail ticks softly with every arrival.</p><p>Then the page bends — gently — into rings around her word. Scrolling stops working the old way; she drags and the page rotates. She taps a beacon and lands on line 12, a thread trailing back to line 3 so she can&#x27;t get lost. An outward fling relaxes the lanes back into parallels.</p><p>She sits still a moment. She&#x27;d been asking where am I on the page. Now she&#x27;s asking what is this word connected to.</p></div>
+  <h3>User stories <span class="count">2</span></h3>
+  
+<article class="story">
+  <div class="shead"><span class="sid">US-2.1</span><span class="srefs"><span class="ref">F15</span><span class="ref">spec-ui/02</span></span></div>
+  <p class="sstate"><strong>As a</strong> reader following a thread of interest, <strong>I want</strong> to double-tap a word and see its occurrences across the page, <strong>so that</strong> I can navigate by relation instead of position.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> Double-tapping a word raises beacons on every line where it occurs and draws curved filaments from the tapped word to each beacon, nearest first, with the rail ticking as each trajectory lands. The reader sees the word&#x27;s whole footprint before moving.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Beacons rise on all matching lines within one second</li><li>Filaments draw nearest-first through the gutters, never over text</li><li>Rail ticks once per landed trajectory</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-2.2</span><span class="srefs"><span class="ref">F15</span><span class="ref">product-spec/03</span></span></div>
+  <p class="sstate"><strong>As a</strong> orbiting reader, <strong>I want</strong> the page to bend around my word and let me rotate it, <strong>so that</strong> navigation becomes radial and the return path is never lost.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> On final trajectory arrival the lanes ease into concentric arcs around the hub word while the page bound holds rigid. Vertical scroll suspends; drag rotates the orbit; tapping a beacon jumps focus with a thread trailing back to the hub. An outward fling dismisses the orbit and restores parallel lanes.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Arcs ease over ~600 ms; page footprint never deforms</li><li>A trailing thread always connects current focus to the hub</li><li>Outward fling is the single, discoverable dismissal</li></ul>
+</article>
+  
+<div class="pagenav">
+  <a class="btn" href="#/s1">← Previous</a>
+  <a class="btn" href="#/s3">Next →</a>
+</div>
+</section>
+<section class="page" id="pg-s3">
+  <div class="stagehead"><span class="docnum">Week 2 · after dinner</span>
+  <h2>The Lock</h2></div>
+  <div class="narr"><p>She&#x27;s scrolling forward when the page refuses. Near line 9 the lanes ahead compress as if pressed against glass; a small lock mark appears on the left rail beside a glowing bar, and taps ahead land dead.</p><p>She remembers the tour: the only way is back. She drags upward over the lines she came from — a dotted trail lights up under her finger while discarded bits dissolve like struck-through ghosts. Halfway back, the lock releases with a soft chime and the lanes ahead exhale.</p><p>The next evening she notices the rail glowing two lines before a boundary and slows down on her own. Her hands learned before her head did.</p></div>
+  <h3>User stories <span class="count">3</span></h3>
+  
+<article class="story">
+  <div class="shead"><span class="sid">US-3.1</span><span class="srefs"><span class="ref">F16</span><span class="ref">spec-ui/04 locked state</span></span></div>
+  <p class="sstate"><strong>As a</strong> reader crossing a deep chronological boundary, <strong>I want</strong> forward motion to lock with a clear, calm signal, <strong>so that</strong> I understand sync is required — the app isn&#x27;t broken.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> At a deep boundary layer, forward scroll meets a detent within 100 ms: lanes ahead visibly compress, a lock glyph appears on the boundary&#x27;s rail cell, and the checkpoint illuminates. Taps ahead land dead by design, and the rail explains the state without words.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Detent engages within 100 ms of boundary contact</li><li>Lock glyph + illuminated checkpoint appear together</li><li>No forward gesture, however repeated, advances the page</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-3.2</span><span class="srefs"><span class="ref">F16</span><span class="ref">F09</span></span></div>
+  <p class="sstate"><strong>As a</strong> locked reader, <strong>I want</strong> a reverse-drag to re-walk the trail and recover the anchor, <strong>so that</strong> re-synchronization is physical and certain.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> Dragging backward over the preceding lines illuminates the reverse trail as a dotted line while discarded operations dissolve as struck-through ghosts. Recovering the anchor releases the lock with a soft chime and the lanes ahead exhale — forward motion unlocks only through exact retreat.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Reverse trail renders against reading direction with anchor marked</li><li>Anchor recovery triggers chime + visible release</li><li>Forward unlock is automatic; no extra confirmation needed</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-3.3</span><span class="srefs"><span class="ref">F16</span><span class="ref">product-spec/04</span></span></div>
+  <p class="sstate"><strong>As a</strong> returning reader, <strong>I want</strong> the rail to warn me before boundaries, <strong>so that</strong> anticipation replaces surprise.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> A deep checkpoint&#x27;s glow begins two lanes before contact and intensifies with proximity, giving fair warning in the reader&#x27;s peripheral vision. After several locks, readers report feeling boundaries approach — the instrument becomes a sense.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Glow begins exactly two lanes before a deep boundary</li><li>Glow intensity scales with proximity</li><li>Shallow boundaries stay as quiet dots — no false alarms</li></ul>
+</article>
+  
+<div class="pagenav">
+  <a class="btn" href="#/s2">← Previous</a>
+  <a class="btn" href="#/s4">Next →</a>
+</div>
+</section>
+<section class="page" id="pg-s4">
+  <div class="stagehead"><span class="docnum">Week 3 · Sunday</span>
+  <h2>Measurement</h2></div>
+  <div class="narr"><p>She starts noticing the right rail&#x27;s little bars, one per line. She taps the longest; the lane&#x27;s heaviest span lifts and sharpens, and the quiet lines around it give up a little height to make room.</p><p>Beneath it a quiet affordance: what did this cost? She opens it — a small readout of how many pieces were folded into the key she&#x27;s looking at, how many survived, what was lost. She starts checking the cost of summaries the way she checks price tags.</p><p>She places her first checkpoint on the margin track beside a boundary that kept stopping her, and the app treats it like it was always there.</p></div>
+  <h3>User stories <span class="count">3</span></h3>
+  
+<article class="story">
+  <div class="shead"><span class="sid">US-4.1</span><span class="srefs"><span class="ref">F10</span><span class="ref">product-spec/04</span></span></div>
+  <p class="sstate"><strong>As a</strong> developing reader, <strong>I want</strong> per-line friction bars I can tap, <strong>so that</strong> structural intensity becomes legible as number.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> The right rail carries one micro-bar per lane showing its aggregated friction coefficient, scaled to the page maximum so bars compare within the page. Tapping a bar isolates the lane&#x27;s highest-friction span; bars update live as lenses change what counts.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Bars scale to the page maximum, comparable within the page</li><li>Tap isolates the hottest span with visible lift</li><li>Live update on lens change without layout jump</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-4.2</span><span class="srefs"><span class="ref">F11</span><span class="ref">product-spec/01 provenance</span></span></div>
+  <p class="sstate"><strong>As a</strong> reader, <strong>I want</strong> to open “what did this cost?” on any summary, <strong>so that</strong> I audit before I trust.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> Any collapsed key, merged channel, or folded structure opens an invertibility audit: superposition in, survivors out, quantified loss over the integer closure — with the provenance chain behind it. The reader learns that every summary has a price, and then starts checking prices everywhere.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Audit shows superposition → survivors → loss/28</li><li>Every figure traces to repository material via the provenance chain</li><li>Zero-match results render honestly with no forced values</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-4.3</span><span class="srefs"><span class="ref">F18</span><span class="ref">product-spec/05</span></span></div>
+  <p class="sstate"><strong>As a</strong> reader, <strong>I want</strong> to author my own margin checkpoints, <strong>so that</strong> my investigation leaves landmarks.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> A long-press on the timeline rail authors a checkpoint — lane, label, optional note, boundary depth. Authored checkpoints are first-class: they glow, they warn, and they participate in lock behavior exactly like native ones.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Authored checkpoint appears on the rail immediately</li><li>Participates in lock and glow behavior like native checkpoints</li><li>Syncs to the central schema as an additive record</li></ul>
+</article>
+  
+<div class="pagenav">
+  <a class="btn" href="#/s3">← Previous</a>
+  <a class="btn" href="#/s5">Next →</a>
+</div>
+</section>
+<section class="page" id="pg-s5">
+  <div class="stagehead"><span class="docnum">Month 2 · 6 a.m. — before the house wakes</span>
+  <h2>Deep Tracking</h2></div>
+  <div class="narr"><p>This is her hour now. She stacks lenses the way she used to stack blankets — the skeleton canvas with the seam lens over it, watching fault lines cross bare strokes. Once the app refuses a combination and the rail tells her plainly why, which she respects more than compliance.</p><p>Her checkpoints line the left rail like familiar landmarks. The other morning her father watched over her shoulder as she pinched the marks away, and he went quiet the way she had on day one. “The bones,” he said. “You can see the bones.”</p><p>She doesn&#x27;t think about the interface anymore. The glow before a boundary, the weight of a heavy line, the thread trailing behind her in orbit — senses now, not features. For an hour the fifteen lines breathe around her attention, and the footprint never breaks.</p></div>
+  <h3>User stories <span class="count">3</span></h3>
+  
+<article class="story">
+  <div class="shead"><span class="sid">US-5.1</span><span class="srefs"><span class="ref">F01–F09</span><span class="ref">spec-ui/06 refusals</span></span></div>
+  <p class="sstate"><strong>As a</strong> advanced reader, <strong>I want</strong> to stack lenses, and to be refused clearly when a combination is undefined, <strong>so that</strong> I can experiment without breaking trust.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> Defined lens combinations compose (e.g., seam lens over the rasm canvas); undefined ones are refused with a plain reason on the rail — never silently, never as a crash. The refusal itself is informative: it teaches the system&#x27;s own boundaries.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Defined combinations compose without visual conflict</li><li>Refused combinations name their reason on the rail</li><li>No combination can deform the page footprint</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-5.2</span><span class="srefs"><span class="ref">spec-ui/06</span><span class="ref">product-spec/00 principles</span></span></div>
+  <p class="sstate"><strong>As a</strong> deep tracker, <strong>I want</strong> the interface to recede into sense — glow, weight, trails, <strong>so that</strong> verification becomes continuous and unasked-for.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> At mastery the HUD dims to its rest state for long stretches; the reader navigates by peripheral signals they have internalized. The system never interrupts with popups or scores — the transformation stays contemplative, and interpretation remains the reader&#x27;s work alone.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>No popups, banners, or scores in any state</li><li>Rest state reachable and stable during long sessions</li><li>Rasm state remains fully contemplative: minimal ticks only</li></ul>
+</article>
+<article class="story">
+  <div class="shead"><span class="sid">US-5.3</span><span class="srefs"><span class="ref">F17</span><span class="ref">spec-ui/07</span></span></div>
+  <p class="sstate"><strong>As a</strong> reader, <strong>I want</strong> to show someone the skeleton reveal, <strong>so that</strong> the wonder transfers.</p>
+  <p class="sdef"><span class="dlabel">Definition.</span> The signature gestures work on the first try for a guest — the pinch, the orbit, the lock — because they are physical, not learned. The journey is shareable: a reader can hand the page to someone else and watch day one happen again.</p>
+  <div class="dlabel">Acceptance criteria</div>
+  <ul class="crit"><li>Rasm reveal succeeds first-try without instruction</li><li>Guest session leaves the owner&#x27;s checkpoints and discoveries untouched</li><li>Handoff takes under ten seconds</li></ul>
+</article>
+  
+<div class="pagenav">
+  <a class="btn" href="#/s4">← Previous</a>
+  <span></span>
+</div>
+</section></div>
+<footer>Companion to the product blueprint. Abstract language held: canvas coordinates only,
+no verse markers, no historical names.</footer>
+<script>
+const $=id=>document.getElementById(id);
+function route(){
+  const h=(location.hash.replace(/^#\/?/,"")||"overview");
+  document.querySelectorAll("section.page").forEach(p=>p.classList.remove("on"));
+  const pg=document.getElementById("pg-"+h)||document.getElementById("pg-overview");
+  pg.classList.add("on");
+  document.querySelectorAll(".nav a").forEach(a=>a.classList.toggle("active",a.dataset.r===h||(h==="overview"&&a.dataset.r==="overview")||pg.id==="pg-"+a.dataset.r));
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);route();
+</script></body></html>

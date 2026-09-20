@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>High-Dimensional Interface Blueprint — 15-Line Spatial Matrix</title>
+<style>
+:root{--bg:#101114;--panel:#17181d;--panel2:#1d1e24;--line:#2a2b33;
+--ink:#e9e6da;--muted:#a7a396;--faint:#6f6c62;--accent:#d8a24a;--accent2:#7fb3d5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;line-height:1.7}
+.top{padding:30px 22px 20px;border-bottom:1px solid var(--line);
+background:linear-gradient(180deg,#15161b,#101114)}
+.top h1{margin:0 0 8px;font-size:1.6rem}
+.top p{margin:0 0 14px;color:var(--muted);max-width:68ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+padding:4px 12px;font-size:.82rem;color:var(--muted)}
+.chip b{color:var(--ink)}
+.nav{position:sticky;top:0;z-index:10;background:#14151aee;border-bottom:1px solid var(--line);
+padding:10px 14px;display:flex;gap:6px;overflow-x:auto;backdrop-filter:blur(6px)}
+.nav a{white-space:nowrap;color:var(--muted);text-decoration:none;font-size:.82rem;
+padding:6px 10px;border-radius:8px}
+.nav a:hover{background:var(--panel2);color:var(--ink)}
+.wrap{max-width:960px;margin:0 auto;padding:10px 20px 90px}
+section.doc{padding:26px 0;border-bottom:1px solid var(--line)}
+section.doc:last-child{border-bottom:0}
+.docnum{color:var(--accent);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:1.5rem;margin:.3em 0 .6em}
+h2{font-size:1.2rem;margin:1.6em 0 .5em;color:var(--ink)}
+h3{font-size:.85rem;margin:1.8em 0 .4em;color:var(--accent);
+text-transform:uppercase;letter-spacing:.06em}
+h4{font-size:1rem;margin:1.4em 0 .3em}
+p{margin:.7em 0;color:#d8d4c6}
+ul{padding-left:22px}
+li{margin:.45em 0;color:#d8d4c6}
+strong{color:var(--ink)}
+code{background:var(--panel2);padding:1px 7px;border-radius:5px;font-size:.86em;
+font-family:ui-monospace,monospace;color:var(--accent2)}
+pre.schema{background:#0b0c0f;border:1px solid var(--line);border-radius:10px;
+padding:16px;overflow-x:auto;font-size:.8rem;line-height:1.5;color:#c9c4b4}
+blockquote{border-left:3px solid var(--accent);background:var(--panel);
+margin:16px 0;padding:12px 18px;border-radius:0 10px 10px 0;font-style:italic}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.87rem;
+display:block;overflow-x:auto}
+th,td{text-align:left;padding:9px 12px;border:1px solid var(--line);vertical-align:top}
+th{background:var(--panel2);color:var(--muted);white-space:nowrap}
+td:first-child{white-space:nowrap;color:var(--accent)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+footer{border-top:1px solid var(--line);padding:20px;color:var(--faint);
+font-size:.8rem;text-align:center}
+@media(max-width:700px){.wrap{padding:6px 14px 70px}}
+</style>
+</head>
+<body>
+<header class="top">
+<h1>High-Dimensional Interface Blueprint</h1>
+<p>The 15-line page as a spatial matrix: four pillar transformations, twenty rolling
+features, and a six-stage path from onboarding to deep tracking — one document.</p>
+<div class="chips">
+<span class="chip"><b>10</b> proposal documents</span>
+<span class="chip"><b>4</b> master pillars</span>
+<span class="chip"><b>20</b> rolling features</span>
+<span class="chip"><b>6</b> operational stages</span>
+</div>
+</header>
+<nav class="nav"><a href="#overview">Overview</a><a href="#pillars">00 · Master Design Pillars</a><a href="#canvas">01 · The 15-Line Canvas</a><a href="#features">02 · Feature Registry F01–F20</a><a href="#matrix">03 · Uniform Interaction Matrix</a><a href="#hud">04 · Peripheral HUD Taxonomy</a><a href="#typography">05 · Visual Typography System</a><a href="#cognitive">06 · Cognitive Program</a><a href="#specsheet">07 · Operational Spec Sheet</a><a href="#layout">08 · Directory Layout</a></nav>
+<div class="wrap">
+<section class="doc" id="overview"><h1>High-Dimensional Interface Blueprint — 15-Line Spatial Matrix</h1>
+<p>A UI/UX proposal: the traditional 15-line page is treated not as a static graphic artifact but as a highly optimized spatial matrix. This blueprint overlays the Infinite Sovereign Discoveries (the nine anomaly areas of the Discovery Ledger) and a 20-feature interaction registry directly onto the 15-line structure, converting standard reading into an immersive, non-linear navigation operating space.</p>
+<h2>Premise</h2>
+<p>The classic page already is an interface: 15 horizontal rows with exact breaks, fixed vertical alignment boundaries, and pristine margins form a balanced coordinate field refined over centuries for visual memory. The blueprint does not redesign the page — it activates it. Four transformations (see <code>00_design_pillars.md</code>) turn the geometry into an operating space while the historical footprint stays rigid.</p>
+<h2>How to read this folder</h2>
+<table><tr><th>File</th><th>What it specifies</th></tr><tr><td><code>00_design_pillars.md</code></td><td>The four master transformations of the layout geometry</td></tr><tr><td><code>01_fifteen_line_canvas.md</code></td><td>The canvas spec: lanes, coordinate field, margins, substrate, equilibrium</td></tr><tr><td><code>02_feature_registry.md</code></td><td>The 20 rolling features (F01–F20) with explicit UX behaviors</td></tr><tr><td><code>03_interaction_matrix.md</code></td><td>The uniform 4-layer matrix for every feature</td></tr><tr><td><code>04_hud_taxonomy.md</code></td><td>Peripheral HUD: margin instruments and their states</td></tr><tr><td><code>05_typography_system.md</code></td><td>Visual typography: how text weight, spacing, and row height respond to structure</td></tr><tr><td><code>06_cognitive_program.md</code></td><td>Cognitive transformation goals and the habit-disruption map</td></tr><tr><td><code>07_operational_spec_sheet.md</code></td><td>The 15-Line Operational Spec Sheet: onboarding (0–60 min) to advanced deep tracking</td></tr><tr><td><code>08_directory_layout.md</code></td><td>File-by-file layout of this folder</td></tr></table>
+<h2>Standing disciplines</h2>
+<ul><li><strong>No code.</strong> This folder contains experience flows, layout blueprints, design</li></ul>
+<p>schemas, and interface taxonomy only.</p>
+<ul><li><strong>Abstract language.</strong> The system is evaluated through universal structural</li></ul>
+<p>principles. Line numbers are canvas coordinates (line 1–15); no verse markers, no historical names.</p>
+<ul><li><strong>Arabic-first.</strong> The Arabic letterforms are the primary visual material;</li></ul>
+<p>all instrumentation lives in the margins, never over the text.</p>
+<ul><li><strong>Proposal only.</strong> This is a design specification, not an implementation.</li></ul>
+<p>Per the standing gate, nothing beyond the UI system is built until explicit approval is given.</p>
+<h2>The 20 rolling features — registry note</h2>
+<p>No canonical 20-feature list was attached to the brief, so this proposal defines the registry itself: F01–F09 map to the nine Discovery Ledger anomaly areas as lenses; F10–F13 are ledger instruments (friction, audit, rigidity, proximity axis); F14–F17 are the four named deep interactions; F18–F20 are page-level systems. The registry is a defined interface, open to extension.</p></section><section class="doc" id="pillars"><div class="docnum">00</div><h1>Master Core Design Pillars — The 15-Line Spatial Transformation</h1>
+<p>Four transformations anchor the entire proposal. Each takes one property of the classic geometry and converts it from a static fact into a live behavior.</p>
+<h2>Pillar 1 — Horizontal Row Dynamics (The 15-Vector Array)</h2>
+<p>Each of the 15 lines is treated as an independent horizontal vector lane with its own live state. Typography is not locked into passive columns; lanes respond to real-time perspective metrics drawn from the Discovery Ledger:</p>
+<ul><li><strong>Expand / contract.</strong> A lane&#x27;s row height grows when its structural</li></ul>
+<p>intensity is high (dense anomaly nodes, high friction) and recedes when the line is structurally quiet. The reader sees importance as vertical presence.</p>
+<ul><li><strong>Slide.</strong> A lane offsets horizontally in proportion to attribution-vector</li></ul>
+<p>drift — when the line&#x27;s relational links pull strongly toward distant regions of the array, the row visibly leans in that direction.</p>
+<ul><li><strong>Depth.</strong> Lanes carry a z-value from friction: high-friction lines lift</li></ul>
+<p>toward the reader while quiet lines settle back; depth-of-field blur separates the planes.</p>
+<p>Lanes never reorder. The 15-vector array preserves sequence absolutely; only internal dimensions shift. This is what makes the transformation readable rather than chaotic: position is sacred, dimension is fluid.</p>
+<h2>Pillar 2 — The Margins as an Operating Track</h2>
+<p>The empty space flanking the 15 lines becomes an active instrument rail. Both margins carry, per line:</p>
+<ul><li>proximity indices (where the line sits on the address–speaker–absent axis),</li><li>attribution vectors (the typed relational links touching the line),</li><li>timeline checkpoints (chronological boundary markers the line crosses).</li></ul>
+<p>The margins are touch-active. Scrubbing a finger along the margin rail moves a depth cursor across lines; tapping a margin instrument isolates its lane. The margins never display text content — they display structure. Content stays on the lines; measurement stays on the rails.</p>
+<h2>Pillar 3 — The Inter-Row Substrate</h2>
+<p>The negative space <em>between</em> the 15 lines functions as a multi-speed lens overlay. At rest it is simply space. Under interaction pressure it reveals, in order of increasing pressure:</p>
+<ul><li><strong>Light pressure</strong> — hidden connections: the relational threads linking the</li></ul>
+<p>lines above and below surface as fine filaments.</p>
+<ul><li><strong>Firm pressure</strong> — skeletal variants: the dotless structural skeleton of</li></ul>
+<p>the neighboring lines shows through beneath the marked text.</p>
+<ul><li><strong>Deep pressure</strong> — root continuity threads: the lexical roots running</li></ul>
+<p>vertically through the page illuminate as continuous strands.</p>
+<p>One gesture, three speeds, three depths of the same substrate. The lens never obscures the lines; it reads <em>between</em> them.</p>
+<h2>Pillar 4 — Rigid/Fluid Page Bound Equilibrium</h2>
+<p>The strict historical page-by-page footprint is preserved to protect visual memory: 15 lines, fixed margins, fixed proportions, fixed alignment boundaries. Within that rigid bound, the interior is fluid — row heights, letter spacing, and depth shift to reflect text gravity and structural intensity.</p>
+<p>An equilibrium governor enforces the contract: total page height is constant, so any lane&#x27;s expansion is paid for by the contraction of quieter lanes. The page breathes but never breaks. The reader always knows where they are; what changes is how much space each line is allowed to claim.</p></section><section class="doc" id="canvas"><div class="docnum">01</div><h1>The 15-Line Canvas — Spatial Spec</h1>
+<p>The canvas is a coordinate field, not a picture. Everything on it is addressable: every lane, every margin cell, every gutter.</p>
+<h2>Geometry</h2>
+<pre class="schema">┌──────────────────────────────────────────────────────────┐
+│ MARGIN RAIL │  lane 01  ·······························  │ MARGIN RAIL │
+│  (prox idx) │ ─ ─ ─ ─ ─ gutter (lens) ─ ─ ─ ─ ─ ─ ─ ─  │ (attr vec)  │
+│  (rigidity) │  lane 02  ·······························  │ (friction)  │
+│  (timeline) │ ─ ─ ─ ─ ─ gutter (lens) ─ ─ ─ ─ ─ ─ ─ ─  │ (checkpts)  │
+│             │  lane 03  ·······························  │             │
+│             │     ·  ·  ·                               │             │
+│             │  lane 15  ·······························  │             │
+└──────────────────────────────────────────────────────────┘
+      ▲                        ▲                              ▲
+  operating                 15-vector                      operating
+    track                     array                          track</pre>
+<ul><li><strong>Lanes 1–15.</strong> Independent vector lanes. Fixed order, fixed count, fluid</li></ul>
+<p>internal dimensions. Each lane exposes: structural intensity (from ledger node density), friction coefficient, viewpoint-axis position, dominant anomaly lens.</p>
+<ul><li><strong>Gutters (14).</strong> The inter-row substrate. Inert at rest; lens-active under</li></ul>
+<p>pressure (three speeds — connections, skeleton, root threads).</p>
+<ul><li><strong>Margin rails (2).</strong> Operating tracks, one per side. Left rail: proximity</li></ul>
+<p>indices, rigidity coefficients, timeline checkpoints. Right rail: attribution vectors, friction meter, depth cursor. Rails are per-line aligned: margin cell <em>n</em> always corresponds to lane <em>n</em>.</p>
+<ul><li><strong>Page bound.</strong> The outer rectangle is immutable across every state of the</li></ul>
+<p>system. Zoom never rescales the page; it rescales attention within it.</p>
+<h2>Coordinate discipline</h2>
+<ul><li>Lines are addressed 1–15 (canvas coordinates). These are positions on the</li></ul>
+<p>matrix, not verse markers.</p>
+<ul><li>The vertical axis is sequence (order preserved absolutely). The horizontal</li></ul>
+<p>axis is the line&#x27;s internal span. Depth (z) is structural intensity.</p>
+<ul><li>No content may ever render in the margins; no instrumentation may ever</li></ul>
+<p>render over the letterforms. The two domains are separated by law.</p>
+<h2>Lane state model</h2>
+<p>Each lane carries exactly five live values:</p>
+<ul><li><strong>intensity</strong> — structural weight from ledger anomaly density on the line.</li><li><strong>friction</strong> — the line&#x27;s aggregated friction coefficient.</li><li><strong>axis</strong> — viewpoint-axis position (address / speaker / absent blend).</li><li><strong>lens</strong> — the dominant anomaly lens active on the line (F01–F09, or none).</li><li><strong>depth</strong> — z-position derived from friction, driving DOF rendering.</li></ul>
+<p>All typography behaviors (<code>05_typography_system.md</code>), all HUD readouts (<code>04_hud_taxonomy.md</code>), and all feature matrices (<code>03_interaction_matrix.md</code>) are functions of these five values. Nothing on the canvas is decorative.</p>
+<h2>Equilibrium rule</h2>
+<p>Total page height H is constant. If lane <em>i</em> expands by Δ, the governor distributes −Δ across the lowest-intensity lanes. Expansion is therefore always a <em>claim</em> a line makes against the page, visibly paid for by its neighbors — the reader sees structural importance as a zero-sum economy of space.</p></section><section class="doc" id="features"><div class="docnum">02</div><h1>Feature Registry — The 20 Rolling Features (F01–F20)</h1>
+<p>Each feature is a defined behavior, not a button. Features compose: lenses (F01–F09) color what the instruments (F10–F13) measure, the deep interactions (F14–F17) are the primary gestures of mastery, and the page systems (F18–F20) are the ground everything stands on.</p>
+<hr>
+<h2>Lenses — the nine anomaly areas as ways of seeing (F01–F09)</h2>
+<p><strong>F01 — Rupture Lens</strong> (source: Internal Rupture Mechanics). Nested voice ignition becomes visible: when a lane contains a perspective ignition, the lens draws the seam as a fine vertical fault line across the row and tints the ignited span. The parent text holds steady; the inner voice is legible as a chamber inside the line.</p>
+<p><strong>F02 — Collapse Lens</strong> (source: Temporal State Collapsing). Long histories pressed into signatures: activating this lens compresses a lane&#x27;s relational threads into a single glyph-like key floating in the gutter, with the discarded steps shown as fading strata beneath it. The reader sees what the key cost.</p>
+<p><strong>F03 — Dissolution Lens</strong> (source: Radial Spatial Dissolution). Thread mergers render as confluence: the separate measures feeding a lane visibly flow into one channel at the boundary condition, like streams joining. The merger license (attestation / score / declared filter) is shown as a seal on the channel.</p>
+<p><strong>F04 — Shift Lens</strong> (source: Real-Time Viewpoint Shifting). Orientation reversals draw as pivot arcs: a curved arrow across the lane marks where the thread turned, with the distance limits that snapped into place shown as faint brackets between the affected pools.</p>
+<p><strong>F05 — Shielding Lens</strong> (source: Dynamic Distance Shielding). Protective detachment renders as depth-withdrawal: shielded spans sink slightly below the page plane and desaturate, visibly removed from the threat profile while remaining present. Declared-uncertain links show as dashed, arm&#x27;s-length tethers.</p>
+<p><strong>F06 — Passivity Lens</strong> (source: Linear Object Passivity). Payload-only material dims to a quiet gray and flattens (depth → 0); anything capable of execution keeps full ink and lift. The page separates, at a glance, into participants and payload.</p>
+<p><strong>F07 — Elevation Lens</strong> (source: Gravitational Node Elevation). Hubs broadcast: elevated records emit faint concentric rings across neighboring lanes, and the barrier they crossed (build / render / detection threshold) is marked as a threshold line the rings pass through. Transmission made visible.</p>
+<p><strong>F08 — Convergence Lens</strong> (source: Spatial Horizon Convergence). Footprint matching renders as overlay ghosts: when distant regions share an identical structural footprint, the lens superimposes their contours in the gutter as aligned translucent shapes. No channel, no coordination — just the match.</p>
+<p><strong>F09 — Rollback Lens</strong> (source: Recursive Timeline Rollbacks). Backward trails illuminate: activating this lens draws the reverse path a root took to its anchor as a dotted line running against the reading direction, with discarded forward operations shown as struck-through ghosts along the way.</p>
+<hr>
+<h2>Instruments — ledger mechanics as HUD (F10–F13)</h2>
+<p><strong>F10 — Friction Meter.</strong> A per-lane readout on the right margin rail: each lane&#x27;s aggregated friction coefficient as a horizontal micro-bar. Bars update live as lenses change what counts as friction. Tapping a bar isolates the lane&#x27;s highest-friction span.</p>
+<p><strong>F11 — Invertibility Audit.</strong> A drill-down inspector: selecting any collapsed key, merged channel, or folded structure opens a ledger-style readout — superposition in, survivors out, quantified loss over the integer closure. The audit answers &quot;what did this cost?&quot; for any compression on the page.</p>
+<p><strong>F12 — Rigidity Rail.</strong> Per-lane rigidity coefficients on the left margin rail, rendered as a vertical spine of ticks. Rigid lines (high structural fixity) show dense ticks; fluid lines show sparse ones. The rail is the reader&#x27;s at-a-glance map of where the page will resist manipulation.</p>
+<p><strong>F13 — Proximity Axis HUD.</strong> The speaker-position instrument: a three-pole axis (address / speaker / absent) on the left rail showing each lane&#x27;s blend as a marker. As focus moves between lanes, the marker glides. Sudden jumps flag perspective shifts before the reader consciously registers them.</p>
+<hr>
+<h2>Deep interactions (F14–F17)</h2>
+<h3>F14 — Perspective &amp; Axis Tracking</h3>
+<p><em>How a reader navigating line 4 versus line 12 experiences a sudden change in background tint, depth-of-field compression, and multi-voice row splitting when the speaker perspective shifts across the Proximity Axis HUD.</em></p>
+<p>The reader&#x27;s focus rests on line 4: the lane is stable, axis marker sitting near the absent pole, background neutral, all 15 lanes at rest depth. The reader advances. On line 12 the ledger records a high viewpoint-axis delta — a perspective ignition.</p>
+<p>The canvas responds in three synchronized channels over roughly half a second. First, <strong>background tint</strong>: the page field behind line 12 warms (toward the address pole) while the surrounding lanes cool slightly, so the shift reads as a local climate change, not a highlight. Second, <strong>depth-of-field compression</strong>: lanes 11 and 13 soften and recede, line 12 sharpens and lifts toward the reader — attention becomes a physical plane. Third, <strong>multi-voice row splitting</strong>: line 12 forks. The lane divides horizontally into two sub-rows — the before-voice and the after-voice — separated by the seam fault line, each sub-row carrying its own axis tint. The reader is now looking at two chambers sharing one wall.</p>
+<p>The Proximity Axis HUD narrates the event: the marker visibly travels the axis during the transition, leaving a fading trail. Dismissal is a tap on the seam: the sub-rows merge, tint neutralizes, depth releases. The reader has not just read a shift; they have watched perspective become geometry.</p>
+<h3>F15 — Non-Linear Path Planning (Echo-Trajectory)</h3>
+<p><em>How a double-tap on a root word in line 2 draws an active Echo-Trajectory across lines 7, 11, and 15, changing page navigation into a radial orbit rather than a vertical scroll.</em></p>
+<p>The reader double-taps a root word on line 2. The word pulses once — a single expanding ring — and the page exhales: lines 7, 11, and 15 each raise a small beacon where the same root occurs. Then the trajectories draw: three curved filaments arc from the tapped word through the inter-row substrate to the beacons, drawn in sequence (nearest first), each arriving with a soft tick on the margin rail.</p>
+<p>At the third arrival, the canvas transitions to <strong>radial orbit mode</strong>. The tapped word becomes the hub: the 15 lanes bend — visually, gently — into concentric arcs around it, the page bound holding rigid while the interior re-geometries. Vertical scroll is suspended; navigation is now orbital. A drag rotates the orbit; tapping any beacon jumps focus to that occurrence, the hub trailing a thread behind it so the return path is never lost.</p>
+<p>The orbit persists as a mode, announced by a thin orbital ring on the margin rail. An outward fling from the hub dismisses it: arcs relax back into parallel lanes, filaments fade, scroll resumes. The reader&#x27;s mental model has shifted from &quot;where am I on the page&quot; to &quot;what is connected to this word.&quot;</p>
+<h3>F16 — Temporal De-synchronization (Inverse Path-Trace Lock)</h3>
+<p><em>The mechanical behavior of the Inverse Path-Trace Lock: how crossing a deep chronological boundary layer on line 8 locks forward progression, forcing a physical reverse-gesture over the preceding lines to re-sync the system state.</em></p>
+<p>The reader scrolls forward and reaches line 8, which the timeline rail marks as a deep chronological boundary — a stratum break. The page resists: forward motion meets a detent (a haptic stop, a visible compression of the lanes ahead as if pressed against glass). A lock glyph appears on the left margin rail beside line 8, and the timeline checkpoint for the boundary illuminates. The system state is now de-synchronized: the reader&#x27;s position has outrun their anchor.</p>
+<p>Nothing forward will work — taps ahead land dead, the page will not advance. The only valid gesture is <strong>reversal</strong>: the reader drags backward, upward over the preceding lines. As the reverse-gesture travels, the Rollback Lens engages automatically: the backward trail illuminates as a dotted line, and the operations being discarded render as struck-through ghosts that dissolve as the gesture passes them. The reader is physically re-walking the input trail, in reverse, until the lost anchor is recovered — marked by the lock glyph releasing with a soft chime and the timeline checkpoint settling.</p>
+<p>Only then does forward motion unlock, and the lanes ahead release their compression with a visible exhale. The lesson is kinesthetic: synchronization is restored not by pushing forward but by retreating exactly. After several such locks, readers begin to <em>feel</em> boundary layers approaching — the rail&#x27;s checkpoint glow becomes a sense, not a signal.</p>
+<h3>F17 — Substrate Invariance Gestures (Rasm Reveal)</h3>
+<p><em>How a multi-finger pinch across the 15 rows dissolves modern vocalization markers instantly, exposing the bare dotless structural skeleton on a clean gray canvas to demonstrate self-healing data layers.</em></p>
+<p>The reader places two fingers across the 15 rows and pinches inward. The vocalization markers — the entire layer of dots, vowel marks, and reading aids — begin to dissolve: each mark shrinks and fades over roughly half a second, row by row from the pinch epicenter outward, like frost melting. What remains is the bare dotless skeleton on a clean gray canvas: near-black skeletal strokes, generous space, no guidance. The page is suddenly older and quieter.</p>
+<p>The skeleton layer is fully explorable — pan, dwell, trace a stroke with a finger and feel its path. The margin rails dim to minimal ticks; this is a contemplative state, and the interface gets out of the way.</p>
+<p>Release is the demonstration: the reader spreads their fingers, and the markers <strong>heal back</strong>. Dot by dot, mark by mark, the vocalization layer re-attaches with a fine ripple radiating from the release point — each mark landing exactly where the skeleton&#x27;s structure dictates. Nothing is approximated; the layers are separate, and their separation is the proof. The reader has witnessed substrate independence as a physical event: the skeleton needs nothing, and the markers are guests that know their seats.</p>
+<hr>
+<h2>Page systems (F18–F20)</h2>
+<p><strong>F18 — Margin Operating Track.</strong> The margins as a unified instrument: scrub to move the depth cursor, tap a cell to isolate its lane, long-press a timeline checkpoint to preview the boundary layer. The track has three density modes (spine / expanded / full) toggled by pinching the margin itself. All instrumentation, zero content.</p>
+<p><strong>F19 — Inter-Row Substrate Lens.</strong> The gutter lens with three pressure speeds: light reveals hidden connections between neighboring lines, firm reveals skeletal variants beneath the marked text, deep reveals root continuity threads running vertically through the page. Pressure is read from touch force / dwell time; each speed has a distinct visual language (filaments / underlay / strands) so the reader always knows which depth they are at.</p>
+<p><strong>F20 — Page Bound Equilibrium Governor.</strong> The silent system underneath: keeps total page height constant while lanes expand and contract, distributes reclaimed space to the quietest lanes, and enforces the rigid footprint. The governor surfaces only one UI element — a hairline &quot;breath indicator&quot; on the margin rail showing how much of the page&#x27;s space budget is currently claimed by high-intensity lanes.</p></section><section class="doc" id="matrix"><div class="docnum">03</div><h1>Uniform Architectural Interface Matrix</h1>
+<p>Every feature, broken across the same four layers. Read rows for a single feature&#x27;s full behavior; read columns for the system&#x27;s consistent grammar.</p>
+<ul><li><strong>Physical Interaction Layer</strong> — the exact gesture.</li><li><strong>Visual Typography Layer</strong> — how text weight, spacing, margins, and row</li></ul>
+<p>heights behave as structural friction fluctuates.</p>
+<ul><li><strong>Peripheral HUD Layer</strong> — what the margins display.</li><li><strong>Cognitive Transformation Goal</strong> — which passive habit this disrupts and</li></ul>
+<p>what replaces it.</p>
+<table><tr><th>Feature</th><th>Physical Interaction</th><th>Visual Typography</th><th>Peripheral HUD</th><th>Cognitive Goal</th></tr><tr><td>F01 Rupture Lens</td><td>Tap the seam fault line to split/merge the row</td><td>Ignited span gains weight and warm tint; parent holds baseline</td><td>Axis HUD shows the marker&#x27;s travel with a fading trail</td><td>One voice per line → polyphonic attention: a line can be two chambers</td></tr><tr><td>F02 Collapse Lens</td><td>Long-press a lane to compress its history into a key</td><td>Key floats in the gutter; discarded steps fade as strata beneath</td><td>Audit readout: superposition in, survivors out, quantified loss</td><td>Reading as accumulation → reading as cost: every summary has a price</td></tr><tr><td>F03 Dissolution Lens</td><td>Two-finger converge on a lane to watch its measures merge</td><td>Threads visibly flow into one channel; seal marks the license</td><td>Merger seal (attestation / score / filter) on the channel</td><td>Quantities as facts → quantities as mergers: ask what license merged them</td></tr><tr><td>F04 Shift Lens</td><td>Swipe along a lane to replay its pivot arc</td><td>Pivot arc draws across the row; brackets mark the distance limits</td><td>Axis jump flagged before the reader consciously registers it</td><td>Direction as given → direction as event: orientation can reverse mid-run</td></tr><tr><td>F05 Shielding Lens</td><td>Hover-dwell on a span to sense its withdrawal</td><td>Span sinks below plane, desaturates; dashed tethers for declared links</td><td>Withdrawal depth shown as a margin notch</td><td>Visibility as default → protection as disappearance: not everything is for every reader</td></tr><tr><td>F06 Passivity Lens</td><td>Toggle with a two-finger tap on the margin rail</td><td>Payload dims to quiet gray, depth → 0; executables keep ink and lift</td><td>Rail shows the participant/payload ratio per lane</td><td>All text as equal → payload vs participants: some records only lie flat</td></tr><tr><td>F07 Elevation Lens</td><td>Tap a hub to follow its broadcast rings</td><td>Concentric rings cross neighboring lanes; threshold line marked</td><td>Barrier crossed (build / render / detection) labeled on the rail</td><td>Position as importance → transmission as importance: gravity is earned</td></tr><tr><td>F08 Convergence Lens</td><td>Pinch two distant lanes to test footprint match</td><td>Aligned translucent contours superimpose in the gutter</td><td>Match score and the zero-channel note on the rail</td><td>Coincidence → shared structure: identical footprints are never accidents</td></tr><tr><td>F09 Rollback Lens</td><td>Drag backward along a lane to illuminate its reverse trail</td><td>Dotted reverse path; discarded operations as struck-through ghosts</td><td>Anchor marker; lock glyph while de-synchronized</td><td>Forward as progress → retreat as repair: sync is restored by going back exactly</td></tr><tr><td>F10 Friction Meter</td><td>Tap a margin bar to isolate the lane&#x27;s hottest span</td><td>Hottest span gains weight and lift proportional to its coefficient</td><td>Per-lane micro-bars on the right rail, live-updating</td><td>Intensity as feeling → intensity as number: friction becomes legible</td></tr><tr><td>F11 Invertibility Audit</td><td>Select any collapsed key, channel, or fold</td><td>Selected structure lifts; its cost strata unfold beneath it</td><td>Superposition → survivors → loss/28 readout panel</td><td>Trusting the summary → auditing the summary: ask what was lost</td></tr><tr><td>F12 Rigidity Rail</td><td>Scrub the left rail to feel resistance per line</td><td>Rigid lanes hold weight under manipulation; fluid lanes yield</td><td>Vertical spine of ticks: dense = rigid, sparse = fluid</td><td>Uniform page → terrain: the page has hard and soft ground</td></tr><tr><td>F13 Proximity Axis HUD</td><td>Glide focus between lanes; watch the marker travel</td><td>Lane tint warms/cools with axis position</td><td>Three-pole axis with per-lane blend markers and jump flags</td><td>Voice as invisible → voice as position: every line stands somewhere</td></tr><tr><td>F14 Perspective &amp; Axis Tracking</td><td>Advance focus onto a shifting lane; tap seam to dismiss</td><td>Tint shift + DOF compression + row split into before/after voices</td><td>Marker travel narrated with fading trail</td><td>Reading a shift → witnessing a shift: perspective becomes geometry</td></tr><tr><td>F15 Echo-Trajectory</td><td>Double-tap a root word; drag to orbit; fling outward to dismiss</td><td>Lanes bend into concentric arcs around the hub word</td><td>Orbital ring on the rail; beacons ticked as trajectories land</td><td>Where am I → what is connected: navigation becomes radial</td></tr><tr><td>F16 Path-Trace Lock</td><td>Forward scroll meets detent; reverse-drag over preceding lines to re-sync</td><td>Lanes ahead compress against glass; ghosts dissolve as the gesture passes</td><td>Lock glyph + illuminated checkpoint; release chime</td><td>Progress as forward → sync as retreat: boundaries must be re-walked</td></tr><tr><td>F17 Rasm Reveal</td><td>Multi-finger pinch inward to dissolve; spread to heal</td><td>Markers shrink/fade row by row; skeleton stands near-black on gray</td><td>Rails dim to minimal ticks; contemplative state</td><td>The printed page as truth → substrate awareness: the skeleton needs nothing</td></tr><tr><td>F18 Margin Operating Track</td><td>Scrub rail for depth cursor; tap cell to isolate; pinch margin for density</td><td>Isolated lane lifts; others recede to rail-indicated depth</td><td>Three density modes: spine / expanded / full</td><td>Margins as emptiness → margins as instruments: the frame is a tool</td></tr><tr><td>F19 Inter-Row Substrate Lens</td><td>Press-and-hold in a gutter: light / firm / deep pressure</td><td>Filaments → skeletal underlay → vertical root strands</td><td>Depth indicator shows which of the three speeds is active</td><td>Between-lines as nothing → between-lines as depth: the gutter is a lens</td></tr><tr><td>F20 Equilibrium Governor</td><td>No direct gesture; the system breathes under all other gestures</td><td>Expansion visibly paid for by neighbors&#x27; contraction</td><td>Hairline breath indicator: claimed vs free space budget</td><td>Space as free → space as economy: importance is a zero-sum claim</td></tr></table>
+<h2>Column grammars (how to read down)</h2>
+<ul><li><strong>Physical:</strong> every gesture is reversible; every mode has a named dismissal</li></ul>
+<p>(tap seam, outward fling, spread, release). No dead ends.</p>
+<ul><li><strong>Typography:</strong> weight, spacing, row height, and depth are all functions of</li></ul>
+<p>the five lane-state values (intensity, friction, axis, lens, depth). Nothing is decorative.</p>
+<ul><li><strong>HUD:</strong> content never enters the margins; instrumentation never covers the</li></ul>
+<p>letterforms. The separation is law.</p>
+<ul><li><strong>Cognitive:</strong> each goal names a specific passive habit and its replacement.</li></ul>
+<p>The full habit map is in <code>06_cognitive_program.md</code>.</p></section><section class="doc" id="hud"><div class="docnum">04</div><h1>Peripheral HUD Taxonomy</h1>
+<p>The margins are an operating track, not decoration. Every instrument below lives on the rails, aligned per line: margin cell <em>n</em> always describes lane <em>n</em>. Content never enters the margins; instrumentation never covers the letterforms.</p>
+<h2>Instruments</h2>
+<p><strong>Proximity Index Ticker (left rail, F13).</strong> Each cell shows its lane&#x27;s position on the three-pole axis — address / speaker / absent — as a marker on a miniature axis. Sudden marker jumps are flagged with a brief pulse: the system notices perspective shifts before the reader does.</p>
+<p><strong>Rigidity Rail (left rail, F12).</strong> A vertical spine of ticks per cell: dense ticks mark structurally rigid lines that will resist manipulation; sparse ticks mark fluid lines. The reader learns, at a glance, where the page has hard and soft ground.</p>
+<p><strong>Timeline Checkpoints (left rail, F16).</strong> Chronological boundary markers. Shallow boundaries show as dots; deep boundary layers — the kind that trigger the Inverse Path-Trace Lock — show as bars with a glow that intensifies as focus approaches. The rail gives fair warning.</p>
+<p><strong>Attribution Vector List (right rail).</strong> The typed relational links touching each lane, rendered as compact glyphs (one per link type). Tapping a glyph highlights the thread in the inter-row substrate without leaving the page.</p>
+<p><strong>Friction Meter (right rail, F10).</strong> Per-lane micro-bars of the aggregated friction coefficient. Bars breathe live as lenses change what counts. Tapping a bar isolates the lane&#x27;s highest-friction span.</p>
+<p><strong>Depth Cursor (right rail, F18).</strong> Scrubbing the rail moves a cursor across lanes; the cursor&#x27;s lane lifts slightly, the rest settle. The cursor is the reader&#x27;s hand in the depth dimension.</p>
+<p><strong>Breath Indicator (right rail, F20).</strong> A hairline gauge showing how much of the page&#x27;s fixed space budget is currently claimed by high-intensity lanes. The only visible element of the equilibrium governor.</p>
+<h2>HUD states</h2>
+<table><tr><th>State</th><th>Trigger</th><th>What changes on the rails</th></tr><tr><td>Rest</td><td>No interaction for a few seconds</td><td>All instruments dim to 40%; ticks only</td></tr><tr><td>Tracking</td><td>Focus moves between lanes</td><td>Proximity markers glide; friction bars update</td></tr><tr><td>Locked</td><td>Chronological boundary crossed (F16)</td><td>Lock glyph on the boundary cell; checkpoint illuminated; forward instruments grayed</td></tr><tr><td>Lens</td><td>Gutter press active (F19)</td><td>Depth indicator shows speed 1/2/3; neighboring cells brighten</td></tr><tr><td>Orbit</td><td>Echo-trajectory engaged (F15)</td><td>Orbital ring replaces the depth cursor; beacons ticked as trajectories land</td></tr><tr><td>Rasm</td><td>Skeleton revealed (F17)</td><td>Rails dim to minimal ticks; contemplative state</td></tr></table>
+<h2>Taxonomy rules</h2>
+<ul><li>One instrument, one job. No cell shows two metrics at once; density modes</li></ul>
+<p>(spine / expanded / full) change how many cells are visible, never how much a cell carries.</p>
+<ul><li>The HUD narrates, never interrupts. Pulses and glides are the vocabulary;</li></ul>
+<p>there are no popups, no banners, no modal dialogs on the rails.</p>
+<ul><li>Every HUD element is also a control. Readouts are touch-active: tap to</li></ul>
+<p>isolate, scrub to move, long-press to preview.</p>
+<ul><li>In Rasm state the HUD withdraws by law — the skeleton is contemplated,</li></ul>
+<p>not instrumented.</p></section><section class="doc" id="typography"><div class="docnum">05</div><h1>Visual Typography System</h1>
+<p>Text behavior on the 15-line canvas. All typographic change is a function of the five lane-state values (intensity, friction, axis, lens, depth) — nothing is decorative, and the Arabic letterforms remain the primary visual material at all times.</p>
+<h2>Weight — structural intensity made visible</h2>
+<ul><li>Baseline weight is the classic page&#x27;s even, calm black.</li><li>As lane intensity rises (ledger anomaly density, friction), weight</li></ul>
+<p>increases in continuous steps: the line literally gets heavier to look at.</p>
+<ul><li>Ignited spans (F01), hottest friction spans (F10), and hub words (F15)</li></ul>
+<p>carry the maximum weight on their lane.</p>
+<ul><li>Passive material under the Passivity Lens (F06) drops below baseline to a</li></ul>
+<p>quiet gray — weight is withdrawn, not just color.</p>
+<h2>Spacing — room for voice</h2>
+<ul><li>Letter spacing expands on high viewpoint-axis-delta lines: a voice that</li></ul>
+<p>traveled far is given room to land.</p>
+<ul><li>Spacing contracts on passive and low-intensity lines: quiet material sits</li></ul>
+<p>close together.</p>
+<ul><li>Word spacing widens around seam fault lines (F01, F14) so the split reads</li></ul>
+<p>as architecture, not crowding.</p>
+<h2>Row heights — the zero-sum economy</h2>
+<ul><li>Row height follows intensity, governed by the equilibrium rule: total page</li></ul>
+<p>height is constant, so a lane&#x27;s expansion is visibly paid for by its neighbors&#x27; contraction.</p>
+<ul><li>Expansion is eased, never snapped: lanes breathe over ~400ms so the reader</li></ul>
+<p>perceives a claim being made, not a layout glitch.</p>
+<ul><li>Minimum row height is sacred — no lane may contract below legibility, no</li></ul>
+<p>matter how quiet. The governor redistributes; it never starves.</p>
+<h2>Depth — friction as a physical plane</h2>
+<ul><li>Friction maps to z-lift: high-friction lanes rise toward the reader;</li></ul>
+<p>quiet lanes settle back.</p>
+<ul><li>Depth-of-field blur separates planes: when a lane is in focus (F14 shift,</li></ul>
+<p>F15 hub, F16 lock), its neighbors soften proportionally to their depth distance.</p>
+<ul><li>Shielded spans (F05) sink <em>below</em> the page plane — the only elements</li></ul>
+<p>permitted negative depth.</p>
+<h2>Multi-voice row splitting</h2>
+<p>When a lane forks (F01, F14), the split follows strict mechanics: the seam fault line is drawn first (a hairline, full lane width), then the sub-rows separate vertically within the lane&#x27;s own height budget — the lane may claim extra height from the governor, but the fork never invades neighboring lanes. Each sub-row carries its own axis tint. Merging reverses the sequence exactly.</p>
+<h2>The rasm canvas</h2>
+<p>On Substrate Invariance Gesture (F17): the field goes clean gray; the dotless skeleton stands in near-black with generous inter-line space; all rails dim to minimal ticks. No weight variation, no tint, no depth — the skeleton is shown as pure structure. Marker healing on release follows the reverse sequence (dots, then vowel marks, then reading aids), each landing with a fine ripple from the release point.</p>
+<h2>Arabic-first law</h2>
+<p>The Arabic letterforms are never reduced, transliterated, or replaced in any state of the system. All instrumentation, labels, and metrics live in the margins in the interface language; the lines belong to the Arabic text alone. Any future localization changes the rails, never the lanes.</p></section><section class="doc" id="cognitive"><div class="docnum">06</div><h1>Cognitive Program — From Passive Reading to Active Structural Verification</h1>
+<p>The interface is a training instrument. Each feature exists to break one passive habit and install its replacement. The transformation is the product; the page is the gym.</p>
+<h2>Habit-disruption map</h2>
+<table><tr><th>Passive habit</th><th>Disrupted by</th><th>Replacement habit</th></tr><tr><td>Vertical scroll as progress</td><td>F15 Echo-Trajectory (orbit mode)</td><td>Navigation as relation: ask what is connected, not where you are</td></tr><tr><td>Reading words in fixed order</td><td>F16 Path-Trace Lock (forced reversal)</td><td>Verification by retreat: sync is restored by re-walking, not pushing</td></tr><tr><td>Trusting the printed page</td><td>F17 Rasm Reveal (markers dissolve)</td><td>Substrate awareness: the skeleton needs nothing; layers are guests</td></tr><tr><td>One voice per line</td><td>F01/F14 Row splitting</td><td>Polyphonic attention: a line can be two chambers sharing a wall</td></tr><tr><td>All text as equal matter</td><td>F06 Passivity Lens</td><td>Participant/payload discernment: some records only lie flat</td></tr><tr><td>Summaries as free</td><td>F02 Collapse Lens + F11 Audit</td><td>Cost awareness: every key has a superposition price</td></tr><tr><td>Space as free</td><td>F20 Equilibrium Governor</td><td>Spatial economy: importance is a zero-sum claim on the page</td></tr><tr><td>Direction as given</td><td>F04 Shift Lens</td><td>Orientation as event: a thread can reverse mid-run</td></tr><tr><td>Coincidence as noise</td><td>F08 Convergence Lens</td><td>Footprint literacy: identical shapes are never accidents</td></tr><tr><td>Mergers as natural</td><td>F03 Dissolution Lens</td><td>License literacy: ask what permitted the merge</td></tr><tr><td>The margins as emptiness</td><td>F18 Operating Track</td><td>Instrument literacy: the frame is a tool</td></tr><tr><td>Between-lines as nothing</td><td>F19 Substrate Lens</td><td>Depth literacy: the gutter is a lens with three speeds</td></tr></table>
+<h2>How the transformation compounds</h2>
+<p>Habits are not broken one at a time; they fall in sequences. The typical compounding path:</p>
+<ul><li><strong>Orbit before order.</strong> Once a reader has navigated radially (F15), linear</li></ul>
+<p>scroll feels impoverished — the habit of &quot;where am I&quot; is permanently weakened.</p>
+<ul><li><strong>Retreat before advance.</strong> After the first few path-trace locks (F16),</li></ul>
+<p>readers begin to <em>feel</em> boundary layers approaching via the checkpoint glow. Anticipation replaces surprise.</p>
+<ul><li><strong>Skeleton before marks.</strong> After the rasm reveal (F17), the vocalization</li></ul>
+<p>layer is never again mistaken for the text itself. Every later reading carries substrate awareness underneath it.</p>
+<ul><li><strong>Audit before trust.</strong> Once a reader has opened the invertibility audit</li></ul>
+<p>(F11) on a collapsed key, summaries everywhere — inside and outside the system — start looking priced.</p>
+<h2>What the system refuses to do</h2>
+<ul><li>It never auto-advances, auto-plays, or gamifies. No streaks, no scores, no</li></ul>
+<p>leaderboards. The transformation is contemplative, not competitive.</p>
+<ul><li>It never explains the text&#x27;s <em>meaning</em>. It reveals structure; interpretation</li></ul>
+<p>remains the reader&#x27;s work. The interface is a verification instrument, not a commentary.</p>
+<ul><li>It never hides its own mechanics. Every lens shows its cost strata, every</li></ul>
+<p>merger shows its license, every collapse opens to audit. The system teaches suspicion of itself first.</p></section><section class="doc" id="specsheet"><div class="docnum">07</div><h1>15-Line Operational Spec Sheet — From Onboarding to Advanced Deep Tracking</h1>
+<p>A chronological path for one reader, from first touch to deep tracking. Times are guided-session times; self-directed readers will vary, but the <em>order</em> of unlocks is fixed — each stage assumes the habits of the previous one.</p>
+<h2>Stage 1 — Arrival (0:00–0:10): the page as page</h2>
+<p>The reader opens the canvas and sees the 15-line page exactly as tradition hands it down: calm, even, complete. Nothing moves. A brief guided tour traces the geometry — 15 lanes, the gutters, the margin rails — with the rails in their dim rest state. The reader learns the single most important fact: <strong>the page will never break</strong>. The footprint is rigid; everything they are about to do happens inside it.</p>
+<p><em>Unlocks:</em> lane focus (tap a line, it lifts slightly), margin rail reading (the ticks and bars, read-only). <em>Mastery marker:</em> the reader can name all three canvas zones — lanes, gutters, rails — and trusts the footprint.</p>
+<h2>Stage 2 — First lens (0:10–0:25): between the lines</h2>
+<p>The guide invites a press-and-hold in a gutter. Light pressure: fine filaments surface between two lines — a hidden connection made visible. The reader tries firmer, then deep pressure, and watches the substrate change speeds: connections, then skeletal underlay, then vertical root strands. The gutter is no longer empty; it is a lens with three depths.</p>
+<p><em>Unlocks:</em> F19 at all three speeds, F18 margin scrub (depth cursor). <em>Mastery marker:</em> the reader reaches for the gutter, not the text, when curious about a relationship.</p>
+<h2>Stage 3 — Perspective (0:25–0:40): the voice moves</h2>
+<p>The reader advances their focus down the page. On a shifting lane, the canvas performs the full F14 sequence: tint warms, depth compresses, the row splits into before/after voices around the seam. The Proximity Axis HUD is introduced as the narrator — &quot;watch the marker travel.&quot; The reader taps the seam to merge the row back, then finds another shift on their own.</p>
+<p><em>Unlocks:</em> F14, F13 (axis HUD reading), F01 (rupture lens), F04 (shift lens). <em>Mastery marker:</em> the reader anticipates a split from the axis marker&#x27;s movement before the row forks.</p>
+<h2>Stage 4 — Substrate (0:40–0:60): the skeleton underneath</h2>
+<p>The pinch. Two fingers across the rows, inward — the markers dissolve row by row from the epicenter, and the bare skeleton stands on gray. The guide says nothing for a full minute; contemplation is the lesson. Then the spread: markers heal back with their ripples, each landing exactly. The reader has witnessed substrate independence as a physical event.</p>
+<p><em>Unlocks:</em> F17, F12 (rigidity rail — &quot;feel where the page is hard&quot;). <em>Mastery marker:</em> the reader describes the vocalization layer as &quot;guests that know their seats.&quot; Onboarding complete.</p>
+<h2>Stage 5 — Intermediate (hours 2–10): trajectories and audits</h2>
+<ul><li><strong>Echo-trajectories (F15):</strong> double-tap a root word, watch beacons rise on</li></ul>
+<p>distant lines, enter orbit mode. The reader&#x27;s first radial navigation — scroll feels impoverished afterward.</p>
+<ul><li><strong>Friction literacy (F10):</strong> reading the margin micro-bars, tapping to</li></ul>
+<p>isolate hot spans, correlating weight on the lane with the number on the rail.</p>
+<ul><li><strong>Collapse audits (F02 + F11):</strong> long-press a lane into its key, open the</li></ul>
+<p>audit, read superposition → survivors → loss. The reader starts asking what things cost.</p>
+<ul><li><strong>Timeline checkpoints (F16, shallow):</strong> crossing minor boundaries, feeling</li></ul>
+<p>the detents, learning the rail&#x27;s warning glow.</p>
+<p><em>Mastery marker:</em> the reader navigates by relation (orbit) more than by position (scroll), and opens audits unprompted.</p>
+<h2>Stage 6 — Advanced (10+ hours): locks, lenses, convergence</h2>
+<ul><li><strong>Path-trace locks (F16, deep):</strong> the first deep chronological boundary.</li></ul>
+<p>Forward motion dies against the glass; the reader reverses over the preceding lines, watches ghosts dissolve, recovers the anchor, feels the release. After several locks, boundary anticipation becomes a sense.</p>
+<ul><li><strong>Lens stacking:</strong> combining lenses — e.g., Rupture Lens over the Rasm</li></ul>
+<p>canvas, or Convergence Lens inside orbit mode. The system permits defined combinations; undefined ones are refused with a clear rail signal, never silently.</p>
+<ul><li><strong>Convergence overlays (F08):</strong> pinch-testing distant lanes for footprint</li></ul>
+<p>matches, reading the aligned ghosts in the gutter. The reader experiences the ledger&#x27;s deepest finding firsthand: identical structure, zero channel.</p>
+<ul><li><strong>Checkpoint authoring:</strong> the reader places their own timeline checkpoints</li></ul>
+<p>on the margin track — personal anchors for their own deep-tracking sessions. The track accepts them as first-class instruments.</p>
+<p><em>Mastery marker (deep tracking):</em> the reader moves through locks without frustration, stacks lenses deliberately, authors checkpoints, and — the final sign — begins to <em>feel</em> the checkpoint glow before it brightens. The interface has become a sense, and the reader verifies structure the way a musician hears intonation: continuously, and without being asked.</p></section><section class="doc" id="layout"><div class="docnum">08</div><h1>spec-ui/ — File-by-File Directory Layout</h1>
+<p>The complete contents of this proposal folder. Files are numbered in reading order; the numbers are part of the contract — a future addition takes the next free number, never inserts between.</p>
+<pre class="schema">spec-ui/
+├── README.md                      # Blueprint overview, premise, reading guide,
+│                                  # standing disciplines, feature-registry note
+├── 00_design_pillars.md           # The four master transformations:
+│                                  # 15-vector array, margins as track,
+│                                  # inter-row substrate, bound equilibrium
+├── 01_fifteen_line_canvas.md      # Canvas spec: geometry schematic, coordinate
+│                                  # discipline, lane state model (5 values),
+│                                  # equilibrium rule
+├── 02_feature_registry.md         # F01–F20: nine lenses, four instruments,
+│                                  # four deep interactions (F14–F17 fully
+│                                  # specified), three page systems
+├── 03_interaction_matrix.md       # Uniform 4-layer matrix × 20 features:
+│                                  # physical / typography / HUD / cognitive
+├── 04_hud_taxonomy.md            # Margin instruments, six HUD states,
+│                                  # four taxonomy rules
+├── 05_typography_system.md       # Weight, spacing, row heights, depth,
+│                                  # row-splitting mechanics, rasm canvas,
+│                                  # Arabic-first law
+├── 06_cognitive_program.md       # Habit-disruption map (12 habits),
+│                                  # compounding sequences, system refusals
+├── 07_operational_spec_sheet.md   # 15-Line Operational Spec Sheet: six stages
+│                                  # from 0:00 onboarding to deep tracking
+├── 08_directory_layout.md         # This file: the file-by-file layout
+├── build_spec.py                  # Renders all 10 documents as one file
+└── ui-blueprint.html              # The whole proposal as one readable HTML</pre>
+<h2>Conventions for future additions</h2>
+<ul><li><strong>New files</strong> take the next integer (<code>09_...</code>), in reading order, with a</li></ul>
+<p>one-line purpose entry added to the tree above.</p>
+<ul><li><strong>No code</strong> enters this folder. Schematics are ASCII/text; behaviors are</li></ul>
+<p>prose. If an implementation begins, it lives elsewhere.</p>
+<ul><li><strong>Abstract language</strong> holds in every file: canvas coordinates (line 1–15)</li></ul>
+<p>only; no verse markers, no historical names.</p>
+<ul><li><strong>Cross-references</strong> use file numbers (<code>see 04_hud_taxonomy.md</code>), never</li></ul>
+<p>bare names, so the folder stays navigable if files are ever renamed.</p>
+<ul><li><strong>The gate holds:</strong> this folder is specification. Nothing here authorizes</li></ul>
+<p>implementation beyond the UI system.</p></section>
+</div>
+<footer>Proposal only — no implementation. Abstract language, Arabic-first.
+Per the standing gate, nothing beyond the UI system is built without explicit approval.</footer>
+</body>
+</html>

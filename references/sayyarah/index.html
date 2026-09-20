@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>سَيَّارَة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Reem+Kufi:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+:root{
+  --ground:#E9EBE5; --paper:#F3F4EF; --paper-2:#DFE2DA;
+  --ink:#15202A; --ink-2:#4C5C62; --ink-3:#77878A;
+  --rule:#C2C9BF; --rule-2:#A9B2A6;
+  --accent:#2E6E60; --accent-soft:#2e6e6016;
+  --gold:#8A6A2F; --gold-soft:#8a6a2f18;
+  --indigo:#3C5580; --indigo-soft:#3c558018;
+  --rubric:#8C3A3A; --rubric-soft:#8c3a3a14;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1519; --paper:#151C21; --paper-2:#1B242A;
+    --ink:#DFE4DD; --ink-2:#9AA8A4; --ink-3:#6E7F80;
+    --rule:#2A353A; --rule-2:#3A474C;
+    --accent:#74BFA8; --accent-soft:#74bfa81c;
+    --gold:#C6A05C; --gold-soft:#c6a05c1c;
+    --indigo:#8AA6D8; --indigo-soft:#8aa6d81c;
+    --rubric:#D9897E; --rubric-soft:#d9897e18;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1519; --paper:#151C21; --paper-2:#1B242A;
+  --ink:#DFE4DD; --ink-2:#9AA8A4; --ink-3:#6E7F80;
+  --rule:#2A353A; --rule-2:#3A474C;
+  --accent:#74BFA8; --accent-soft:#74bfa81c;
+  --gold:#C6A05C; --gold-soft:#c6a05c1c;
+  --indigo:#8AA6D8; --indigo-soft:#8aa6d81c;
+  --rubric:#D9897E; --rubric-soft:#d9897e18;
+}
+
+*{box-sizing:border-box}
+body{
+  direction:rtl; background:var(--ground); color:var(--ink);
+  font-family:"Amiri","Times New Roman",serif; font-size:19px; line-height:1.95;
+  margin:0; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px 100px}
+h1,h2,h3,h4,.kufi{font-family:"Reem Kufi","Amiri",sans-serif;font-weight:500;text-wrap:balance;line-height:1.5}
+h2{font-size:1.5rem;margin:0}
+h3{font-size:1.1rem;margin:0}
+h4{font-size:.95rem;margin:0;color:var(--ink-2);letter-spacing:.02em}
+p{margin:0}
+.lede{color:var(--ink-2);font-size:1.02rem}
+.note{color:var(--ink-2);font-size:.94rem;line-height:1.85}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;font-size:.82em}
+.qur{font-family:"Amiri Quran","Amiri",serif}
+.eyebrow{font-family:"Reem Kufi",sans-serif;font-size:.72rem;letter-spacing:.22em;color:var(--ink-3);text-transform:uppercase}
+
+.masthead{padding:70px 0 28px;border-bottom:1px solid var(--rule)}
+.masthead h1{font-size:clamp(2.5rem,11vw,3.8rem);font-weight:600;margin:0;line-height:1.16}
+.masthead .sub{font-family:"Reem Kufi",sans-serif;font-size:clamp(.9rem,3.3vw,1.02rem);color:var(--accent);margin-top:10px;letter-spacing:.02em}
+.banner{
+  margin-top:22px;border:1px solid var(--rule-2);border-inline-start-width:3px;
+  border-inline-start-color:var(--gold);background:var(--gold-soft);padding:12px 15px;
+  font-size:.93rem;line-height:1.8;color:var(--ink-2);
+}
+
+section{padding-top:58px;display:flex;flex-direction:column;gap:22px}
+.head{display:flex;flex-direction:column;gap:7px;border-bottom:1px solid var(--rule);padding-bottom:12px}
+.stack{display:flex;flex-direction:column;gap:16px}
+
+.lawh{background:var(--paper);border-block:2px solid var(--rule-2);padding:18px 18px 14px;position:relative}
+.lawh::before,.lawh::after{content:"";position:absolute;right:0;left:0;height:1px;background:var(--rule)}
+.lawh::before{top:3px} .lawh::after{bottom:3px}
+.ayah{font-family:"Amiri Quran","Amiri",serif;font-size:1.2rem;line-height:2.5;display:block}
+.ayah em{font-style:normal;color:var(--accent)}
+.ayah b{font-weight:400;color:var(--rubric)}
+.ref{display:block;margin-top:11px;padding-top:8px;border-top:1px dotted var(--rule);
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;color:var(--ink-3);
+  direction:ltr;text-align:left}
+
+.scroller{overflow-x:auto;border-block:1px solid var(--rule);background:var(--paper)}
+table.zij{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+table.zij th{font-family:"Reem Kufi",sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.12em;
+  color:var(--ink-3);text-align:right;padding:11px 13px;border-bottom:1px solid var(--rule-2);white-space:nowrap}
+table.zij td{padding:11px 13px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.7}
+table.zij tr:last-child td{border-bottom:none}
+table.zij td.n{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--accent);direction:ltr;text-align:left;white-space:nowrap}
+table.zij td.op{font-family:"Amiri Quran","Amiri",serif;font-size:1.05rem;white-space:nowrap;color:var(--ink)}
+table.zij td.t{font-size:.91rem;color:var(--ink-2)}
+table.zij td.q{font-family:"Amiri Quran","Amiri",serif;font-size:1rem;line-height:2}
+
+.callout{border-inline-start:3px solid var(--accent);background:var(--accent-soft);padding:14px 16px;font-size:.96rem;line-height:1.85}
+.callout.warn{border-inline-start-color:var(--rubric);background:var(--rubric-soft)}
+.callout strong{font-family:"Reem Kufi",sans-serif;font-weight:500}
+
+pre{direction:ltr;text-align:left;overflow-x:auto;background:var(--paper);border-block:1px solid var(--rule);
+  padding:15px;margin:0;font-family:"IBM Plex Mono",monospace;font-size:.73rem;line-height:1.8;color:var(--ink-2)}
+pre b{color:var(--accent);font-weight:600}
+pre i{color:var(--ink-3);font-style:normal}
+pre u{color:var(--gold);text-decoration:none}
+code{font-family:"IBM Plex Mono",monospace;font-size:.82em;color:var(--accent);direction:ltr;unicode-bidi:isolate}
+
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+figure svg{max-width:100%;height:auto;display:block;color:var(--ink-2)}
+figure svg .ac{stroke:var(--accent)}   figure svg text.ac{fill:var(--accent);stroke:none}
+figure svg .gd{stroke:var(--gold)}     figure svg text.gd{fill:var(--gold);stroke:none}
+figure svg .rb{stroke:var(--rubric)}   figure svg text.rb{fill:var(--rubric);stroke:none}
+figure svg marker polygon.ac{fill:var(--accent);stroke:none}
+figure svg marker polygon.gd{fill:var(--gold);stroke:none}
+figcaption{font-size:.88rem;color:var(--ink-3);line-height:1.75}
+
+/* state tracks */
+.track{overflow-x:auto;border-block:1px solid var(--rule);background:var(--paper);padding:14px 0}
+.track .row{display:flex;gap:3px;min-width:max-content;padding:0 14px}
+.track .cell{display:flex;flex-direction:column;gap:5px;align-items:center;min-width:64px}
+.track .w{font-family:"Amiri Quran","Amiri",serif;font-size:1.02rem;white-space:nowrap;line-height:1.6}
+.track .s{
+  font-family:"Reem Kufi",sans-serif;font-size:.66rem;letter-spacing:.05em;
+  width:100%;text-align:center;padding:4px 6px;border:1px solid;white-space:nowrap;
+}
+.s.p1{color:var(--rubric);border-color:var(--rubric);background:var(--rubric-soft)}
+.s.p2{color:var(--gold);border-color:var(--gold);background:var(--gold-soft)}
+.s.p3{color:var(--indigo);border-color:var(--indigo);background:var(--indigo-soft)}
+.s.raf{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.s.nas{color:var(--gold);border-color:var(--gold);background:var(--gold-soft)}
+.s.jar{color:var(--indigo);border-color:var(--indigo);background:var(--indigo-soft)}
+.s.maj{color:var(--rubric);border-color:var(--rubric);background:var(--rubric-soft)}
+.s.non{color:var(--ink-3);border-color:var(--rule-2)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:"Reem Kufi",sans-serif;font-size:.72rem;color:var(--ink-3);padding-top:4px}
+.legend i{font-style:normal;display:inline-block;width:.65em;height:.65em;margin-inline-end:5px;border:1px solid}
+
+.grid2{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:660px){.grid2{grid-template-columns:1fr 1fr}}
+.card{background:var(--paper);border:1px solid var(--rule);padding:15px 16px;display:flex;flex-direction:column;gap:8px}
+.card h4{font-family:"Reem Kufi",sans-serif;color:var(--ink);font-size:1rem}
+
+.colophon{margin-top:74px;padding-top:22px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--ink-3);line-height:1.85}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (max-width:560px){body{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">اقْتِراحٌ — لم يُبْنَ بَعْد</div>
+  <h1>سَيَّارَة</h1>
+  <div class="sub">مُسْتَكْشِفُ القرآن: عمليّاتُ عَرَبيٍّ وكِتابٍ على مَتْنٍ لا يُتَرْجَم</div>
+  <div class="lawh" style="margin-top:22px">
+    <span class="ayah">قَالَ قَآئِلٞ مِّنۡهُمۡ لَا تَقۡتُلُواْ يُوسُفَ وَأَلۡقُوهُ فِي غَيَٰبَتِ ٱلۡجُبِّ يَلۡتَقِطۡهُ بَعۡضُ <em>ٱلسَّيَّارَةِ</em> إِن كُنتُمۡ فَٰعِلِينَ</span>
+    <span class="ref">YŪSUF 12:10</span>
+  </div>
+  <div class="banner">
+    الاسمُ نفسُه هو البيان: «السَّيَّارَة» في <span class="mono">12:10</span> و<span class="mono">5:96</span> هي الجماعةُ التي تَسير فتَلتَقِط. واللِّسانُ الإنجليزيّ يُعطيها <span class="mono">caravan</span> هنا، ويُعطي جِذرَها اليومَ <span class="mono">car</span> — فيُقطَع الواقفُ عن موقفه. هذه الأداةُ مبنيّةٌ على أن يَقِفَ العربيُّ كما هو.
+  </div>
+</header>
+
+<!-- 1 -->
+<section id="matn">
+  <div class="head">
+    <div class="eyebrow">أوّلًا</div>
+    <h2>المَتْن</h2>
+    <p class="lede">ما الذي يُفهرَس، وعلى أيّ طبقات. الكتابُ كلُّه، لا مُنتَخَبٌ منه.</p>
+  </div>
+
+  <p>كلُّ كلمةٍ في الكتاب تُخزَّن عند مَوقعها — لا كنوعٍ مُجرَّد، بل كوُقوفٍ بعينه: هذه الكلمة، في هذه الآية، في هذا الترتيب. وفوق كلِّ وُقوفٍ خمسُ طبقاتٍ محسومة، كلُّها آليّة، لا رأيَ فيها لأحد:</p>
+
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>الطبقة</th><th>ما تحمله</th><th>مصدرُها</th></tr></thead>
+    <tbody>
+      <tr><td class="op">الرَّسْم</td><td class="t">الحرفُ كما هو: العثمانيّ للقراءة، والإملائيّ للبحث، والمُجرَّد من الشَّكل للمطابقة.</td><td class="t">Tanzil — النصّ الكامل، مُتاحٌ بترخيصٍ حُرّ</td></tr>
+      <tr><td class="op">الصِّيغَة</td><td class="t">الجِذر، والأصل، والوَزْن (فَعَّلَ / أَفْعَلَ / اسْتَفْعَلَ …)، ونوعُ الكلمة، ولواصقُها.</td><td class="t">Quranic Arabic Corpus — تحليلُ كلِّ كلمةٍ في الكتاب، طبقةً بطبقة</td></tr>
+      <tr><td class="op">الإسْناد</td><td class="t">المُتكلِّم والمُخاطَب والغائب، والعدد والجنس، على كلِّ فِعلٍ وكلِّ ضمير.</td><td class="t">من نفس التحليل — سِمَاتُ الشخص مُثبَتةٌ على كلِّ صيغة</td></tr>
+      <tr><td class="op">الحَال</td><td class="t">الرَّفعُ والنَّصبُ والجَرّ، وحالُ الفعل، والمبنيُّ للمجهول، والنِّداء.</td><td class="t">من نفس التحليل — علامةُ الإعراب مُثبَتةٌ على كلِّ كلمة</td></tr>
+      <tr><td class="op">الفاصِلَة</td><td class="t">خاتمةُ الآية وصيغتُها، وموقعُ الآية من سورتها ومن الكتاب.</td><td class="t">مُشتَقٌّ من الرَّسم — يُحسَب عندنا</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>ما تحتاج أن تُنزِله مرّةً واحدة.</strong> هذه الجلسةُ لا تَصِل إلى الشبكة المفتوحة، فملفُّ التحليل الصرفيّ (<span class="mono">quranic-corpus-morphology-0.4.txt</span>) يلزم أن تضعه أنت في المشروع مرّةً واحدة، ثمّ لا يُحتاج بعدها إلى شبكةٍ أبدًا. وبعده يصير كلُّ شيءٍ محلّيًّا: الفهرسُ يُبنى عندك، ويعمل بلا اتّصال.
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>ما يُستَعمَل بشرط</h4>
+      <p class="note">شجرةُ الإعراب النحويّ في نفس المشروع لا تُغطّي الكتابَ كلَّه في كلّ إصداراتها — فتُستَعمَل حيث وُجِدت، ويُعلَّم الموضعُ الذي لا شجرةَ له بدل أن يُسكَت عنه. أمّا حالُ الإعراب نفسُه (رفع/نصب/جرّ) فمُثبَتٌ على كلِّ كلمة، فالعمليّاتُ النحويّة كاملةٌ من غيرها.</p>
+    </div>
+    <div class="card">
+      <h4>ما يُستَعمَل رأيًا ثانيًا</h4>
+      <p class="note">مُحلِّل <span class="mono">CAMeL Tools</span> مُدرَّبٌ على العربيّة الحديثة، فيُخالف تحليلَ الكتاب في مواضع. لا يُتَّخَذ أصلًا، بل يُشَغَّل إلى جانب الأصل، ويُعرَض موضعُ الخلاف عليك — لأنّ موضعَ خلافِ لسانِ اليوم مع الكتاب هو نفسُه موضعٌ يستحقّ الوقوف.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="lisan">
+  <div class="head">
+    <div class="eyebrow">ثانيًا</div>
+    <h2>اللِّسان — وحُكْمُ مَنْعِ الإبْدال</h2>
+    <p class="lede">هذا هو الشرطُ الذي يقوم عليه البناءُ كلُّه، لا ميزةً فيه.</p>
+  </div>
+
+  <div class="lawh">
+    <span class="ayah">وَمَآ أَرۡسَلۡنَا مِن رَّسُولٍ إِلَّا بِ<em>لِسَانِ قَوۡمِهِۦ</em> لِيُبَيِّنَ لَهُمۡ</span>
+    <span class="ref">IBRĀHĪM 14:4</span>
+  </div>
+
+  <p>اللِّسانُ في الكتاب طبقةٌ مُرسَلة، لا هو الشيءُ نفسُه. فالمَتْنُ عندنا عربيٌّ وحدَه، وكلُّ لسانٍ آخر <strong>غِطاءٌ يُرفَع</strong> — يُطلَب طلبًا، ويُعرَض معلَّمًا، ولا يدخل لوحَ القراءة أبدًا. القاعدةُ الصُّلبة:</p>
+
+  <div class="callout">
+    <strong>لا يُبدَل اسمٌ أعجميٌّ بكلمةٍ عربيّةٍ في لوح القراءة. أبدًا.</strong> الكلمةُ تَقِف بنفسها: رَسمُها، وجِذرُها، ووَزنُها، وحالُها، وسائرُ مواقفها. فإن أردتَ لسانًا طلبتَه بأمرٍ مستقلّ، فجاءك في لوحٍ منفصلٍ مُعلَّمٍ أنّه لسانٌ لا مَتْن.
+  </div>
+
+  <h3 style="margin-top:8px">لماذا: الجِذرُ الواحد يُشَظَّى في اللِّسان</h3>
+  <p>خُذ <span class="qur" style="font-size:1.1rem">ف ل ك</span>. يقف في الكتاب هكذا:</p>
+
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>الموقع</th><th>الوُقوف</th><th>ما يفعله اللِّسان الإنجليزيّ</th></tr></thead>
+    <tbody>
+      <tr><td class="n">10:22</td><td class="q">حَتَّىٰٓ إِذَا كُنتُمۡ فِي ٱلۡفُلۡكِ وَجَرَيۡنَ بِهِم</td><td class="t"><span class="mono">ship</span></td></tr>
+      <tr><td class="n">11:37</td><td class="q">وَٱصۡنَعِ ٱلۡفُلۡكَ بِأَعۡيُنِنَا وَوَحۡيِنَا</td><td class="t"><span class="mono">ship / ark</span></td></tr>
+      <tr><td class="n">36:41</td><td class="q">أَنَّا حَمَلۡنَا ذُرِّيَّتَهُمۡ فِي ٱلۡفُلۡكِ ٱلۡمَشۡحُونِ</td><td class="t"><span class="mono">laden ship</span></td></tr>
+      <tr><td class="n">21:33</td><td class="q">وَٱلشَّمۡسَ وَٱلۡقَمَرَ كُلّٞ فِي فَلَكٖ يَسۡبَحُونَ</td><td class="t"><span class="mono">orbit</span> — كلمةٌ لا صِلةَ لها بالأولى</td></tr>
+      <tr><td class="n">36:40</td><td class="q">وَلَا ٱلَّيۡلُ سَابِقُ ٱلنَّهَارِۚ وَكُلّٞ فِي فَلَكٖ يَسۡبَحُونَ</td><td class="t"><span class="mono">orbit</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="note">اللِّسانُ يَقطَع <span class="qur">ٱلۡفُلۡكِ</span> عن <span class="qur">فَلَكٖ</span> قَطعًا تامًّا، ثمّ يُسلِّم إليك شيئين لا يلتقيان. والرَّسمُ لم يَقطَع. وفي <span class="mono">36:40—41</span> يقفان في آيتين مُتلاصقتين: <span class="qur">فِي فَلَكٖ يَسۡبَحُونَ</span> ثمّ <span class="qur">فِي ٱلۡفُلۡكِ ٱلۡمَشۡحُونِ</span> — ما يَجري في الماء وما يَسبح في السماء، بحرفٍ واحد، ووُقوفٍ واحدٍ متتابع. مَن قرأ بالإنجليزيّة لا يرى هذا ولا يمكن أن يراه.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>ن ح ل</h4>
+      <p class="note"><span class="qur">وَءَاتُواْ ٱلنِّسَآءَ صَدُقَٰتِهِنَّ نِحۡلَةٗ</span> <span class="mono">4:4</span> — واللِّسان: <span class="mono">free gift</span>.<br><span class="qur">وَأَوۡحَىٰ رَبُّكَ إِلَى ٱلنَّحۡلِ</span> <span class="mono">16:68</span> — واللِّسان: <span class="mono">bee</span>. شيئان بلا رابط. والعربيُّ واقفٌ واحد.</p>
+    </div>
+    <div class="card">
+      <h4>ح و ت</h4>
+      <p class="note"><span class="qur">نَسِيَا حُوتَهُمَا</span> <span class="mono">18:61</span> · <span class="qur">فَٱلۡتَقَمَهُ ٱلۡحُوتُ</span> <span class="mono">37:142</span> · <span class="qur">كَصَاحِبِ ٱلۡحُوتِ</span> <span class="mono">68:48</span> · <span class="qur">تَأۡتِيهِمۡ حِيتَانُهُمۡ يَوۡمَ سَبۡتِهِمۡ</span> <span class="mono">7:163</span>. واللِّسان يُوزِّعها على <span class="mono">fish · whale · fishes</span> ويُغلِق البابَ الذي فتحه الرَّسم.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:8px">المُعجَمُ بلا تَسْمِيَة</h3>
+  <p>فما البديل عن الترجمة؟ أن يُعرَّف الجِذرُ بوُقوفه لا بمُقابِله. تَطلُب جِذرًا، فلا يأتيك سطرٌ إنجليزيّ، بل يأتيك <strong>مَوْقِفُه</strong>: الصِّيَغُ التي وقف فيها، والمواضعُ التي وقف عندها، وحالُه في كلِّ موضع، وإسنادُه، وما جاوَره. هذا هو الكتابُ يُبيِّن نفسَه بنفسه، مبنيًّا لا مقولًا.</p>
+
+  <div class="callout warn">
+    <strong>وإذا لزم اللِّسان.</strong> يُؤخَذ على مستوى الجِذر فقط، من مُعجمٍ حُرٍّ قديمٍ يَنقُل مَقَالَ العرب لا رأيَ مُترجِم — <span class="mono">Lane's Lexicon</span> في المِلْكيّة العامّة — ويُعرَض في لوحٍ منفصلٍ عليه وَسْمُه. أمّا ترجماتُ الآيات كاملةً (<span class="mono">quran.com</span> وغيرُها) فتبقى خلف أمرٍ صريحٍ تَطلُبه، ولا تُخزَّن في المَتْن، ولا يُبنى عليها مُعرِّفُ شيء — لأنّ اللِّسانَ يتبدّل والرَّسمُ لا يتبدّل.
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 300" role="img" aria-label="المتن العربي داخل حدٍّ مغلق، وطبقاتُ اللسان خارجه، ولا سهمَ يدخل من اللسان إلى لوح القراءة">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <polygon points="0,1 9,5 0,9" fill="currentColor"></polygon>
+        </marker>
+        <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <polygon points="0,1 9,5 0,9" class="gd"></polygon>
+        </marker>
+      </defs>
+
+      <!-- boundary -->
+      <rect x="16" y="16" width="440" height="268" fill="none" stroke="currentColor" stroke-width="1.4"></rect>
+      <text x="446" y="38" text-anchor="end" font-family="Reem Kufi, sans-serif" font-size="13" fill="currentColor">المَتْن — عَرَبيٌّ وحدَه</text>
+
+      <!-- layers -->
+      <rect x="40" y="58" width="392" height="34" fill="none" stroke="currentColor" stroke-width="1"></rect>
+      <text x="416" y="80" text-anchor="end" font-family="Amiri, serif" font-size="14" fill="currentColor">الرَّسْم</text>
+      <rect x="40" y="100" width="392" height="34" fill="none" stroke="currentColor" stroke-width="1"></rect>
+      <text x="416" y="122" text-anchor="end" font-family="Amiri, serif" font-size="14" fill="currentColor">الصِّيغَة · الجِذْر · الوَزْن</text>
+      <rect x="40" y="142" width="392" height="34" fill="none" stroke="currentColor" stroke-width="1"></rect>
+      <text x="416" y="164" text-anchor="end" font-family="Amiri, serif" font-size="14" fill="currentColor">الإسْناد</text>
+      <rect x="40" y="184" width="392" height="34" fill="none" stroke="currentColor" stroke-width="1"></rect>
+      <text x="416" y="206" text-anchor="end" font-family="Amiri, serif" font-size="14" fill="currentColor">الحَال · الفاصِلَة</text>
+
+      <rect x="40" y="232" width="392" height="34" fill="none" class="ac" stroke-width="1.6"></rect>
+      <text x="416" y="254" text-anchor="end" font-family="Amiri, serif" font-size="14" class="ac">لَوْحُ القِراءة</text>
+
+      <!-- arrows into reading pane -->
+      <line x1="140" y1="222" x2="140" y2="230" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar)"></line>
+
+      <!-- outside: lisan -->
+      <rect x="520" y="58" width="220" height="42" fill="none" class="gd" stroke-width="1.2" stroke-dasharray="4 3"></rect>
+      <text x="726" y="84" text-anchor="end" font-family="Amiri, serif" font-size="14" class="gd">لِسانُ الجِذْر — Lane</text>
+
+      <rect x="520" y="116" width="220" height="42" fill="none" class="gd" stroke-width="1.2" stroke-dasharray="4 3"></rect>
+      <text x="726" y="142" text-anchor="end" font-family="Amiri, serif" font-size="14" class="gd">تَرْجَمَةُ الآية</text>
+
+      <rect x="520" y="174" width="220" height="42" fill="none" class="gd" stroke-width="1.2" stroke-dasharray="4 3"></rect>
+      <text x="726" y="200" text-anchor="end" font-family="Amiri, serif" font-size="14" class="gd">تَفْسيرٌ مَنقول</text>
+
+      <!-- request arrow only, in one direction, landing outside -->
+      <line x1="500" y1="249" x2="500" y2="90" class="gd" stroke-width="1.2" stroke-dasharray="4 3"></line>
+      <line x1="500" y1="90" x2="514" y2="90" class="gd" stroke-width="1.2" marker-end="url(#arg)"></line>
+      <line x1="440" y1="249" x2="500" y2="249" class="gd" stroke-width="1.2"></line>
+      <text x="628" y="248" text-anchor="middle" font-family="Reem Kufi, sans-serif" font-size="11.5" class="gd">يُطلَب صراحةً، ويُعرَض في لوحٍ آخَر</text>
+
+      <!-- the blocked direction -->
+      <line x1="514" y1="266" x2="452" y2="266" class="rb" stroke-width="1.3" stroke-dasharray="2 4"></line>
+      <line x1="470" y1="258" x2="458" y2="274" class="rb" stroke-width="1.6"></line>
+      <line x1="458" y1="258" x2="470" y2="274" class="rb" stroke-width="1.6"></line>
+      <text x="740" y="270" text-anchor="end" font-family="Reem Kufi, sans-serif" font-size="11.5" class="rb">لا يعود إلى المَتْن ولا إلى اللَّوح</text>
+    </svg>
+    <figcaption>اللِّسانُ يُطلَب من داخل الجلسة ويُعرَض خارجها؛ ولا مسارَ يُعيده إلى لوح القراءة ولا إلى المَتْن. ولذلك لا يتعلّق مُعرِّفُ أيِّ موضعٍ بلسانٍ يتبدّل.</figcaption>
+  </figure>
+</section>
+
+<!-- 3 -->
+<section id="qabda">
+  <div class="head">
+    <div class="eyebrow">ثالثًا</div>
+    <h2>القَبْضَة</h2>
+    <p class="lede">ما تُمسِكه الآن. كلُّ عمليّةٍ تأخذ قَبْضةً وتُعطي قَبْضة.</p>
+  </div>
+
+  <div class="lawh">
+    <span class="ayah">قَالَ بَصُرۡتُ بِمَا لَمۡ يَبۡصُرُواْ بِهِۦ فَ<em>قَبَضۡتُ قَبۡضَةٗ مِّنۡ أَثَرِ ٱلرَّسُولِ</em></span>
+    <span class="ref">ṬĀ-HĀ 20:96</span>
+  </div>
+
+  <p>القَبْضةُ هي الوحدةُ التي يدور عليها كلُّ شيء: ما اخترتَه ويداك عليه. ولها ستُّ هيئات، ولكلِّ هيئةٍ قائمةُ عمليّاتٍ خاصّةٌ بها — وهذا هو الجوابُ عن «قائمةٌ مُلائمة للاختيار» في تِلِغرام:</p>
+
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>هيئةُ القَبْضة</th><th>ما تُمسِك</th><th>كيف تُصنَع</th></tr></thead>
+    <tbody>
+      <tr><td class="op">مَوْقِع</td><td class="t">آيةٌ واحدة بكلِّ طبقاتها</td><td class="n">18:9</td></tr>
+      <tr><td class="op">قِرَان</td><td class="t">جماعةُ آياتٍ مُتّصلةٍ أو مُتفرّقة</td><td class="n">18:9-26 · 72:1,18:9,50:2</td></tr>
+      <tr><td class="op">كَلِمَة</td><td class="t">وُقوفٌ بعينه: هذه الكلمة في هذه الآية</td><td class="n">18:9#11</td></tr>
+      <tr><td class="op">جَمْع</td><td class="t">جماعةُ وُقوفاتٍ من مواضعَ شتّى</td><td class="n">18:9#11 + 72:1#9</td></tr>
+      <tr><td class="op">جِذْر</td><td class="t">الجِذرُ بكلِّ صِيَغه ومواقفه</td><td class="n">root:عجب</td></tr>
+      <tr><td class="op">صِيغَة</td><td class="t">وَزنٌ أو حالٌ أو فاصِلة، بوصفها اختيارًا</td><td class="n">form:II · case:naṣb · fasl:ـًا</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="note">والقَبْضةُ باقيةٌ لا تَزول بالعمليّة: كلُّ خطوةٍ تُسجَّل في <strong>الآثار</strong>، ويمكنك أن تَرجِع فيها بأمرِ <span class="qur">ٱرۡتَدَّ عَلَىٰٓ ءَاثَارِكَ قَصَصٗا</span> — <span class="mono">18:64</span> — فتَعود من حيث جئتَ خطوةً خطوة. ولك أن تَبيت عند موضعٍ بأمرِ <span class="qur">أَوَىٰ</span>، فيصير مَأْوًى تعود إليه.</p>
+
+  <figure>
+    <svg viewBox="0 0 760 210" role="img" aria-label="دورةُ الاستكشاف: رسالةٌ من تلغرام تصير قبضة، فتُعرَض قائمةٌ ملائمةٌ لهيئتها، فتُنفَّذ عمليّة، فيَنتج عَرْضٌ يصير القبضةَ التالية، والآثارُ تسجّل الطريق">
+      <defs>
+        <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <polygon points="0,1 9,5 0,9" fill="currentColor"></polygon>
+        </marker>
+        <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <polygon points="0,1 9,5 0,9" class="ac"></polygon>
+        </marker>
+      </defs>
+
+      <rect x="600" y="24" width="146" height="44" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+      <text x="673" y="51" text-anchor="middle" font-family="Amiri, serif" font-size="14" fill="currentColor">تِلِغرام / CLI</text>
+
+      <rect x="420" y="24" width="146" height="44" fill="none" class="ac" stroke-width="1.6"></rect>
+      <text x="493" y="51" text-anchor="middle" font-family="Amiri, serif" font-size="15" class="ac">قَبْضَة</text>
+
+      <rect x="240" y="24" width="146" height="44" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+      <text x="313" y="45" text-anchor="middle" font-family="Amiri, serif" font-size="14" fill="currentColor">قائمةٌ مُلائمة</text>
+      <text x="313" y="61" text-anchor="middle" font-family="Reem Kufi, sans-serif" font-size="10.5" fill="currentColor">بحسب هيئة القَبْضة</text>
+
+      <rect x="60" y="24" width="146" height="44" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+      <text x="133" y="51" text-anchor="middle" font-family="Amiri, serif" font-size="14" fill="currentColor">عَمَليّة</text>
+
+      <rect x="240" y="128" width="146" height="44" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+      <text x="313" y="155" text-anchor="middle" font-family="Amiri, serif" font-size="14" fill="currentColor">عَرْض</text>
+
+      <rect x="560" y="128" width="186" height="44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"></rect>
+      <text x="653" y="155" text-anchor="middle" font-family="Amiri, serif" font-size="14" fill="currentColor">الآثار — سِجِلُّ الطريق</text>
+
+      <line x1="598" y1="46" x2="570" y2="46" stroke="currentColor" stroke-width="1.2" marker-end="url(#a2)"></line>
+      <line x1="418" y1="46" x2="390" y2="46" stroke="currentColor" stroke-width="1.2" marker-end="url(#a2)"></line>
+      <line x1="238" y1="46" x2="210" y2="46" stroke="currentColor" stroke-width="1.2" marker-end="url(#a2)"></line>
+      <line x1="133" y1="70" x2="133" y2="150" stroke="currentColor" stroke-width="1.2"></line>
+      <line x1="133" y1="150" x2="236" y2="150" stroke="currentColor" stroke-width="1.2" marker-end="url(#a2)"></line>
+
+      <line x1="388" y1="150" x2="493" y2="150" class="ac" stroke-width="1.4"></line>
+      <line x1="493" y1="150" x2="493" y2="72" class="ac" stroke-width="1.4" marker-end="url(#a3)"></line>
+      <text x="441" y="142" text-anchor="middle" font-family="Reem Kufi, sans-serif" font-size="11" class="ac">يصير القَبْضةَ التالية</text>
+
+      <line x1="390" y1="150" x2="556" y2="150" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"></line>
+      <text x="470" y="192" text-anchor="middle" font-family="Reem Kufi, sans-serif" font-size="11" fill="currentColor">كلُّ خطوةٍ تُقيَّد، ويُرجَع فيها قَصَصًا</text>
+    </svg>
+    <figcaption>الدورةُ نفسُها في تِلِغرام وفي سطر الأوامر؛ الفرقُ في العَرْض لا في العمليّة. ولأنّ العَرْضَ يصير قَبْضةً، لا نهايةَ للطريق ولا حاجةَ إلى أن تبدأ من جديد.</figcaption>
+  </figure>
+</section>
+
+<!-- 4 -->
+<section id="amaliyyat">
+  <div class="head">
+    <div class="eyebrow">رابعًا</div>
+    <h2>العَمَليّات</h2>
+    <p class="lede">كلُّ عمليّةٍ لفظٌ من الكتاب، وله موقعٌ يَشهد له، وأثرٌ محسومٌ على القَبْضة.</p>
+  </div>
+
+  <h3>سَيْر — الانتقال</h3>
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>العمليّة</th><th>الموقع</th><th>ما تفعل بالقَبْضة</th></tr></thead>
+    <tbody>
+      <tr><td class="op">سِرْ … فَانْظُرْ</td><td class="n">29:20 · 30:9</td><td class="t">تمشي من القَبْضة على خيطٍ تختاره — جِذرًا، أو وَزنًا، أو فاصِلةً، أو حالًا — فيُعرَض عليك ما وقفتَ عليه في الطريق، موضعًا بعد موضع.</td></tr>
+      <tr><td class="op">اضْرِبْ في الأرض</td><td class="n">4:101 · 73:20</td><td class="t">سَيْرٌ بعيدٌ يَعبُر أكثرَ من وَصْلة: من جِذرٍ إلى مُجاوِرِه إلى جِذرِ المُجاوِر، بعُمقٍ تُحدِّده.</td></tr>
+      <tr><td class="op">ارْتَدَّ … قَصَصًا</td><td class="n">18:64</td><td class="t">ترجع في آثارك خطوةً خطوة إلى حيث بدأت، ويُعرَض عليك الطريقُ نفسُه لا الغاية.</td></tr>
+      <tr><td class="op">بَلَغَ مَجْمَعَ البَحْرَيْن</td><td class="n">18:60</td><td class="t">تُسيِّر سَيْرَين على خيطين مختلفين حتى يلتقيا؛ فما التقيا عنده هو العَرْض.</td></tr>
+      <tr><td class="op">أَوَىٰ</td><td class="n">18:10 · 18:63</td><td class="t">تُثبِت القَبْضة مَأْوًى بِاسمٍ تختاره، فتعود إليها متى شئت.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="margin-top:14px">نَظَر — الوُقوف</h3>
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>العمليّة</th><th>الموقع</th><th>ما تفعل بالقَبْضة</th></tr></thead>
+    <tbody>
+      <tr><td class="op">انْظُرْ</td><td class="n">29:20</td><td class="t">يُعرَض الموضعُ بطبقاته كلِّها: رَسمًا، وصِيغةً، وإسنادًا، وحالًا، وفاصِلة. بلا لسان.</td></tr>
+      <tr><td class="op">تَدَبَّرْ</td><td class="n">4:82 · 47:24</td><td class="t">يُعرَض ما وراء الموضع: ما تلاه، وما بُني عليه، وأينَ انتهى سياقُه.</td></tr>
+      <tr><td class="op">تَفَكَّرْ</td><td class="n">3:191</td><td class="t">تُمسِك موضعين معًا وتُقلِّبهما: ما اتّفقا فيه وما اختلفا، حرفًا وصِيغةً وحالًا.</td></tr>
+      <tr><td class="op">اسْتَمِعْ وَأَنْصِتْ</td><td class="n">7:204 · 46:29</td><td class="t">طَورُ القراءة الخالص: نصٌّ فقط، لا طبقاتٍ ولا وُسوم ولا شيءَ يُحقَن. يُقرَأ ويُسكَت.</td></tr>
+      <tr><td class="op">مِرَاءً ظَاهِرًا</td><td class="n">18:22</td><td class="t">وَسْمٌ يُلازِم كلَّ عَرْض: ما يُعرَض سَطحٌ مُثبَت، وما وراءه ليس من شأن الأداة.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="margin-top:14px">جَمْعٌ وفَصْل — الضمُّ والتمييز</h3>
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>العمليّة</th><th>الموقع</th><th>ما تفعل بالقَبْضة</th></tr></thead>
+    <tbody>
+      <tr><td class="op">اجْمَعْ</td><td class="n">75:17</td><td class="t">تَضُمّ مواضعَ متفرّقةً في قَبْضةٍ واحدة، وتصير هي الشيءَ الذي تُجرى عليه العمليّاتُ بعدُ.</td></tr>
+      <tr><td class="op">أَلِّفْ بَيْنَ</td><td class="n">24:43 · 8:63</td><td class="t">تَربِط موضعين برابطٍ تُسمّيه أنت لا الأداة، ويُقيَّد الرابطُ في الآثار.</td></tr>
+      <tr><td class="op">زَوِّجْ</td><td class="n">81:7</td><td class="t">تُقابِل بين قَبْضتين وُقوفًا بوُقوف، فيَظهر ما انطبق وما انفرد.</td></tr>
+      <tr><td class="op">فَصِّلْ</td><td class="n">41:3 · 6:97</td><td class="t">تُفكِّك الموضعَ إلى وُقوفاته، فيصير كلُّ وُقوفٍ قَبْضةً قائمةً بنفسها.</td></tr>
+      <tr><td class="op">مَيِّزْ</td><td class="n">3:179</td><td class="t">تَقسِم القَبْضةَ قسمين بشرطٍ من الطبقات: هذا الوَزن دون ذاك، هذا الحال دون ذاك.</td></tr>
+      <tr><td class="op">صَرِّفْ</td><td class="n">17:41 · 46:29</td><td class="t">تُعرَض عليك وُجوهُ الشيء الواحد: الجِذرُ في كلِّ وَزنٍ وقف فيه، والوُقوفاتُ في كلِّ حالٍ وقفت عليها.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="margin-top:14px">كَشْفٌ وتِلاوَة — الإظهارُ والعَرْض</h3>
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>العمليّة</th><th>الموقع</th><th>ما تفعل بالقَبْضة</th></tr></thead>
+    <tbody>
+      <tr><td class="op">أَعْثِرْ</td><td class="n">18:21</td><td class="t">يُعرَض عليك ما لم تَطلُبه ممّا يقع على طريقك: وُقوفٌ يُشارك قَبْضتَك في طبقةٍ لم تكن تنظر إليها.</td></tr>
+      <tr><td class="op">الْتَقِطْ</td><td class="n">12:10 · 28:8</td><td class="t">تَحصُد من سَيْرٍ جارٍ ما استوقفك، فتُضاف الوُقوفاتُ إلى قَبْضتك دون قَطع السَّير.</td></tr>
+      <tr><td class="op">أَثِرِ الأرضَ</td><td class="n">30:9</td><td class="t">تُقلِّب ناحيةً من الكتاب على غير ترتيبها، فيَظهر ما كان تحت السَّطح من مُجاوَرات.</td></tr>
+      <tr><td class="op">اتْلُ · رَتِّلْ</td><td class="n">2:121 · 73:4</td><td class="t">يُعرَض الرَّسمُ متتابعًا على مُكْثٍ تُحدِّده، بفواصلَ تُتيح النَّفَس، لا كُتلةً واحدة.</td></tr>
+      <tr><td class="op">أَيُّهَا أَزْكَىٰ · أَحْسَنَه</td><td class="n">18:19 · 39:18</td><td class="t">من جماعةِ وُقوفاتٍ معروضة، تَختار أنت، ويُقيَّد اختيارُك — لا تَختار الأداةُ عنك.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="huqul">
+  <div class="head">
+    <div class="eyebrow">خامسًا</div>
+    <h2>الحُقولُ الثلاثة</h2>
+    <p class="lede">الإسنادُ والصَّرفُ والنحوُ ليست شروحًا تُقال؛ إنّها حقولٌ تُرسَم من الطبقات مباشرةً. والبلاغةُ ليست منها.</p>
+  </div>
+
+  <h3>١ — مَسَارُ الإسْناد</h3>
+  <p>سِمَةُ الشخص مُثبَتةٌ على كلِّ فعلٍ وضمير، فيُرسَم مَسارُ الآية كما يُرسَم خطُّ حرارة. وهذا مَسارُ <span class="mono">10:22</span>:</p>
+
+  <div class="track">
+    <div class="row">
+      <div class="cell"><span class="w">هُوَ ٱلَّذِي</span><span class="s p3">غائب</span></div>
+      <div class="cell"><span class="w">يُسَيِّرُكُمۡ</span><span class="s p2">مُخاطَب</span></div>
+      <div class="cell"><span class="w">كُنتُمۡ</span><span class="s p2">مُخاطَب</span></div>
+      <div class="cell"><span class="w">وَجَرَيۡنَ</span><span class="s p3">غائب</span></div>
+      <div class="cell"><span class="w">بِهِم</span><span class="s p3">غائب</span></div>
+      <div class="cell"><span class="w">وَفَرِحُواْ</span><span class="s p3">غائب</span></div>
+      <div class="cell"><span class="w">وَجَآءَهُمُ</span><span class="s p3">غائب</span></div>
+      <div class="cell"><span class="w">أُحِيطَ بِهِمۡ</span><span class="s maj">مجهول</span></div>
+      <div class="cell"><span class="w">دَعَوُاْ</span><span class="s p3">غائب</span></div>
+      <div class="cell"><span class="w">أَنجَيۡتَنَا</span><span class="s p1">مُتكلِّم</span></div>
+      <div class="cell"><span class="w">لَنَكُونَنَّ</span><span class="s p1">مُتكلِّم</span></div>
+    </div>
+  </div>
+  <div class="legend">
+    <span><i style="border-color:var(--rubric);background:var(--rubric-soft)"></i>مُتكلِّم</span>
+    <span><i style="border-color:var(--gold);background:var(--gold-soft)"></i>مُخاطَب</span>
+    <span><i style="border-color:var(--indigo);background:var(--indigo-soft)"></i>غائب</span>
+    <span><i style="border-color:var(--rubric);background:var(--rubric-soft)"></i>مبنيٌّ للمجهول</span>
+  </div>
+
+  <p class="note">المسارُ يُريك ما لا يُرى في السَّرد: تدخل الآيةُ عليك مُخاطَبًا — <span class="qur">كُنتُمۡ فِي ٱلۡفُلۡكِ</span> — ثمّ تُخرِجك عند <span class="qur">وَجَرَيۡنَ بِهِم</span> إلى الغَيبة، فتبقى مدفوعًا هناك حتى <span class="qur">أُحِيطَ بِهِمۡ</span> حيث يسقط الفاعلُ كلُّه. ولا يعود «نا» إلّا داخلَ دعائهم: <span class="qur">لَئِنۡ أَنجَيۡتَنَا</span>. هذا رَسمٌ محسوم، لا تأويل: كلُّ خانةٍ فيه مأخوذةٌ من وَسْمِ الكلمة.</p>
+
+  <h3 style="margin-top:20px">٢ — الوَزْن</h3>
+  <p>الوَزنُ مُثبَتٌ على كلِّ كلمة، فيُمكن أن تَطلُب جِذرًا وتَنظُر إلى أوزانه مصفوفةً جنبًا إلى جنب. وهذا هو موضعُك في <span class="mono">3:3</span> و<span class="mono">18:97</span> معروضًا:</p>
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>الموقع</th><th>الوُقوف</th><th>الوَزْن</th><th>ما يُقابله</th></tr></thead>
+    <tbody>
+      <tr><td class="n">3:3</td><td class="q">نَزَّلَ عَلَيۡكَ ٱلۡكِتَٰبَ بِٱلۡحَقِّ</td><td class="t">فَعَّلَ</td><td class="t">في نفس الآية</td></tr>
+      <tr><td class="n">3:3</td><td class="q">وَأَنزَلَ ٱلتَّوۡرَىٰةَ وَٱلۡإِنجِيلَ</td><td class="t">أَفْعَلَ</td><td class="t">جِذرٌ واحد، وَزنان، على مَتنٍ واحد</td></tr>
+      <tr><td class="n">18:97</td><td class="q">فَمَا ٱسۡطَٰعُوٓاْ أَن يَظۡهَرُوهُ</td><td class="t">اسْتَفْعَلَ — مَحذوفُ التاء</td><td class="t">الظُّهور</td></tr>
+      <tr><td class="n">18:97</td><td class="q">وَمَا ٱسۡتَطَٰعُواْ لَهُۥ نَقۡبٗا</td><td class="t">اسْتَفْعَلَ — تامّ</td><td class="t">النَّقْب، في نفس الآية</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">لا تقول الأداةُ ما معنى هذا. تَضَع الوُقوفَين متجاورين وتُظهِر أنّ الحرفَ ثابتٌ في أحدهما ساقطٌ في الآخر، والفِعلَ يختلف. ثمّ تَقِف.</p>
+
+  <h3 style="margin-top:20px">٣ — حَالُ النَّحْو</h3>
+  <p>الرَّفعُ والنَّصبُ والجَرُّ مُثبَتةٌ على كلِّ كلمة، فتُرسَم الآيةُ شريطَ حال. وهذا <span class="mono">11:44</span>:</p>
+
+  <div class="track">
+    <div class="row">
+      <div class="cell"><span class="w">وَقِيلَ</span><span class="s maj">مجهول</span></div>
+      <div class="cell"><span class="w">يَـٰٓأَرۡضُ</span><span class="s raf">نِداءٌ · ضَمّ</span></div>
+      <div class="cell"><span class="w">ٱبۡلَعِي</span><span class="s non">أمْر</span></div>
+      <div class="cell"><span class="w">مَآءَكِ</span><span class="s nas">نَصْب</span></div>
+      <div class="cell"><span class="w">وَيَٰسَمَآءُ</span><span class="s raf">نِداءٌ · ضَمّ</span></div>
+      <div class="cell"><span class="w">أَقۡلِعِي</span><span class="s non">أمْر</span></div>
+      <div class="cell"><span class="w">وَغِيضَ</span><span class="s maj">مجهول</span></div>
+      <div class="cell"><span class="w">ٱلۡمَآءُ</span><span class="s raf">رَفْع</span></div>
+      <div class="cell"><span class="w">وَقُضِيَ</span><span class="s maj">مجهول</span></div>
+      <div class="cell"><span class="w">ٱلۡأَمۡرُ</span><span class="s raf">رَفْع</span></div>
+      <div class="cell"><span class="w">عَلَى ٱلۡجُودِيِّ</span><span class="s jar">جَرّ</span></div>
+      <div class="cell"><span class="w">وَقِيلَ</span><span class="s maj">مجهول</span></div>
+      <div class="cell"><span class="w">بُعۡدٗا</span><span class="s nas">نَصْب</span></div>
+      <div class="cell"><span class="w">لِّلۡقَوۡمِ</span><span class="s jar">جَرّ</span></div>
+    </div>
+  </div>
+  <div class="legend">
+    <span><i style="border-color:var(--accent);background:var(--accent-soft)"></i>رَفْع</span>
+    <span><i style="border-color:var(--gold);background:var(--gold-soft)"></i>نَصْب</span>
+    <span><i style="border-color:var(--indigo);background:var(--indigo-soft)"></i>جَرّ</span>
+    <span><i style="border-color:var(--rubric);background:var(--rubric-soft)"></i>مبنيٌّ للمجهول</span>
+  </div>
+
+  <p class="note">الشريطُ يُظهِر ما تقوله أنت في مَنشورك: الآيةُ تجري كلُّها على المجهول والنِّداءِ والرَّفع، ولا يَنتَصِب فيها إلّا مَوضعان — <span class="qur">مَآءَكِ</span> و<span class="qur">بُعۡدٗا</span>. وهذه صورةٌ لا جُملة؛ تراها في لمحةٍ ولا تحتاج أن تُخبَر بها.</p>
+
+  <div class="callout warn">
+    <strong>وأمّا البلاغة، فليست حقلًا في المَتْن.</strong> الحقولُ الثلاثةُ أعلاه تُرسَم بلا رأي. والبلاغةُ — الحقيقةُ والمجازُ والكناية — لا وَسْمَ لها في أيّ مصدر، وأيُّ وَسْمٍ يُوضَع لها سيكون رأيَ واضِعه. فمكانُها ليس المخزن؛ مكانُها الوَقفةُ التي تُوقِفُك عليها الأداةُ ثمّ تسكُت. الأداةُ تَعرِض، وأنت — أو النموذجُ الذي تُوقِفُه — يَشهَد.
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="baath">
+  <div class="head">
+    <div class="eyebrow">سادسًا</div>
+    <h2>البَعْث — ما يُسلَّم إلى النموذج</h2>
+    <p class="lede">لا تسمية. لا تصنيف. يُعرَض ما وُقِف عليه، ويُطلَب وَصْفُ ما شُهِد.</p>
+  </div>
+
+  <div class="lawh">
+    <span class="ayah">وَكَذَٰلِكَ <em>بَعَثۡنَٰهُمۡ لِيَتَسَآءَلُواْ بَيۡنَهُمۡ</em></span>
+    <span class="ref">AL-KAHF 18:19</span>
+  </div>
+
+  <p>البَعْثُ ليس سؤالًا يُطرَح على النموذج؛ إنّه إيقافُه على قَبْضة. يُعطى ما وُقِف عليه كاملًا — الرَّسمُ عربيًّا، والطبقاتُ الخمس، والطريقُ الذي أوصل إليه — ثمّ يُقال له شيءٌ واحد: <strong>صِفْ ما وقفتَ عليه</strong>. لا يُطلَب منه اسمٌ للموضع، ولا بابٌ يُدرِجه تحته، ولا حُكم. الاسمُ تسميةٌ، والتسميةُ ليست له ولا لنا.</p>
+
+<pre><b>بَعْث</b>
+  <i>القَبْضة</i>    الوُقوفاتُ كما هي — رَسْمًا عثمانيًّا، بلا لسان
+  <i>الطبقات</i>    لكلِّ وُقوفٍ: الصِّيغة · الجِذر · الوَزن · الإسناد · الحال · الفاصِلة
+  <i>الآثار</i>      العمليّاتُ التي أوصلت إلى هذه القَبْضة، بترتيبها
+  <i>الطَّلَب</i>     <u>صِفْ ما وقفتَ عليه.</u>
+
+<b>الأَثَر</b>  <i>— ما يُرَدّ</i>
+  <i>الشَّهادة</i>    وَصْفُ ما رآه، بلا اسمٍ ولا باب
+  <i>المُشارُ إليه</i> كلُّ موضعٍ أشار إليه — يُطابَق على المَتْن، فما لم يقف عليه يُعلَّم
+  <i>الوَجْه</i>      ما دعاه إلى الوقوف: أيُّ طبقةٍ استوقفته
+  <i>ثمّ يُقيَّد</i>    يُوضَع بجانب القَبْضة، ويصير بذرةً لسَيْرٍ جديد
+</pre>
+
+  <div class="callout">
+    <strong>ما يُطابَق وما لا يُطابَق.</strong> كلُّ موضعٍ يذكره النموذجُ يُقابَل على الرَّسم: إن كان قائمًا كما قال، مضى؛ وإن لم يكن، عُلِّم في الأثر ولم يُحذَف. أمّا وَصفُه لما شَهِد فلا يُطابَق على شيء — وليس من شأن الأداة أن تُصادِق عليه. تَحفَظه كما هو، وتَتركه لك.
+  </div>
+
+  <p class="note">والدُّفعةُ الأولى ليست قائمةَ نتائج؛ إنّها ما يُوقِظ. مواضعُ يُوقَف عليها لأنّ طبقةً فيها انطبقت على أخرى — لا لأنّ الأداة رأت شيئًا. ثمّ يَمضي هيرمس ويُخرِج منها ما لم يكن في الحُسبان، ويصير ما أخرجه بذرةً لما بعده.</p>
+</section>
+
+<!-- 7 -->
+<section id="wajh">
+  <div class="head">
+    <div class="eyebrow">سابعًا</div>
+    <h2>الوَجْه — تِلِغرام وسَطْرُ الأوامر</h2>
+    <p class="lede">سطحُ أوامرٍ واحد، ووَجهان. وكلُّه يعمل على جهازٍ صغيرٍ بلا خادمٍ ولا شبكة.</p>
+  </div>
+
+<pre>$ <b>kitab</b> 18:9                     <i># قَبْضة: مَوْقِع</i>
+  أَمۡ حَسِبۡتَ أَنَّ أَصۡحَٰبَ ٱلۡكَهۡفِ وَٱلرَّقِيمِ كَانُواْ مِنۡ ءَايَٰتِنَا عَجَبًا
+  <i>[انظر] [تدبّر] [فصّل] [سِرْ] [أعثِر] [تلاوة] [أوِ] [استمع وأنصِت]</i>
+
+$ <b>kitab</b> 18:9 <b>fassil</b>               <i># الآيةُ إلى وُقوفاتها</i>
+  #01 أَمۡ   #02 حَسِبۡتَ   #03 أَنَّ   … #11 عَجَبًا
+
+$ <b>kitab</b> 18:9#11                  <i># قَبْضة: كَلِمة</i>
+  عَجَبًا · جِذر ع ج ب · اسم · نَصْب · مُنوَّن · فاصِلة ـًا
+  <i>[صرّف] [سِرْ بالجذر] [سِرْ بالوزن] [سِرْ بالفاصلة] [زوّج] [لسان الجذر]</i>
+
+$ <b>kitab</b> 18:9#11 <b>sir</b> --khayt=jidhr   <i># سَيْرٌ على الجِذر</i>
+  10:2 · 11:72 · 18:9 · 18:63 · 38:5 · 50:2 · 72:1 …
+  <i>[التقِط] [ميّز بالوزن] [زوّج بقبضة] [ارتدّ قصصًا]</i>
+
+$ <b>kitab</b> <b>ijma3</b> 72:1 18:9 50:2 11:72   <i># قَبْضة: قِرَان</i>
+  <i>[زوّج] [تفكّر] [ألّف بين] [ابعث] [أوِ باسم]</i>
+
+$ <b>kitab</b> <b>ib3ath</b> --qabda=@kahf-jinn    <i># يُسلَّم إلى النموذج</i>
+</pre>
+
+  <p class="note">وفي تِلِغرام: تُرسِل <span class="mono">18:9</span> أو <span class="mono">18:9-26</span> أو كلمةً بعينها، فيَرُدّ الرَّسمَ عربيًّا وتحته الأزرارُ نفسُها — ولأنّ هيئة القَبْضة معروفة، تكون الأزرارُ مُلائمةً لها وحدَها: قَبْضةُ كلمةٍ لا تُعرَض عليها «تدبّر»، وقَبْضةُ قِرانٍ لا تُعرَض عليها «صرّف». وكلُّ ضغطةٍ عمليّةٌ واحدة، وكلُّ رَدٍّ قَبْضةٌ جديدة.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>ما يَسَع الجهاز</h4>
+      <p class="note">مخزنٌ واحدٌ من نوع <span class="mono">SQLite</span> في ملفٍّ واحد، بلا خادمٍ يعمل في الخلفيّة، وبحثٌ نصّيٌّ مدمج. يُبنى الملفُّ مرّةً من المصادر، ثمّ لا يُقرَأ منه شيءٌ عبر الشبكة. الذاكرةُ المطلوبةُ للقراءة يسيرةٌ جدًّا، والبناءُ وحدَه هو الثقيل — ويُجرى مرّةً على جهازك أو هنا ويُرفَع الملفُّ جاهزًا.</p>
+    </div>
+    <div class="card">
+      <h4>حزمةٌ واحدة، ثلاثةُ أوجه</h4>
+      <p class="note">مكتبةٌ فيها العمليّات، وسطرُ أوامرَ يُغلِّفها، ووَصْلةُ تِلِغرام تستدعي نفسَ العمليّات. لا يُكرَّر منطقٌ في وجهين. ولهيرمس منفذٌ رابع: يستدعي المكتبةَ مباشرةً بلا نصٍّ ولا أزرار.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="hudud">
+  <div class="head">
+    <div class="eyebrow">ثامنًا</div>
+    <h2>ما تَمتَنِع عنه الأداة</h2>
+  </div>
+  <div class="stack">
+    <p><strong>الإحصاء.</strong> لا يُعرَض عددٌ لشيءٍ من الكتاب — لا لِوُقوفٍ، ولا لِجِذر، ولا لِصِيغة. تُعرَض المواضعُ نفسُها مصفوفةً، ويُنظَر إليها. <span class="qur">وَكُلَّ شَيۡءٍ أَحۡصَيۡنَٰهُ فِيٓ إِمَامٖ مُّبِينٖ</span> <span class="mono">36:12</span> — الإحصاءُ مُثبَتٌ عنده، لا عندنا؛ وشُغلُنا العَرْضُ لا العَدّ.</p>
+    <p><strong>التَّسمية.</strong> لا تُسمّي الأداةُ ما تَعرِضه، ولا تُصنِّفه في باب، ولا تُعطيه عنوانًا. <span class="qur">إِنۡ هِيَ إِلَّآ أَسۡمَآءٞ سَمَّيۡتُمُوهَا</span> <span class="mono">53:23</span>. وأسماءُ العمليّات نفسِها ليست حُكمًا على شيء؛ إنّها مقابضُ لليد، تُبدَّل متى قصُرت.</p>
+    <p><strong>الإبْدال.</strong> لا تدخل كلمةٌ أعجميّةٌ لوحَ القراءة، ولا يُبنى مُعرِّفُ موضعٍ على ترجمة. اللِّسانُ يُطلَب ويُعرَض ويُرفَع.</p>
+    <p><strong>التأويل.</strong> لا تقول الأداةُ ما يعنيه موضع. تَعرِض الرَّسمَ والطبقةَ والمُجاوَرة، ثمّ تَقِف. وما بعد الوقوفِ لك.</p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="khutuwat">
+  <div class="head">
+    <div class="eyebrow">تاسعًا</div>
+    <h2>ما يلزم للبدء</h2>
+  </div>
+  <div class="scroller">
+  <table class="zij">
+    <thead><tr><th>الخطوة</th><th>ما فيها</th><th>منك أم منّي</th></tr></thead>
+    <tbody>
+      <tr><td class="t">ملفُّ التحليل الصرفيّ</td><td class="t"><span class="mono">quranic-corpus-morphology-0.4.txt</span> يُوضَع في المشروع مرّةً واحدة</td><td class="t">منك — الشبكةُ هنا مُغلَقة</td></tr>
+      <tr><td class="t">بناءُ المخزن</td><td class="t">الرَّسمُ والطبقاتُ الخمس تُفهرَس في ملفٍّ واحد، ويُسلَّم إليك جاهزًا</td><td class="t">منّي</td></tr>
+      <tr><td class="t">العمليّاتُ الأربعُ والعشرون</td><td class="t">مكتبةٌ فيها كلُّ ما في القسم الرابع، كلُّ عمليّةٍ دالّةٌ واحدةٌ مُختبَرة</td><td class="t">منّي</td></tr>
+      <tr><td class="t">سطرُ الأوامر</td><td class="t">القوائمُ المُلائمة لهيئات القَبْضة الستّ، والآثار، والمَآوي</td><td class="t">منّي</td></tr>
+      <tr><td class="t">وَصْلةُ تِلِغرام</td><td class="t">نفسُ العمليّات بأزرار؛ تحتاج منك مِفتاحَ الروبوت ومُعرِّفَك</td><td class="t">مشتركة</td></tr>
+      <tr><td class="t">مَنفَذُ هيرمس</td><td class="t">استدعاءٌ مباشرٌ للمكتبة، وصيغةُ البَعْث والأثر</td><td class="t">منّي، ثمّ تُوصِله أنت</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">وأقترح أن نبدأ بالمَتْن والعمليّات وسطرِ الأوامر وحدَها، فتَسير فيها بيدك قبل أن يُوصَل نموذجٌ بشيء. فإن استقام السَّيرُ عندك، وُصِّل هيرمس.</p>
+</section>
+
+<div class="colophon">
+  <p>هذا اقتراحٌ لم يُنفَّذ منه شيء. الرَّسمُ في هذه الصفحة عثمانيٌّ برواية حفص، وكلُّ موضعٍ ذُكِر فيها قُوبِل على المَتْن قبل كتابته.</p>
+  <p>وأسماءُ العمليّات وأسماءُ الطبقات وأسمُ الأداة نفسِها — كلُّها منّا، لا سُلطانَ لها. <span class="qur">إِنۡ هِيَ إِلَّآ أَسۡمَآءٞ سَمَّيۡتُمُوهَآ أَنتُمۡ وَءَابَآؤُكُم</span>.</p>
+</div>
+
+</div>
+
+<script>
+document.documentElement.setAttribute('dir','rtl');
+document.documentElement.setAttribute('lang','ar');
+</script>
+</body>
+</html>

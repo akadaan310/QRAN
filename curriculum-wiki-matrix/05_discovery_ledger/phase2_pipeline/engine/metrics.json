@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-09-20T07:23:45.169369+00:00",
+  "integer_closure": 28,
+  "r1_almirtal": {
+    "head": "560ebc5",
+    "files": 26,
+    "loc": 5373,
+    "edge_sources": 6236,
+    "edges_total": 37195,
+    "evidence_distribution": {
+      "formula": 8555,
+      "adjacent": 3785,
+      "near": 6696,
+      "lem/root": 18135,
+      "ishtimal": 24
+    }
+  },
+  "r2_isnad": {
+    "head": "4c059a1",
+    "files": 122,
+    "loc": 28944,
+    "discoveries": 2500,
+    "discovery_kinds": {
+      "istihdar": 1446,
+      "raj-al-jidhr": 226,
+      "ribat": 704,
+      "jisr-al-naba": 58,
+      "alsinat-al-khalq": 46,
+      "tabaqat-al-isnad": 12,
+      "rusul-echo": 8
+    },
+    "motifs": 400,
+    "substrate_units": 6236
+  },
+  "r3_arabic_timeless": {
+    "head": "8aeb815",
+    "files": 163,
+    "loc": 25660,
+    "spec_layers": 21,
+    "engine_modules": [
+      "alphabet.ts",
+      "band1.ts",
+      "band2.ts",
+      "band3.ts",
+      "band4.ts",
+      "band5.ts",
+      "collapse.ts",
+      "compose.test.ts",
+      "compose.ts",
+      "corpus.test.ts",
+      "corpus.ts",
+      "engine-sdk-invertibility.test.ts",
+      "engine.test.ts",
+      "examples.ts",
+      "helpers.ts",
+      "index.ts",
+      "invariance.ts",
+      "lexdata.ts",
+      "lexicon.ts",
+      "operations.ts",
+      "passage.ts",
+      "patterns.ts",
+      "reader.test.ts",
+      "reader.ts",
+      "registry.ts",
+      "resolve.ts",
+      "teleport.ts",
+      "text.ts",
+      "timeline.ts",
+      "types.ts",
+      "variants.ts"
+    ],
+    "test_files": 23
+  }
+}
